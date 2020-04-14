@@ -1,8 +1,8 @@
 # Get Started
 
-[Quests](https://github.com/Glowbom/quests)
+[Quests](quests)
 
-[Audio](https://github.com/Glowbom/audio)
+[Audio](audio)
 
 [Source](https://github.com/Glowbom)
 
