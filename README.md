@@ -1,8 +1,12 @@
 # Get Started
 
+[Quizzes](quests)
+
+[Audio Games](audio)
+
 [Quests](quests)
 
-[Audio](audio)
+# References
 
 [Source](https://github.com/Glowbom)
 
