@@ -1,8 +1,10 @@
 # Get Started
 
 1. Create an account on [Glowbom.com](https://glowbom.com/dashboard/) if you haven't done it already.
-2. Create a new app and export code.
 
+![create account](https://user-images.githubusercontent.com/2455891/80256186-8faea000-863b-11ea-8415-e3faa3ee0545.png)
+
+2. Create a new app and export code.
 
 ![export button](https://user-images.githubusercontent.com/2455891/80255915-1747df00-863b-11ea-8b4f-a13ed99328ea.png)
 
