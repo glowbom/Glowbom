@@ -37,8 +37,9 @@
 
 # Engines
 
-[Quests](quests)
+[Quests](https://github.com/Glowbom/quests)
 
-[Audio](audio)
+[Audio](https://github.com/Glowbom/audio)
 
+[Notes](https://github.com/Glowbom/notes-android)
 
