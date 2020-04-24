@@ -4,7 +4,11 @@
 
 ![create account](https://user-images.githubusercontent.com/2455891/80256186-8faea000-863b-11ea-8415-e3faa3ee0545.png)
 
-2. Create a new app and export code.
+2. Create a new app
+
+![create new app](https://user-images.githubusercontent.com/2455891/80256310-c8e71000-863b-11ea-922e-7fba9dba5215.png)
+
+3. Export code.
 
 ![export button](https://user-images.githubusercontent.com/2455891/80255915-1747df00-863b-11ea-8b4f-a13ed99328ea.png)
 
