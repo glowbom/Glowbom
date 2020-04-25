@@ -1,14 +1,12 @@
 # Create your first trivia app
 
-[![Build your own Quiz App](https://img.youtube.com/vi/5py0nFKtoLU/0.jpg)](https://www.youtube.com/watch?v=5py0nFKtoLU)
+[![Build your own Quiz App](https://img.youtube.com/vi/TDCxTFLGvEA/0.jpg)](https://www.youtube.com/watch?v=TDCxTFLGvEA)
 
 ## Installation
 
 1. Download [Unity](https://unity3d.com/get-unity/download/archive) if you haven't done it already. We recommend Unity 2019.2.3.
-2. Download [Glowbom Quests 1.0.0](https://github.com/Glowbom/quests/releases) (**glowbom-quests-1.0.0.unitypackage**).
-3. Create a new 2D project in **Unity**.
-4. Double click on **glowbom-quests-1.0.0.unitypackage** to import **Glowbom Quests** into your project.
-5. Open **DesignClassic** scene from **Project** window in Unity. You can find **DesignClassic** scene file at **Assets/Glowbom/Quests**.
+3. Open your project.
+5. Open **Scene** file.
 6. Switch the platform to iOS by going to **File->Build Settings...** and clicking on **Switch Platform**.
 7. Open **Glowbom Quests Editor** by going to **Window->Glowbom->Quests**.
 
