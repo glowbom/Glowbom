@@ -44,5 +44,5 @@
 
 [Audio](https://github.com/Glowbom/audio)
 
-[Puzzles](https://github.com/Glowbom/puzzle)
+[Puzzle](https://github.com/Glowbom/puzzle)
 
