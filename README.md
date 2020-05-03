@@ -44,5 +44,5 @@
 
 [Audio](https://github.com/Glowbom/audio)
 
-[Notes](https://github.com/Glowbom/notes-android)
+[Puzzle](https://github.com/Glowbom/puzzle)
 
