@@ -14,7 +14,7 @@
 
 ### 4. Download [Unity](https://unity3d.com/get-unity/download/archive) if you haven't done it already. We recommend Unity 2019.3.13.
 
-[![Unity download](https://user-images.githubusercontent.com/2455891/80256571-2a0ee380-863c-11ea-9d8e-9affa63a46b1.png)](https://unity3d.com/get-unity/download/archive)
+[![Unity download](Screen Shot 2020-05-13 at 9 59 20 PM](https://user-images.githubusercontent.com/2455891/81891226-226c9b80-9565-11ea-838e-5d9a338f37b4.png)](https://unity3d.com/get-unity/download/archive)
 
 ### 5. Open your code in Unity.
 
