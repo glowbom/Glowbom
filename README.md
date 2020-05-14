@@ -12,7 +12,7 @@
 
 [![export button](https://user-images.githubusercontent.com/2455891/80255915-1747df00-863b-11ea-8b4f-a13ed99328ea.png)](https://glowbom.com/dashboard/)
 
-### 4. Download [Unity](https://unity3d.com/get-unity/download/archive) if you haven't done it already. We recommend Unity 2019.2.3.
+### 4. Download [Unity](https://unity3d.com/get-unity/download/archive) if you haven't done it already. We recommend Unity 2019.3.13.
 
 [![Unity download](https://user-images.githubusercontent.com/2455891/80256571-2a0ee380-863c-11ea-9d8e-9affa63a46b1.png)](https://unity3d.com/get-unity/download/archive)
 
