@@ -11,7 +11,7 @@
 
 [![export button](https://user-images.githubusercontent.com/2455891/80255915-1747df00-863b-11ea-8b4f-a13ed99328ea.png)](https://glowbom.com/dashboard/)
 
-### 4. Download [Unity](https://unity3d.com/get-unity/download/archive) if you haven't done it already. We recommend Unity 2019.3.14.
+### 4. Download [Unity](https://unity3d.com/get-unity/download/archive) if you haven't done it already. We recommend Unity 2019.3.15.
 
 ### 5. Open your code in Unity.
 
