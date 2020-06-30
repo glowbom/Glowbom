@@ -1,5 +1,4 @@
 # Get Started
-
 ### 1. Create an account on [Glowbom.com](https://glowbom.com/dashboard/) if you haven't done it already.
 
 [![create account](https://user-images.githubusercontent.com/2455891/80256186-8faea000-863b-11ea-8415-e3faa3ee0545.png)](https://glowbom.com/dashboard/)
