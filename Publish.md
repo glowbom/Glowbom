@@ -1,5 +1,5 @@
 
-### Step 15
+### 1. Export project first
 
 Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
 
@@ -7,7 +7,7 @@ Press the **"Export"** button on the bottom right to export the **store.glowbom*
 
 Or say: **"Export code please."**
 
-### Step 16
+### 2. Replace data files
 
 You download the data file **store.glowbom** and an archive that has two folders **store-build-web** and **store-source-flutter**:
 
@@ -25,7 +25,7 @@ Replace the **store-source-flutter/app/assets/store.glowbom** file with your **s
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621835-0f516900-19e9-11eb-9488-a05062f45a24.png)](https://glowbom.com/)
 
-### Step 17
+### 3. Upload the project to Netlify
 
 The **store-build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
 
