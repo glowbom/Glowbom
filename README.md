@@ -8,6 +8,8 @@
 
 [Glowbom Store](https://glowbom.github.io/mobile-orders/)
 
+[How to publish the app](https://glowbom.github.io/Glowbom/Publish)
+
 # Engines
 
 [Quests](https://github.com/Glowbom/quests)
