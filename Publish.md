@@ -1,4 +1,4 @@
-# Publishing the project
+## How to publish the app?
 
 ### 1. Export project
 
