@@ -1,4 +1,4 @@
-## Publishing your project Step-by-step
+## Publishing your project step-by-step
 
 ### 1. Export project
 
