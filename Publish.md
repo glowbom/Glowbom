@@ -1,5 +1,5 @@
 
-### 1. Export project first
+### 1. Export project
 
 Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
 
