@@ -1,6 +1,6 @@
 ## Glowbom Web
 
-**Glowbom Web** can help you to turn any website into a native mobile app.
+**Glowbom Web** can help you turn any website into an app.
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
@@ -64,7 +64,7 @@ To close the editor, press the cross button at the top center.
 
 ### Step 7
 
-Fill out the title, price, description, and image URL fields to add or edit the page:
+To add or edit the page, Fill out the page title and thumbnail URL fields. Put the link address or HTML code into the "Link or HTML" field. And mark the "Open in the Browser" field if you would like the page to open in the browser:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/98289738-daec2880-1f65-11eb-8f94-e44992fb186a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
