@@ -28,11 +28,11 @@ Or press the little mic button and say: **"Create an app."**
 
 ### Step 3
 
-Choose **Store** and press **Select**:
+Choose **Web** and press **Select**:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/97621820-0cef0f00-19e9-11eb-83c5-ee3c00823845.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/98290141-80070100-1f66-11eb-920b-39fc0015b249.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-Or say: **"Create a store app."**
+Or say: **"Create a web app."**
 
 ### Step 4
 
@@ -40,7 +40,7 @@ Enter the project name and press **Create project**:
 
 [![Step 3](https://user-images.githubusercontent.com/2455891/97621821-0cef0f00-19e9-11eb-8e87-83d8e0976cf0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-Or say: **"Create a store app called..."** with the name of your project.
+Or say: **"Create a web app called..."** with the name of your project.
 
 ### Step 5
 
