@@ -46,27 +46,27 @@ Or say: **"Create a web app called..."** with the name of your project.
 
 To add and modify web pages, press the little pencil button:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/98289743-dc1d5580-1f65-11eb-970d-3b6217692e71.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/97621823-0d87a580-19e9-11eb-82b2-20a615e91a3b.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 Or say: **"Open an editor."**
 
 ### Step 6
 
-By default, you have 4 products. To add a new product, press the "+" button:
+By default, you have 2 web pages. To add a new page, press the "+" button:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/97621824-0d87a580-19e9-11eb-8c8a-3086ab168a64.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/98289743-dc1d5580-1f65-11eb-970d-3b6217692e71.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-To edit the product, press the little pencil button.
+To edit the page, press the little pencil button.
 
-To remove the product, press the remove button.
+To remove the page, press the remove button.
 
 To close the editor, press the cross button at the top center.
 
 ### Step 7
 
-Fill out the title, price, description, and image URL fields to add or edit the product:
+Fill out the title, price, description, and image URL fields to add or edit the page:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621825-0d87a580-19e9-11eb-91c3-3d37c8e70da4.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Picture](https://user-images.githubusercontent.com/2455891/98289738-daec2880-1f65-11eb-8f94-e44992fb186a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 And press the **"Save"** button.
 
