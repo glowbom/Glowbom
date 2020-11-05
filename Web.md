@@ -1,12 +1,10 @@
 ## Glowbom Web
 
-**Glowbom Web** can help you turn any website into an app.
+**Glowbom Web** can help you turn any website into an app. It allows you to embed web pages, assets, and HTML code directly in your app.
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ### Turn any website into an app.
-
-This preset allows you to embed web pages, assets, and HTML code directly in your app.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
