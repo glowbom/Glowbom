@@ -137,7 +137,7 @@ Press the "Stop" button on the top right to stop the project:
 
 Or say: **"Stop the project please."**
 
-### Step 9
+### Next Steps
 
 [Publish your app](https://glowbom.github.io/Glowbom/Publish){:target="_blank" rel="noopener"}
 
