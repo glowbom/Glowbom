@@ -64,11 +64,64 @@ To close the editor, press the cross button at the top center.
 
 ### Step 7
 
-To add or edit the page, Fill out the page title and thumbnail URL fields. Put the link address or HTML code into the "Link or HTML" field. And mark the "Open in the Browser" field if you would like the page to open in the browser:
+To add or edit the page, Fill out the page title and thumbnail URL fields. Put the link address or HTML code into the **"Link or HTML"** field. And mark the **"Open in the Browser"** field if you would like the page to open separately from the app in the browser:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/98289738-daec2880-1f65-11eb-8f94-e44992fb186a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 And press the **"Save"** button.
+
+You can put any HTML, CSS, or JavaScript inside the **"Link or HTML"** field. Here are few examples:
+
+# Formatted text with links
+
+```html
+<center>
+    <p style='width: 320px; max-width: 100%; text-align: left;'>
+        <b>Music</b> is an art form, and a cultural activity, whose medium is sound. General definitions of music
+        include common elements such as pitch (which governs melody and harmony), rhythm (and its associated concepts
+        tempo, meter, and articulation), dynamics (loudness and softness), and the sonic qualities of timbre and texture
+        (which are sometimes termed the "color" of a musical sound).
+        <br>
+        <br>
+        Source: <a href='https://en.wikipedia.org/wiki/Music'>Wikipedia</a>
+    </p>
+</center>
+```
+
+# Audio player
+
+```html
+<center>
+    <br>
+    <p style='width: 320px; max-width: 100%; text-align: left;'>
+        <b>Audio title is here</b>
+    </p>
+    <audio controls>
+        <source src="LINK_TO_YOUR_AUDIO_FILE" />
+    </audio>
+    <p style='width: 320px; max-width: 100%; text-align: left;'>
+        Audio description is here
+    </p>
+</center>
+```
+
+# Video player
+
+```html
+<center>
+    <br>
+    <p style='width: 320px; max-width: 100%; text-align: left;'>
+        <b>Video title is here</b>
+    </p>
+    <video width="320" height="240" controls>
+        <source src="LINK_TO_YOUR_VIDEO_FILE" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p style='width: 320px; max-width: 100%; text-align: left;'>
+        Video desciption is here
+    </p>
+</center>
+```
 
 ### Step 8
 
@@ -80,142 +133,21 @@ Or say: **"Launch the project please."**
 
 Press the "Stop" button on the top right to stop the project:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621831-0eb8d280-19e9-11eb-997a-4ad191719f77.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Picture](https://user-images.githubusercontent.com/2455891/98292326-c9a51b00-1f69-11eb-9125-9f5ed0802db4.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 Or say: **"Stop the project please."**
 
 ### Step 9
 
-To customize your survey, open the project settings by clicking the small gear button on the bottom left:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621826-0e203c00-19e9-11eb-8029-5f48b780da0a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-You can choose your app color, collect name, phone, or shipping address, and also change the "thank you" message:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621827-0e203c00-19e9-11eb-95a0-0e50965d91d7.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-To collect orders using a Google Sheet, press the **"Create Form"** button.
-
-### Step 10
-
-Make your own copy of **"Store"** Google Sheet by going to **File->Make a copy**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621841-10829600-19e9-11eb-8a2f-d8687c3a8f55.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Open the editor by going to **Tools->Script editor**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621837-0fe9ff80-19e9-11eb-8632-f00636747062.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-### Step 11
-
-Clear everything inside the script window:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621838-0fe9ff80-19e9-11eb-8a7d-32d045a1e047.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Copy a server script:
-
-```javascript
-function doGet(e) {
-  if (e.parameters.data) {
-    var data = e.parameter.data;
-
-    var ss = SpreadsheetApp.getActive();
-    var sheet = ss.getSheetByName("Orders");
-
-    var responses = data.split(';');
-
-    if (responses.length == 5) {
-      var elemens = [
-        responses[0],
-        responses[1],
-        responses[2],
-        responses[3],
-      ];
-
-      var answers = responses[4].split(', ');
-
-      for (var i = 0; i < answers.length; i++) {
-        elemens.push(answers[i]);
-      }
-
-      sheet.appendRow(elemens);
-
-      var result = JSON.stringify({success: true});
-
-      return ContentService.createTextOutput(result)
-          .setMimeType(ContentService.MimeType.JSON);
-    } else {
-      var result = JSON.stringify({success: false});
-
-      return ContentService.createTextOutput(result)
-          .setMimeType(ContentService.MimeType.JSON);
-    }
-  } else {
-    var result = JSON.stringify({success: false});
-
-    return ContentService.createTextOutput(result)
-        .setMimeType(ContentService.MimeType.JSON);
-  }
-}
-```
-
-### Step 12
-
-Paste the script code inside the editor and press **Save**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621839-0fe9ff80-19e9-11eb-8cf8-7de283c0e153.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Name the project and press **Ok**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621840-10829600-19e9-11eb-979e-c37e32a5806c.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-### Step 13
-
-Publish the script by pressing **Publish->Deploy as web app...**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621842-10829600-19e9-11eb-8976-0942660be90a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Choose **Anyone, even anonymous** in **Who has access to the app** and press **Deploy**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621843-10829600-19e9-11eb-875b-3f5fca1c72e9.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Press **Review Permissions**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621846-111b2c80-19e9-11eb-9354-ec61c1b0b96d.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Press **Allow**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621847-111b2c80-19e9-11eb-8d36-f4e4c00770ce.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Copy **Current web app URL**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621849-111b2c80-19e9-11eb-9803-7564770fb084.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-### Step 14
-
-Paste the **Current web app URL** into **Orders form link**:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621850-11b3c300-19e9-11eb-8dfb-0ec8af7f9a53.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Run the project again and submit the shipping information:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621851-11b3c300-19e9-11eb-806c-dd314093441a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-The shipping information should appear in the Google Sheet:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/97621852-11b3c300-19e9-11eb-9015-fe1b3e4da6c2.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-### Step 15
-
-Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
+Press the **"Export"** button on the bottom right to export the **web.glowbom** project file and the source code:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621828-0e203c00-19e9-11eb-862a-5c299793932f.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 Or say: **"Export code please."**
 
-### Step 16
+### Step 10
 
-You download the data file **store.glowbom** and an archive that has two folders **build-web** and **source-flutter**:
+You download the data file **web.glowbom** and an archive that has two folders **build-web** and **source-flutter**:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621832-0f516900-19e9-11eb-8e75-3bc5848e8521.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
@@ -223,15 +155,15 @@ The **build-web** folder contains a ready-to-deploy web app.
 
 The **source-flutter** folder contains the app source code that can be compiled to iOS, Android, and a web app.
 
-Replace the **build-web/assets/assets/store.glowbom** file with your **store.glowbom** file:
+Replace the **build-web/assets/assets/web.glowbom** file with your **web.glowbom** file:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621833-0f516900-19e9-11eb-876e-a98b0d7531e0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-Replace the **source-flutter/app/assets/store.glowbom** file with your **store.glowbom** file:
+Replace the **source-flutter/app/assets/web.glowbom** file with your **web.glowbom** file:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621835-0f516900-19e9-11eb-9488-a05062f45a24.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Step 17
+### Step 11
 
 The **build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
 
