@@ -8,7 +8,7 @@
 
 Publish your web app to the App Store and Google Play without learning how to code.
 
-[![Here's how it works...](https://user-images.githubusercontent.com/2455891/97621854-11b3c300-19e9-11eb-93ba-c9a3fc7f7cdf.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ## Step-by-Step Setup Instructions
 
