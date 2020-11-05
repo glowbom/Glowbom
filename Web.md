@@ -72,7 +72,7 @@ And press the **"Save"** button.
 
 You can put any HTML, CSS, or JavaScript inside the **"Link or HTML"** field. Here are few examples:
 
-# Formatted text with links
+#### Formatted text with links
 
 ```html
 <center>
@@ -88,7 +88,7 @@ You can put any HTML, CSS, or JavaScript inside the **"Link or HTML"** field. He
 </center>
 ```
 
-# Audio player
+#### Audio player
 
 ```html
 <center>
@@ -105,7 +105,7 @@ You can put any HTML, CSS, or JavaScript inside the **"Link or HTML"** field. He
 </center>
 ```
 
-# Video player
+#### Video player
 
 ```html
 <center>
