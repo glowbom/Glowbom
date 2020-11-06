@@ -12,8 +12,6 @@
 
 [App Example](https://globalsculptor.com/apps/countries.html)
 
-[Apps List](https://linktr.ee/glowbomapps)
-
 # Engines
 
 [Quests](https://github.com/Glowbom/quests)
