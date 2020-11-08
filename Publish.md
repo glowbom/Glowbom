@@ -1,6 +1,6 @@
 ## How to publish the app:
 
-### 1. Export project
+### 1. Export the project
 
 Press the **"Export"** button on the bottom right to export the **.glowbom** project file and the source code:
 
