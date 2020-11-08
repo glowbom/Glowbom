@@ -8,7 +8,7 @@ Press the **"Export"** button on the bottom right to export the **.glowbom** pro
 
 Or say: **"Export code please."**
 
-### 2. Replace data files
+### 2. Replace the data files
 
 You download the data file **.glowbom** and an archive that has two folders **build-web** and **source-flutter**:
 
