@@ -30,7 +30,7 @@ Replace the **source-flutter/app/assets/(preset_name).glowbom** file with your *
 
 ### Automatic Deployment
 
-To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/){:target="_blank" rel="noopener"}. With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store**, and the web. To start the building process, you might need to put the **source-flutter** folder to [**GitHub**](https://github.com/){:target="_blank" rel="noopener"} first.
+To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/){:target="_blank" rel="noopener"}. With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store**, and the web. You might need to put the **source-flutter** folder to [**GitHub**](https://github.com/){:target="_blank" rel="noopener"} before starting the building process.
 
 ### Manual Deployment
 
