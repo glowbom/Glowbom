@@ -32,6 +32,8 @@ Replace the **source-flutter/app/assets/(preset_name).glowbom** file with your *
 
 To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/){:target="_blank" rel="noopener"}. With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store** or the web.
 
+Create an account on [**Codemagic**](https://codemagic.io/signup){:target="_blank" rel="noopener"} to get started.
+
 ### Manual Deployment
 
 The **build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
