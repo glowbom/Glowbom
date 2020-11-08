@@ -26,7 +26,9 @@ Replace the **source-flutter/app/assets/(preset_name).glowbom** file with your *
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621835-0f516900-19e9-11eb-9488-a05062f45a24.png)](https://glowbom.com/)
 
-### 3. Use Codemagic or upload the project to Netlify
+### 3. Building and Deployment
+
+### Automatic Deployment
 
 To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/). With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store** or the web.
 
