@@ -40,4 +40,4 @@ Create an account on [**Netlify**](https://www.netlify.com/products/edge/) to ge
 
 ### Mobile Apps
 
-To build the app for **iOS** or **Android**, you need to install [**Flutter**](https://flutter.dev/docs/get-started/install), a software development kit created by **Google**. The **source-flutter** folder contains the **Flutter** project that can be compiled to **iOS**, **Android**, and a web app.
+To build the app for **iOS** or **Android** manually, you need to install [**Flutter**](https://flutter.dev/docs/get-started/install), a software development kit created by **Google**. The **source-flutter** folder contains the **Flutter** project that can be compiled to **iOS**, **Android**, and a web app.
