@@ -26,7 +26,7 @@ Replace the **source-flutter/app/assets/(preset_name).glowbom** file with your *
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621835-0f516900-19e9-11eb-9488-a05062f45a24.png)](https://glowbom.com/)
 
-### 3. Building and Deployment
+### 3. Build and Deploy
 
 ### Automatic Deployment
 
