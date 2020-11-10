@@ -1,4 +1,4 @@
-**Glowbom** allows you to easily build quizzes, surveys, an online store, and even a website. You can download generated Flutter code and also deploy your applications directly to both the **iOS** and **Android** app stores with **Codemagic**.
+**Glowbom** allows you to easily build quizzes, surveys, an online store, and even a website. You can download generated **Flutter** code and also deploy your applications directly to both the **iOS** and **Android** app stores with **Codemagic**.
 
 # References
 
