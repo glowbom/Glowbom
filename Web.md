@@ -118,7 +118,7 @@ You can put any HTML, CSS, or JavaScript inside the **"Link or HTML"** field. He
         Your browser does not support the video tag.
     </video>
     <p style='width: 320px; max-width: 100%; text-align: left;'>
-        Video desciption is here
+        Video description is here
     </p>
 </center>
 ```
