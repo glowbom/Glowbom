@@ -11,7 +11,7 @@
 
 [Web](https://glowbom.github.io/Glowbom/Web)
 
-[Chatbot](https://glowbom.github.io/Glowbom/Talk)
+[Bots](https://glowbom.github.io/Glowbom/Talk)
 
 [Story](https://glowbom.github.io/Glowbom/Story)
 
