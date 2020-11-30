@@ -1,12 +1,12 @@
-## Glowbom Web
+## Glowbom Talk
 
-**Glowbom Web** can help you turn any website into an app. 
+**Glowbom Talk** can help you create a virtual assistant. 
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Turn any website into an app.
+### Create an artificial intelligence.
 
-Embed web pages, assets, and HTML code.
+Create an AI that talks like a human.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
