@@ -8,6 +8,10 @@
 
 [Glowbom Web](https://glowbom.github.io/Glowbom/Web)
 
+[Glowbom Talk](https://glowbom.github.io/Glowbom/Talk)
+
+[Glowbom Story](https://glowbom.github.io/Glowbom/Story)
+
 [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
 
 [YouTube Channel](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
