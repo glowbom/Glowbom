@@ -1,12 +1,12 @@
-## Glowbom Web
+## Glowbom Story
 
-**Glowbom Web** can help you turn any website into an app. 
+**Glowbom Story** allows you to create a choose your adventure app. 
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Turn any website into an app.
+### Write an adventure story.
 
-Embed web pages, assets, and HTML code.
+Write a story that allows the reader to participate in the story by making choices and will keep your readers on the edge of their seats.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
