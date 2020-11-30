@@ -4,6 +4,9 @@
 
 [Website](https://glowbom.com/)
 
+
+# Presets
+
 [Store](https://glowbom.github.io/mobile-orders/)
 
 [Web](https://glowbom.github.io/Glowbom/Web)
@@ -11,6 +14,8 @@
 [Talk](https://glowbom.github.io/Glowbom/Talk)
 
 [Story](https://glowbom.github.io/Glowbom/Story)
+
+# Guides
 
 [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
 
