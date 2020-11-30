@@ -15,6 +15,10 @@
 
 [Story](https://glowbom.github.io/Glowbom/Story)
 
+[Quiz](https://glowbom.com/quiz/)
+
+[Survey](https://glowbom.com/survey/)
+
 # Guides
 
 [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
