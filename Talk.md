@@ -1,6 +1,6 @@
-## Glowbom Talk
+## Glowbom Bots
 
-**Glowbom Talk** can help you create a virtual assistant. 
+**Glowbom Bots** can help you create a virtual assistant. 
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
