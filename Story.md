@@ -4,7 +4,7 @@
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Write an adventure story.
+### Create an adventure story.
 
 Write a story that allows the reader to participate in the story by making choices and will keep your readers on the edge of their seats.
 
