@@ -6,7 +6,7 @@
 
 ### Create an adventure story.
 
-Write a story that allows the reader to participate in the story by making choices and will keep your readers on the edge of their seats.
+Write a story that allows the reader to participate in the story by making choices.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
