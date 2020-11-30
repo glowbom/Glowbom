@@ -4,13 +4,13 @@
 
 [Website](https://glowbom.com/)
 
-[Glowbom Store](https://glowbom.github.io/mobile-orders/)
+[Store](https://glowbom.github.io/mobile-orders/)
 
-[Glowbom Web](https://glowbom.github.io/Glowbom/Web)
+[Web](https://glowbom.github.io/Glowbom/Web)
 
-[Glowbom Talk](https://glowbom.github.io/Glowbom/Talk)
+[Talk](https://glowbom.github.io/Glowbom/Talk)
 
-[Glowbom Story](https://glowbom.github.io/Glowbom/Story)
+[Story](https://glowbom.github.io/Glowbom/Story)
 
 [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
 
