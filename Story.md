@@ -28,11 +28,11 @@ Or press the little mic button and say: **"Create an app."**
 
 ### Step 3
 
-Choose **Web** and press **Select**:
+Choose **Story** and press **Select**:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/98290141-80070100-1f66-11eb-920b-39fc0015b249.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/100966774-f9a0f900-34ea-11eb-9de1-f13a48238860.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-Or say: **"Create a web app."**
+Or say: **"Create a story."**
 
 ### Step 4
 
