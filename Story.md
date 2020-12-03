@@ -64,64 +64,11 @@ To close the editor, press the cross button at the top center.
 
 ### Step 7
 
-To add or edit the page, Fill out the page title and thumbnail URL fields. Put the link address or HTML code into the **"Link or HTML"** field. And mark the **"Open in the Browser"** field if you would like the page to open separately from the app in the browser:
+Fill out the story text and action fields. Each action has the "Goes to" field that should point to the next element after the user taps on the action button:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/98289738-daec2880-1f65-11eb-8f94-e44992fb186a.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Picture](https://user-images.githubusercontent.com/2455891/100967208-e80c2100-34eb-11eb-8f59-0c49ca01681c.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 And press the **"Save"** button.
-
-You can put any HTML, CSS, or JavaScript inside the **"Link or HTML"** field. Here are few examples:
-
-#### Formatted text with links
-
-```html
-<center>
-    <p style='width: 320px; max-width: 100%; text-align: left;'>
-        <b>Music</b> is an art form, and a cultural activity, whose medium is sound. General definitions of music
-        include common elements such as pitch (which governs melody and harmony), rhythm (and its associated concepts
-        tempo, meter, and articulation), dynamics (loudness and softness), and the sonic qualities of timbre and texture
-        (which are sometimes termed the "color" of a musical sound).
-        <br>
-        <br>
-        Source: <a href='https://en.wikipedia.org/wiki/Music'>Wikipedia</a>
-    </p>
-</center>
-```
-
-#### Audio player
-
-```html
-<center>
-    <br>
-    <p style='width: 320px; max-width: 100%; text-align: left;'>
-        <b>Audio title is here</b>
-    </p>
-    <audio controls>
-        <source src="LINK_TO_YOUR_AUDIO_FILE" />
-    </audio>
-    <p style='width: 320px; max-width: 100%; text-align: left;'>
-        Audio description is here
-    </p>
-</center>
-```
-
-#### Video player
-
-```html
-<center>
-    <br>
-    <p style='width: 320px; max-width: 100%; text-align: left;'>
-        <b>Video title is here</b>
-    </p>
-    <video width="320" height="240" controls>
-        <source src="LINK_TO_YOUR_VIDEO_FILE" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <p style='width: 320px; max-width: 100%; text-align: left;'>
-        Video desciption is here
-    </p>
-</center>
-```
 
 ### Step 8
 
