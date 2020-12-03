@@ -40,7 +40,7 @@ Enter the project name and press **Create project**:
 
 [![Step 3](https://user-images.githubusercontent.com/2455891/97621821-0cef0f00-19e9-11eb-8e87-83d8e0976cf0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-Or say: **"Create a web app called..."** with the name of your project.
+Or say: **"Create a story app called..."** with the name of your project.
 
 ### Step 5
 
