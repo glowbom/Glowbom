@@ -8,7 +8,7 @@
 
 Write a story that allows the reader to participate in the story by making choices.
 
-[![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/100966677-b8a8e480-34ea-11eb-8b7b-e896ded5eec6.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ## Step-by-Step Setup Instructions
 
