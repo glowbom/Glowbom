@@ -2,7 +2,7 @@
 
 **Glowbom Bots** can help you create a virtual assistant. 
 
-[Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
+[Get Started](https://glowbom.com/bots.html){:target="_blank" rel="noopener"}
 
 ### Create an artificial intelligence.
 
