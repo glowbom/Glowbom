@@ -80,7 +80,7 @@ Or say: **"Launch the project please."**
 
 Press the "Stop" button on the top right to stop the project:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/98292326-c9a51b00-1f69-11eb-9125-9f5ed0802db4.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Picture](https://user-images.githubusercontent.com/2455891/100967631-ec850980-34ec-11eb-8fda-3ccba9f327ae.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 Or say: **"Stop the project please."**
 
