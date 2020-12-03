@@ -44,9 +44,9 @@ Or say: **"Create a story app called..."** with the name of your project.
 
 ### Step 5
 
-To add and modify web pages, press the little pencil button:
+To add and modify story elements, press the little pencil button:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/97621823-0d87a580-19e9-11eb-82b2-20a615e91a3b.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://raw.githubusercontent.com/Glowbom/Glowbom/master/tutorials/quiz/img/qstep5.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 Or say: **"Open an editor."**
 
