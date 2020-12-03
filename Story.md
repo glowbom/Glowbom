@@ -52,13 +52,13 @@ Or say: **"Open an editor."**
 
 ### Step 6
 
-By default, you have 2 web pages. To add a new page, press the "+" button:
+By default, you have 5 story elements. To add a new story element, press the "+" button:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/98289743-dc1d5580-1f65-11eb-970d-3b6217692e71.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/100967090-9e233b00-34eb-11eb-8c91-e8d8602a8e51.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-To edit the page, press the little pencil button.
+To edit the story element, press the little pencil button.
 
-To remove the page, press the remove button.
+To remove the story element, press the remove button.
 
 To close the editor, press the cross button at the top center.
 
