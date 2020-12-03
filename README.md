@@ -1,4 +1,4 @@
-**Glowbom** allows you to easily build quizzes, surveys, an online store, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
+**Glowbom** allows you to easily build chatbots, quizzes, surveys, an online store, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
 
 # References
 
