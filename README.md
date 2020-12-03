@@ -25,7 +25,7 @@
 
 [YouTube Channel](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
 
-[App Example](https://globalsculptor.com/apps/countries.html)
+[App Examples](https://linktr.ee/glowbomapps)
 
 ## Engines
 
