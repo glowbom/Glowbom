@@ -88,6 +88,10 @@ Or say: **"Stop the project please."**
 
 [Publish your app](https://glowbom.github.io/Glowbom/Publish){:target="_blank" rel="noopener"}
 
+### Artificial Intelligence Training
+
+You can also use **GPT-3** to train your virtual assistants if you have an **OpenAI** account.
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
