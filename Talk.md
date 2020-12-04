@@ -90,7 +90,7 @@ Or say: **"Stop the project please."**
 
 ### Artificial Intelligence Training
 
-You can also use **GPT-3** to train your virtual assistants if you have an **OpenAI** account.
+You can also use **GPT-3** to train your virtual assistants if you have an **OpenAI** account. Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s){:target="_blank" rel="noopener"}.
 
 ## Feedback
 
