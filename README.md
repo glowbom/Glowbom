@@ -30,7 +30,7 @@
 
 [Puzzle](https://github.com/Glowbom/puzzle)
 
-# References
+## References
 
 [Website](https://glowbom.com/)
 
