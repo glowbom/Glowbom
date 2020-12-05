@@ -2,17 +2,12 @@
 
 ## Presets
 
-[Store](https://glowbom.github.io/mobile-orders/)
-
-[Web](https://glowbom.github.io/Glowbom/Web)
-
-[Bots](https://glowbom.github.io/Glowbom/Talk)
-
-[Story](https://glowbom.github.io/Glowbom/Story)
-
-[Quiz](https://glowbom.com/quiz/)
-
-[Survey](https://glowbom.com/survey/)
+- [Store](https://glowbom.github.io/mobile-orders/)
+- [Web](https://glowbom.github.io/Glowbom/Web)
+- [Bots](https://glowbom.github.io/Glowbom/Talk)
+- [Story](https://glowbom.github.io/Glowbom/Story)
+- [Quiz](https://glowbom.com/quiz/)
+- [Survey](https://glowbom.com/survey/)
 
 ## Guides
 
