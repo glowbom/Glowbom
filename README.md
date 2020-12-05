@@ -1,5 +1,19 @@
 **Glowbom** allows you to easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
 
+## Presets
+
+[Store](https://glowbom.github.io/mobile-orders/)
+
+[Web](https://glowbom.github.io/Glowbom/Web)
+
+[Bots](https://glowbom.github.io/Glowbom/Talk)
+
+[Story](https://glowbom.github.io/Glowbom/Story)
+
+[Quiz](https://glowbom.com/quiz/)
+
+[Survey](https://glowbom.com/survey/)
+
 # References
 
 [Website](https://glowbom.com/)
@@ -15,20 +29,6 @@
 [Instagram](https://www.instagram.com/glowbom/)
 
 [Facebook](https://www.facebook.com/glowbom)
-
-## Presets
-
-[Store](https://glowbom.github.io/mobile-orders/)
-
-[Web](https://glowbom.github.io/Glowbom/Web)
-
-[Bots](https://glowbom.github.io/Glowbom/Talk)
-
-[Story](https://glowbom.github.io/Glowbom/Story)
-
-[Quiz](https://glowbom.com/quiz/)
-
-[Survey](https://glowbom.com/survey/)
 
 ## Guides
 
