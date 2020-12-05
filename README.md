@@ -11,32 +11,24 @@
 
 ## Guides
 
-[How to publish the app](https://glowbom.github.io/Glowbom/Publish)
-
-[YouTube Channel](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
-
-[App Examples](https://linktr.ee/glowbomapps)
+- [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
+- [YouTube Channel](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
+- [App Examples](https://linktr.ee/glowbomapps)
 
 ## Engines
 
-[Quests](https://github.com/Glowbom/quests)
+- [Quests](https://github.com/Glowbom/quests)
 
-[Audio](https://github.com/Glowbom/audio)
+- [Audio](https://github.com/Glowbom/audio)
 
-[Puzzle](https://github.com/Glowbom/puzzle)
+- [Puzzle](https://github.com/Glowbom/puzzle)
 
 ## References
 
-[Website](https://glowbom.com/)
-
-[Discord](https://discord.gg/yTYgYYbZ)
-
-[Tik Tok](https://www.tiktok.com/@glowbomapps)
-
-[Twitter](https://twitter.com/GlowbomCorp)
-
-[YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
-
-[Instagram](https://www.instagram.com/glowbom/)
-
-[Facebook](https://www.facebook.com/glowbom)
+- [Website](https://glowbom.com/)
+- [Discord](https://discord.gg/yTYgYYbZ)
+- [Tik Tok](https://www.tiktok.com/@glowbomapps)
+- [Twitter](https://twitter.com/GlowbomCorp)
+- [YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
+- [Instagram](https://www.instagram.com/glowbom/)
+- [Facebook](https://www.facebook.com/glowbom)
