@@ -13,29 +13,20 @@
 ## Presets
 
 [Store](https://glowbom.github.io/mobile-orders/)
-
 [Web](https://glowbom.github.io/Glowbom/Web)
-
 [Bots](https://glowbom.github.io/Glowbom/Talk)
-
 [Story](https://glowbom.github.io/Glowbom/Story)
-
 [Quiz](https://glowbom.com/quiz/)
-
 [Survey](https://glowbom.com/survey/)
 
 ## Guides
 
 [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
-
 [YouTube Channel](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
-
 [App Examples](https://linktr.ee/glowbomapps)
 
 ## Engines
 
 [Quests](https://github.com/Glowbom/quests)
-
 [Audio](https://github.com/Glowbom/audio)
-
 [Puzzle](https://github.com/Glowbom/puzzle)
