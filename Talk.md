@@ -95,3 +95,9 @@ You can also use **GPT-3** to train your virtual assistants if you have an **Ope
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
+
+## Upcoming updates
+
+We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more are coming soon. You can build chatbots, quizzes, surveys, web pages, and more.
+
+- [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
