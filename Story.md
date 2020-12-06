@@ -88,6 +88,10 @@ Or say: **"Stop the project please."**
 
 [Publish your app](https://glowbom.github.io/Glowbom/Publish){:target="_blank" rel="noopener"}
 
+### GPT-3 story text improvement
+
+You can also use **GPT-3** to make your story text better if you have an **OpenAI** account. Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s){:target="_blank" rel="noopener"}.
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
