@@ -30,3 +30,8 @@
 - [Facebook](https://www.facebook.com/glowbom)
 - [Instagram](https://www.instagram.com/glowbom/)
 - [Tik Tok](https://www.tiktok.com/@glowbomapps)
+
+## Upcoming updates
+
+- [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
+
