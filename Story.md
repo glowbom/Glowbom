@@ -90,7 +90,7 @@ Or say: **"Stop the project please."**
 
 ### Using GPT-3
 
-You can also use **GPT-3** to make your story text better if you have an **OpenAI** account. Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s){:target="_blank" rel="noopener"}.
+You can use **GPT-3** to make your story text better if you have an **OpenAI** account. Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s){:target="_blank" rel="noopener"}.
 
 ## Feedback
 
