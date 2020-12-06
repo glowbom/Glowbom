@@ -147,6 +147,6 @@ If you have any questions or feedback, please let us know **support@glowbom.com*
 
 ## Upcoming updates
 
-We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more are coming soon.
+We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more exciting features are coming soon.
 
 - [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
