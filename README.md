@@ -1,3 +1,5 @@
+**Glowbom** lets you make your own app without writing any code. You can talk to a virtual assistant who will help you customize your app, and then it will be ready to use.
+
 **Glowbom** allows you to easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
 
 ## Presets
