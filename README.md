@@ -45,5 +45,5 @@ We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Un
 
 ## Press
 
-- [**Glowbom** on **The American Genius**](https://theamericangenius.com/tech-news/glowbom-allows-you-to-create-a-website-using-your-voice/)
-- [**Glowbom** on **No Code No Problem**](https://podcasts.apple.com/us/podcast/episode-51-glowbom-com-botsiva-ml-the-limits-of-no-code/id1484594161?i=1000501646630)
+- [Glowbom on **The American Genius**](https://theamericangenius.com/tech-news/glowbom-allows-you-to-create-a-website-using-your-voice/)
+- [Glowbom on **No Code No Problem**](https://podcasts.apple.com/us/podcast/episode-51-glowbom-com-botsiva-ml-the-limits-of-no-code/id1484594161?i=1000501646630)
