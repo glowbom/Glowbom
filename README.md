@@ -2,7 +2,7 @@
 
 You can easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**. If you have an [**OpenAI** account](https://beta.openai.com/), you can use **GPT-3** to enhance your app content.
 
-## Presets
+## Get started with
 
 - [Bots](https://glowbom.github.io/Glowbom/Talk)
 - [Story](https://glowbom.github.io/Glowbom/Story)
@@ -43,3 +43,7 @@ We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Un
 - [Audio](https://github.com/Glowbom/audio)
 - [Puzzle](https://github.com/Glowbom/puzzle)
 
+## Press
+
+- [**Glowbom** on **The American Genius**](https://theamericangenius.com/tech-news/glowbom-allows-you-to-create-a-website-using-your-voice/)
+- [**Glowbom** on **No Code No Problem**](https://podcasts.apple.com/us/podcast/episode-51-glowbom-com-botsiva-ml-the-limits-of-no-code/id1484594161?i=1000501646630)
