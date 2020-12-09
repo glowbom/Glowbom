@@ -1,6 +1,6 @@
 **Glowbom** lets you make your own app without writing any code. You can talk to a virtual assistant who will help you customize your app, and then it will be ready to use.
 
-You can easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
+You can easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**. If you have an [**OpenAI** account](https://beta.openai.com/), you can use **GPT-3** to enhance your app content.
 
 ## Presets
 
@@ -17,7 +17,7 @@ You can easily build chatbots, quizzes, surveys, an online store, a choose your 
 
 ## Using GPT-3
 
-You can use **GPT-3** to enhance your app content if you have an **OpenAI** account. Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s).
+You can use **GPT-3** to enhance your app content if you have an [**OpenAI** account](https://beta.openai.com/). Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s).
 
 ## References
 
