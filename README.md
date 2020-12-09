@@ -1,6 +1,6 @@
 **Glowbom** lets you make your own app without writing any code. You can talk to a virtual assistant who will help you customize your app, and then it will be ready to use.
 
-**Glowbom** allows you to easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
+You can easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated **Flutter** code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with **Codemagic**.
 
 ## Presets
 
@@ -14,14 +14,6 @@
 ## Guides
 
 - [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
-- [YouTube Channel](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
-- [App Examples](https://linktr.ee/glowbomapps)
-
-## Engines
-
-- [Quests](https://github.com/Glowbom/quests)
-- [Audio](https://github.com/Glowbom/audio)
-- [Puzzle](https://github.com/Glowbom/puzzle)
 
 ## References
 
@@ -32,6 +24,13 @@
 - [Facebook](https://www.facebook.com/glowbom)
 - [Instagram](https://www.instagram.com/glowbom/)
 - [Tik Tok](https://www.tiktok.com/@glowbomapps)
+- [App Examples](https://linktr.ee/glowbomapps)
+
+## Engines (early access)
+
+- [Quests](https://github.com/Glowbom/quests)
+- [Audio](https://github.com/Glowbom/audio)
+- [Puzzle](https://github.com/Glowbom/puzzle)
 
 ## Upcoming updates
 
