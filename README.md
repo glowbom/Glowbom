@@ -4,12 +4,12 @@ You can easily build chatbots, quizzes, surveys, an online store, a choose your 
 
 ## Presets
 
-- [Store](https://glowbom.github.io/mobile-orders/)
-- [Web](https://glowbom.github.io/Glowbom/Web)
 - [Bots](https://glowbom.github.io/Glowbom/Talk)
 - [Story](https://glowbom.github.io/Glowbom/Story)
-- [Quiz](https://glowbom.com/quiz/)
 - [Survey](https://glowbom.com/survey/)
+- [Store](https://glowbom.github.io/mobile-orders/)
+- [Web](https://glowbom.github.io/Glowbom/Web)
+- [Quiz](https://glowbom.com/quiz/)
 
 ## Guides
 
@@ -24,7 +24,7 @@ You can easily build chatbots, quizzes, surveys, an online store, a choose your 
 - [Facebook](https://www.facebook.com/glowbom)
 - [Instagram](https://www.instagram.com/glowbom/)
 - [Tik Tok](https://www.tiktok.com/@glowbomapps)
-- [App Examples](https://linktr.ee/glowbomapps)
+- [App Example](https://play.google.com/store/apps/details?id=com.globalsculptor.us.adsfree)
 
 ## Upcoming updates
 
