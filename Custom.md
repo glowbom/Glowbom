@@ -50,7 +50,7 @@ Or say: **"Open an editor."**
 
 By default, you have 2 app elements. To add a new app element, press the "+" button:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/100967090-9e233b00-34eb-11eb-8c91-e8d8602a8e51.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/108611333-efc8bc80-739a-11eb-9bc2-32e5cb93c397.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 To edit the app element, press the little pencil button.
 
