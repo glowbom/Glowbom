@@ -60,7 +60,7 @@ To close the editor, press the cross button at the top center.
 
 ### Step 7
 
-Choose an app elemnent and fill out the attributes. Currently, there are Text, Image, and Button elements available. We'll add more elements soon.
+Choose app elements and fill out the attributes. Currently, there are Text, Image, and Button elements available. We’ll add more elements soon.
 
 And press the **"Save"** button.
 
