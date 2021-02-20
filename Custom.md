@@ -1,6 +1,6 @@
-## Glowbom Story
+## Glowbom Custom
 
-**Glowbom Story** allows you to create a choose your adventure app. 
+**Glowbom Custom** allows you to make a simple one-screen app by combining different elements. 
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
