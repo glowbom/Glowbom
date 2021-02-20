@@ -8,7 +8,7 @@
 
 Create a simple app by combining different elements together.
 
-[![Here's how it works...](https://user-images.githubusercontent.com/2455891/108611042-c195ad80-7397-11eb-9b7b-fed62570694d.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/108611118-92cc0700-7398-11eb-944d-2eb65acdd8c1.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ## Step-by-Step Setup Instructions
 
