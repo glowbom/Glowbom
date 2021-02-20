@@ -28,11 +28,9 @@ Or press the little mic button and say: **"Create an app."**
 
 ### Step 3
 
-Choose **Story** and press **Select**:
+Choose **Custom** and press **Select**:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/100966774-f9a0f900-34ea-11eb-9de1-f13a48238860.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
-
-Or say: **"Create a story."**
+[![Step 3](https://user-images.githubusercontent.com/2455891/108611143-d888cf80-7398-11eb-8e13-0317c7d092c5.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ### Step 4
 
@@ -40,11 +38,9 @@ Enter the project name and press **Create project**:
 
 [![Step 3](https://user-images.githubusercontent.com/2455891/97621821-0cef0f00-19e9-11eb-8e87-83d8e0976cf0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-Or say: **"Create a story app called..."** with the name of your project.
-
 ### Step 5
 
-To add and modify story elements, press the little pencil button:
+To add and modify app elements, press the little pencil button:
 
 [![Step 3](https://raw.githubusercontent.com/Glowbom/Glowbom/master/tutorials/quiz/img/qstep5.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
@@ -52,21 +48,19 @@ Or say: **"Open an editor."**
 
 ### Step 6
 
-By default, you have 5 story elements. To add a new story element, press the "+" button:
+By default, you have 2 app elements. To add a new app element, press the "+" button:
 
 [![Step 3](https://user-images.githubusercontent.com/2455891/100967090-9e233b00-34eb-11eb-8c91-e8d8602a8e51.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-To edit the story element, press the little pencil button.
+To edit the app element, press the little pencil button.
 
-To remove the story element, press the remove button.
+To remove the app element, press the remove button.
 
 To close the editor, press the cross button at the top center.
 
 ### Step 7
 
-Fill out the story text and action fields. Each action has the "Goes to" field that should point to the next element after the user taps on the action button:
-
-[![Picture](https://user-images.githubusercontent.com/2455891/100967208-e80c2100-34eb-11eb-8f59-0c49ca01681c.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+Choose an app elemnent and fill out the attributes. Currently, there are Text, Image, and Button elements available. We'll add more elements soon.
 
 And press the **"Save"** button.
 
