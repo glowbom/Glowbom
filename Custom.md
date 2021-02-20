@@ -30,7 +30,7 @@ Or press the little mic button and say: **"Create an app."**
 
 Choose **Custom** and press **Select**:
 
-[![Step 3](https://user-images.githubusercontent.com/2455891/108611143-d888cf80-7398-11eb-8e13-0317c7d092c5.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Step 3](https://user-images.githubusercontent.com/2455891/108611458-e8ee7980-739b-11eb-8bac-24706250ee32.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ### Step 4
 
