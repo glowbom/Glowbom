@@ -40,7 +40,7 @@ We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Un
 
 ## Unity support (early access)
 
-- [Quests](https://github.com/Glowbom/quests)
+- [Quizzes](https://github.com/Glowbom/quests)
 
 ## Press
 
