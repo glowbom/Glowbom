@@ -62,8 +62,6 @@ To close the editor, press the cross button at the top center.
 
 Choose app elements and fill out the attributes. Currently, there are Text, Image, and Button elements available. We’ll add more elements soon.
 
-And press the **"Save"** button.
-
 ### Step 8
 
 Press the "Play" button on the top right to run the project:
