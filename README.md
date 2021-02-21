@@ -38,9 +38,9 @@ We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Un
 - [Join Discord for Glowbom 2.0 (early access)](https://discord.gg/veZtekTCwq)
 
 
-## Unity support (early access)
+## Unity export support (early access)
 
-- [Quizzes](https://github.com/Glowbom/quests)
+- [Quiz](https://github.com/Glowbom/quests)
 
 ## Press
 
