@@ -35,7 +35,7 @@ You can use **GPT-3** to enhance your app content if you have an [**OpenAI** acc
 We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more exciting features are coming soon.
 
 - [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
-- [Discord for Glowbom 2.0 (early access)](https://discord.gg/veZtekTCwq)
+- [Join Discord for Glowbom 2.0 (early access)](https://discord.gg/veZtekTCwq)
 
 
 ## Engines (early access)
