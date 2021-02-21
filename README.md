@@ -29,7 +29,6 @@ You can use **GPT-3** to enhance your app content if you have an [**OpenAI** acc
 - [Instagram](https://www.instagram.com/glowbom/)
 - [TikTok](https://www.tiktok.com/@glowbomapps)
 - [App Example](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
-- [Discord](https://discord.gg/veZtekTCwq)
 
 ## Upcoming updates
 
