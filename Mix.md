@@ -28,7 +28,7 @@ Or press the little mic button and say: **"Create an app."**
 
 ### Step 3
 
-Choose **Custom** and press **Select**:
+Choose **Mix** and press **Select**:
 
 [![Step 3](https://user-images.githubusercontent.com/2455891/108611458-e8ee7980-739b-11eb-8bac-24706250ee32.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
