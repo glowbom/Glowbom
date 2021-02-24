@@ -1,4 +1,4 @@
-## Glowbom Custom
+## Glowbom Mix
 
 **Glowbom Custom** allows you to make a simple one-screen app by combining different elements. 
 
