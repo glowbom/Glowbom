@@ -1,6 +1,6 @@
 ## Glowbom Mix
 
-**Glowbom Custom** allows you to make a simple one-screen app by combining different elements. 
+**Glowbom Mix** allows you to mix all app types on Glowbom into one app.. 
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
