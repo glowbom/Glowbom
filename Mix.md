@@ -1,6 +1,6 @@
 ## Glowbom Mix
 
-**Glowbom Mix** allows you to mix all app types on Glowbom into one app.. 
+**Glowbom Mix** allows you to mix all app types into one app.
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
