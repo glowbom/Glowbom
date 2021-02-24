@@ -4,9 +4,9 @@
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Create a custom app.
+### Create a complex app.
 
-Create a simple app by combining different elements together.
+Create a complex app by combining simple apps together.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/108611118-92cc0700-7398-11eb-944d-2eb65acdd8c1.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
