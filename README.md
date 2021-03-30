@@ -28,7 +28,9 @@ You can use **GPT-3** to enhance your app content if you have an [**OpenAI** acc
 - [Facebook](https://www.facebook.com/glowbom)
 - [Instagram](https://www.instagram.com/glowbom/)
 - [TikTok](https://www.tiktok.com/@glowbomapps)
-- [App Example](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
+- [YouTube Shorts](https://www.youtube.com/channel/UCCTfdxhS7lfsHWMo-OtvMnw)
+- [App Example Android](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
+- [App Example iOS](https://apps.apple.com/us/app/u-s-citizenship-test-2021/id1547492678)
 
 ## Upcoming updates
 
