@@ -4,11 +4,13 @@
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
+[Video Tutorial](https://www.youtube.com/watch?v=j41vy7PBYUw){:target="_blank" rel="noopener"}
+
 ### Turn any website into an app.
 
 Embed web pages, assets, and HTML code.
 
-[![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/98289741-db84bf00-1f65-11eb-968f-1ca78ee4a7d0.png)](https://www.youtube.com/watch?v=j41vy7PBYUw){:target="_blank" rel="noopener"}
 
 ## Step-by-Step Setup Instructions
 
