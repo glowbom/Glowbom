@@ -1,6 +1,6 @@
 ## Glowbom Story
 
-**Glowbom Story** allows you to create a choose your adventure app. 
+**Glowbom Story** allows you to create a quest app. 
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
