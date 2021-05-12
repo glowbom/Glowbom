@@ -26,9 +26,7 @@ Or press the little mic button and say: **"Create an app."**
 
 ### Step 3
 
-Choose **Story** and press **Select**:
-
-[![Step 3](https://user-images.githubusercontent.com/2455891/100966774-f9a0f900-34ea-11eb-9de1-f13a48238860.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+Choose **Story** and press **Select**.
 
 Or say: **"Create a story."**
 
