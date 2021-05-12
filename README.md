@@ -5,12 +5,12 @@ You can easily build chatbots, quizzes, surveys, an online store, a quest app, a
 ## Get started with
 
 - [Bots](https://glowbom.github.io/Glowbom/Talk)
-- [Story](https://glowbom.github.io/Glowbom/Story)
-- [Survey](https://glowbom.com/survey/)
-- [Store](https://glowbom.github.io/mobile-orders/)
 - [Web](https://glowbom.github.io/Glowbom/Web)
 - [Quiz](https://glowbom.com/quiz/)
 - [Custom](https://glowbom.github.io/Glowbom/Custom)
+- [Story](https://glowbom.github.io/Glowbom/Story)
+- [Survey](https://glowbom.com/survey/)
+- [Store](https://glowbom.github.io/mobile-orders/)
 
 ## Guides
 
