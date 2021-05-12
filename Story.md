@@ -4,9 +4,7 @@
 
 [Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Create an adventure story.
-
-Write a story that allows the reader to participate in the story by making choices.
+### Create a quest app.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/100966677-b8a8e480-34ea-11eb-8b7b-e896ded5eec6.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
