@@ -38,11 +38,6 @@ We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Un
 
 - [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
 
-
-## Unity export support (early access)
-
-- [Quiz](https://github.com/Glowbom/quests)
-
 ## Press
 
 - [Glowbom on **The American Genius**](https://theamericangenius.com/tech-news/glowbom-allows-you-to-create-a-website-using-your-voice/)
