@@ -1,8 +1,8 @@
 **Welcome to Glowbom 2.0 (early access)**
 
-**Glowbom** lets you make your own app without writing any code. You can talk to a virtual assistant who will help you customize your app, and then it will be ready to use.
+**Glowbom** is reinventing how we build apps without writing any code. With Glowbom, you can build apps like chatbots, quizzes, surveys, web pages, and more with the power of your voice just by talking to a virtual assistant. Imagine Alexa for software engineering. 
 
-You can easily build chatbots, quizzes, surveys, an online store, a choose your adventure app, and a website. You can also turn any existing website into a native mobile app. You may download generated [**Flutter**](https://flutter.dev/) code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with [**Codemagic**](https://codemagic.io/). If you have an [**OpenAI** account](https://beta.openai.com/), you can use **GPT-3** to enhance your app content.
+You can also turn any existing website into a native mobile app. You may download generated [**Flutter**](https://flutter.dev/) code and build apps manually or build and deploy your applications automatically to both the **iOS** and **Android** app stores with [**Codemagic**](https://codemagic.io/). If you have an [**OpenAI** account](https://beta.openai.com/), you can use **GPT-3** to enhance your app content.
 
 ## Get started with
 
@@ -32,12 +32,6 @@ You can use **GPT-3** to enhance your app content if you have an [**OpenAI** acc
 - [Instagram](https://www.instagram.com/glowbom/)
 - [TikTok](https://www.tiktok.com/@glowbomapps)
 - [App Example](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
-
-## Upcoming updates
-
-We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more exciting features are coming soon.
-
-- [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
 
 
 ## Unity export support (early access)
