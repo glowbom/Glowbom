@@ -4,6 +4,7 @@ You can easily build chatbots, quizzes, surveys, an online store, a quest app, a
 
 ## Get started with
 
+- [Mix](https://glowbom.github.io/Glowbom/Mix)
 - [Bots](https://glowbom.github.io/Glowbom/Talk)
 - [Web](https://glowbom.github.io/Glowbom/Web)
 - [Quiz](https://glowbom.com/quiz/)
