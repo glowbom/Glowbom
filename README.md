@@ -32,12 +32,6 @@ You can use **GPT-3** to enhance your app content if you have an [**OpenAI** acc
 - [App Example for Android](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
 - [App Example for iOS](https://apps.apple.com/us/app/u-s-citizenship-test-2021/id1547492678)
 
-## Upcoming updates
-
-We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more exciting features are coming soon.
-
-- [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
-
 ## Press
 
 - [Glowbom on **The American Genius**](https://theamericangenius.com/tech-news/glowbom-allows-you-to-create-a-website-using-your-voice/)
