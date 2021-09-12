@@ -18,4 +18,4 @@ Glowbom now supports building more complex apps with Firebase User Authenticatio
 
 ## Feedback
 
-If you have any questions or feedback, please let us know **support@glowbom.com**.
+If you have any questions or feedback, please let us know at **support@glowbom.com**.
