@@ -1,20 +1,32 @@
-## Glowbom Mix
+## Glowbom Glowbyverse
 
-**Glowbom Mix** allows you to mix simple app types into one more complex app.
+In development.
 
-[Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
+**Glowbyverse** is a startup simulation game that lets you build pixel art crypto games from inside the metaverse.
 
-### Create a complex app.
+**Glowbyverse** is a part of [Glowbom](https://glowbom.com/){:target="_blank" rel="noopener"}, a tech-agnostic no-code/low-code tool that lets you build apps and games without the need to code with the ability to export to Flutter, Unity, SwiftUI, and Kotlin Jetpack Compose. [Here's how it works...](https://www.youtube.com/watch?v=nEnlP_f0jG4){:target="_blank" rel="noopener"}.
+ 
+### Glowbyverse.
 
-Create a complex app by combining simple app types together.
+The first version of **Glowbyverse** is available [here](https://glowbyverse.netlify.app/){:target="_blank" rel="noopener"}. Keep in mind, it's only a prototype, and we are actively working on it.
 
-[![Here's how it works...](https://user-images.githubusercontent.com/2455891/112654597-2b7cf900-8e15-11eb-91a0-c001b81b3787.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+In the simulation you can:
 
-Glowbom now supports building more complex apps with Firebase User Authentication and advanced voice features in Spanish, French, Russian, and English (including American, British, and Australian accents). Here's [a quick demo](https://www.youtube.com/watch?v=4LdgiW54ApE). 
+Create your own company:
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/203458509-7a2b3fec-e9a5-477b-91e9-837bf3d2ec3d.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-### Next Steps
+Expand internationally:
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/203458880-4b866c51-e82c-410c-adfc-aa0669bc3b48.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
-[Publish your app](https://glowbom.github.io/Glowbom/Publish){:target="_blank" rel="noopener"}
+Manage fundraising:
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/203458967-81e6606a-3dd3-460a-aec3-752660b2aedf.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+
+Build crypto games from inside the simulation:
+
+[![Here's how it works...](https://user-images.githubusercontent.com/2455891/203459339-6e268c67-a7d2-4218-89dc-e25cd13446f7.png)](https://crypto-journey.netlify.app/){:target="_blank" rel="noopener"}
+
+Here's [a quick demo](https://www.youtube.com/watch?v=mBey-ND_D0A) of the pixel art crypto game that you'll be able to build. Keep in mind, it's still beign integrated into the Glowbyverse.
+
 
 ## Feedback
 
