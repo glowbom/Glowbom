@@ -9,12 +9,15 @@
 In the simulation game you can:
 
 Create your own company:
+
 <img src="https://user-images.githubusercontent.com/2455891/203458509-7a2b3fec-e9a5-477b-91e9-837bf3d2ec3d.png" width=50% height=50%>
 
 Expand internationally:
+
 <img src="https://user-images.githubusercontent.com/2455891/203458880-4b866c51-e82c-410c-adfc-aa0669bc3b48.png" width=50% height=50%>
 
 Manage fundraising:
+
 <img src="https://user-images.githubusercontent.com/2455891/203458967-81e6606a-3dd3-460a-aec3-752660b2aedf.png" width=50% height=50%>
 
 Build crypto games from inside the simulation:
