@@ -27,7 +27,7 @@ Here's [a quick demo](https://www.youtube.com/watch?v=mBey-ND_D0A) of the pixel 
 
 ## Stay tuned
 
-The project is in active development, and we're super excited to add more gaming mechanics soon.
+The project is in active development, and we're super excited to add more gaming mechanics and improve the metaverse soon.
 
 ## Feedback
 
