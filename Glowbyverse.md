@@ -6,21 +6,27 @@
 
 **Glowbyverse** is a startup simulation game that lets you build pixel art crypto games from inside the metaverse. The first version is available [here](https://glowbyverse.netlify.app/){:target="_blank" rel="noopener"}. In the metaverse you can create your own company, open offices around the world, manage fundraising, and building crpyo apps from inside the metaverse. Keep in mind, it's only a prototype, and we are actively working on it.
 
+
 Hire people for your startup:
 
-![Glowbyverse Screenshot 1](https://user-images.githubusercontent.com/2455891/203461878-ab821d25-758b-4dda-908f-b8408ada7e27.jpg)
+![Glowbyverse Screenshot 1](https://user-images.githubusercontent.com/2455891/203463048-36b9846f-b93b-4110-a15c-8329039a75aa.jpg)
+
 
 Expand internationally:
 
-![Glowbyverse Screenshot 2](https://user-images.githubusercontent.com/2455891/203462165-1f618dec-fd27-4366-92cb-0f520500a158.jpg)
+![Glowbyverse Screenshot 2](https://user-images.githubusercontent.com/2455891/203463049-cacc810f-95d6-4cca-9f1d-755987e7091b.jpg)
+
 
 Manage fundraising:
 
-![Glowbyverse Screenshot 3](https://user-images.githubusercontent.com/2455891/203462280-37ee2d2a-e4b3-43a5-9a5c-193410064191.jpg)
+![Glowbyverse Screenshot 3](https://user-images.githubusercontent.com/2455891/203463051-95a3f803-1409-46ee-bf4b-55447ad228c5.jpg)
+
 
 Build Web3 projects from inside the metaverse:
 
 ![Crypto Game](https://user-images.githubusercontent.com/2455891/203461871-0d693506-bed3-4f93-a968-ceb3115d053e.jpg)
+
+
 
 Here's [an example](https://crypto-journey.netlify.app/){:target="_blank" rel="noopener"} of the pixel art crypto game that you'll be able to build. This example was built at [ETH SF](https://sf.ethglobal.com/){:target="_blank" rel="noopener"} using web3.js, JavaScript, C#, Unity, Alchemy, MetaMask, TypeScript, Solidity, Hardhat, Mocha, Polygon, Optimism, and Empiric Network. The source code is available [here](https://github.com/globalsculptor/crypto-journey){:target="_blank" rel="noopener"}. Keep in mind, it's only a prototype, and we are actively working on it. It's currently being integrated into Glowbyverse. 
 
