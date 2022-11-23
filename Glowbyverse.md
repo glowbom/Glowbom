@@ -1,7 +1,5 @@
 ## Glowbom Glowbyverse
 
-In development.
-
 **Glowbyverse** is a startup simulation game that lets you build pixel art crypto games from inside the metaverse.
 
 **Glowbyverse** is a part of [Glowbom](https://glowbom.com/){:target="_blank" rel="noopener"}, a tech-agnostic no-code/low-code tool that lets you build apps and games without the need to code with the ability to export to Flutter, Unity, SwiftUI, and Kotlin Jetpack Compose. [Here's how it works...](https://www.youtube.com/watch?v=nEnlP_f0jG4){:target="_blank" rel="noopener"}.
@@ -27,6 +25,9 @@ Build crypto games from inside the simulation:
 
 Here's [a quick demo](https://www.youtube.com/watch?v=mBey-ND_D0A) of the pixel art crypto game that you'll be able to build. Keep in mind, it's still beign integrated into the Glowbyverse.
 
+## Stay tuned
+
+The project is in active development, and we're super excited to add more gaming mechanics soon.
 
 ## Feedback
 
