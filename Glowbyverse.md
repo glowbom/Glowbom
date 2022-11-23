@@ -9,7 +9,7 @@
 
 Hire people for your startup:
 
-![Glowbyverse Screenshot 1](https://user-images.githubusercontent.com/2455891/203463048-36b9846f-b93b-4110-a15c-8329039a75aa.jpg)
+![Glowbyverse Screenshot 1](https://user-images.githubusercontent.com/2455891/203463372-a982babf-c600-4ad1-be9a-0722f51c47dd.jpg)
 
 
 Expand internationally:
