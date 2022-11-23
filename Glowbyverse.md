@@ -31,7 +31,7 @@ Here's [an example](https://crypto-journey.netlify.app/){:target="_blank" rel="n
 
 ## Stay tuned
 
-The project is in active development, and we're super excited to add more features and gaming mechanics soon. Future versions of **Glowbyverse** will also include deep integration with design tools to make the apps look unique. 
+The project is in active development, and we're super excited to add more features and gaming mechanics soon. Future versions of **Glowbyverse** will also include deep integration with design tools like Figma for even easier idea-to-deployment capabilities. 
 
 ## Feedback
 
