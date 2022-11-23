@@ -4,7 +4,7 @@
  
 ### Glowbyverse.
 
-**Glowbyverse** is a startup simulation game that lets you build pixel art crypto games from inside the metaverse. The first version is available [here](https://glowbyverse.netlify.app/){:target="_blank" rel="noopener"}. In the metaverse, you can create your own company, fundraise, open offices around the world, and build crypto apps from inside the metaverse. Keep in mind that we are actively working on it. It’s only a prototype.
+**Glowbyverse** is a startup simulation game that lets you build pixel art crypto games from inside the metaverse. The first version of the metaverse is available [here](https://glowbyverse.netlify.app/){:target="_blank" rel="noopener"}. In the metaverse, you can create your own company, fundraise, open offices around the world, and build crypto apps from inside the metaverse. Keep in mind that we are actively working on it. It’s only a prototype.
 
 Hire people for your startup:
 
