@@ -11,7 +11,7 @@ The first version of **Glowbyverse** is available [here](https://glowbyverse.net
 In the simulation you can:
 
 Create your own company:
-[![Here's how it works...](https://user-images.githubusercontent.com/2455891/203458509-7a2b3fec-e9a5-477b-91e9-837bf3d2ec3d.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+[![Here's how it works...](<img src="https://user-images.githubusercontent.com/2455891/203458509-7a2b3fec-e9a5-477b-91e9-837bf3d2ec3d.png" width=50% height=50%>)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 Expand internationally:
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/203458880-4b866c51-e82c-410c-adfc-aa0669bc3b48.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
