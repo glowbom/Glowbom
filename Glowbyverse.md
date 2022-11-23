@@ -22,8 +22,7 @@ Build Web3 projects from inside the metaverse:
 
 ![Crypto Game](https://user-images.githubusercontent.com/2455891/203461871-0d693506-bed3-4f93-a968-ceb3115d053e.jpg)
 
-Here's [an example](https://crypto-journey.netlify.app/) of the pixel art crypto game that you'll be able to build. Keep in mind, it's only a prototype, and we are actively working on it. It's currently being integrated into Glowbyverse.
-
+Here's [an example](https://crypto-journey.netlify.app/) of the pixel art crypto game that you'll be able to build. This example was built at [ETH SF](https://sf.ethglobal.com/) using web3.js, JavaScript, C#, Unity, Alchemy, MetaMask, TypeScript, Solidity, Hardhat, Mocha, Polygon, Optimism, and Empiric Network. The source code is available [here](https://github.com/globalsculptor/crypto-journey). Keep in mind, it's only a prototype, and we are actively working on it. It's currently being integrated into Glowbyverse. 
 
 ## Stay tuned
 
