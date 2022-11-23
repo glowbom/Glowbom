@@ -1,6 +1,6 @@
 ## Glowbom Glowbyverse
 
-**Glowbyverse** is a part of [**Glowbom**](https://glowbom.com/){:target="_blank" rel="noopener"}, a tech-agnostic no-code/low-code tool that lets you build apps and games without the need to code with the ability to export to Flutter, Unity, SwiftUI, and Kotlin Jetpack Compose. [Here's how it works...](https://www.youtube.com/watch?v=nEnlP_f0jG4){:target="_blank" rel="noopener"}. Future versions of **Glowbom** will also include deep integration with design tools to make the apps look unique. 
+**Glowbyverse** is a part of [**Glowbom**](https://glowbom.com/){:target="_blank" rel="noopener"}, a tech-agnostic no-code/low-code tool that lets you build apps and games without the need to code with the ability to export to Flutter, Unity, SwiftUI, and Kotlin Jetpack Compose. [Here's how it works...](https://www.youtube.com/watch?v=nEnlP_f0jG4){:target="_blank" rel="noopener"}
  
 ### Glowbyverse.
 
@@ -31,7 +31,7 @@ Here's [an example](https://crypto-journey.netlify.app/){:target="_blank" rel="n
 
 ## Stay tuned
 
-The project is in active development, and we're super excited to add more features and gaming mechanics soon.
+The project is in active development, and we're super excited to add more features and gaming mechanics soon. Future versions of **Glowbyverse** will also include deep integration with design tools to make the apps look unique. 
 
 ## Feedback
 
