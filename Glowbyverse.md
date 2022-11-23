@@ -22,7 +22,7 @@ Manage fundraising:
 
 Build crypto games from inside the simulation:
 
-<img src="https://user-images.githubusercontent.com/2455891/203459339-6e268c67-a7d2-4218-89dc-e25cd13446f7.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/2455891/203459339-6e268c67-a7d2-4218-89dc-e25cd13446f7.png" width=30% height=30%>
 
 Here's [an example](https://www.youtube.com/watch?v=mBey-ND_D0A) of the pixel art crypto game that you'll be able to build. Keep in mind, it's only a prototype, and we are actively working on it. It's currently being integrated into Glowbyverse.
 
