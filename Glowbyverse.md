@@ -1,5 +1,4 @@
-# Glowbom Glowbyverse
-
+# Glowbyverse
 ## Metaverse for building apps
 
 **Glowbyverse** is a part of [**Glowbom**](https://glowbom.com/){:target="_blank" rel="noopener"}, a tech-agnostic no-code/low-code tool that lets you build apps and games without the need to code with the ability to export to Flutter, Unity, SwiftUI, and Kotlin Jetpack Compose. [Here's how it works...](https://www.youtube.com/watch?v=nEnlP_f0jG4){:target="_blank" rel="noopener"}
