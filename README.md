@@ -17,9 +17,9 @@ You can easily build chatbots, quizzes, surveys, an online store, a quest app, a
 
 - [How to publish the app](https://glowbom.github.io/Glowbom/Publish)
 
-## Using GPT-3
+## Using ChatGPT API
 
-You can use **GPT-3** to enhance your app content if you have an [**OpenAI** account](https://beta.openai.com/). Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s).
+You can use **ChatGPT API** to enhance your app content if you have an [**OpenAI** account](https://beta.openai.com/). Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s).
 
 ## References
 
