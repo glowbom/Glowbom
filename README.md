@@ -19,7 +19,7 @@ You can easily build chatbots, quizzes, surveys, an online store, a quest app, a
 
 ## Using ChatGPT API
 
-You can use **ChatGPT API** to enhance your app content if you have an [**OpenAI** account](https://beta.openai.com/). Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s).
+You can use **ChatGPT API** to enhance your app content if you have an [**OpenAI** account](https://platform.openai.com/). Here's [how it works](http://www.youtube.com/watch?v=ejz8TByCleg&t=5m56s).
 
 ## References
 
