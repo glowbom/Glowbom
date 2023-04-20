@@ -32,7 +32,7 @@ You can use **ChatGPT API** to enhance your app content if you have an [**OpenAI
 - [App Example for Android](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
 - [App Example for iOS](https://apps.apple.com/us/app/u-s-citizenship-test-2021/id1547492678)
 - [Gamebuilder](https://github.com/Glowbom/gamebuilder)
-- [Glowbyverse](https://glowbom.github.io/Glowbom/Glowbyverse)
+- [Glowby Basic](https://github.com/glowbom/glowby)
 
 ## Press
 
