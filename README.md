@@ -24,6 +24,7 @@ You can use **ChatGPT API** to enhance your app content if you have an [**OpenAI
 ## References
 
 - [Website](https://glowbom.com/)
+- [Glowby Basic](https://github.com/glowbom/glowby)
 - [Twitter](https://twitter.com/GlowbomCorp)
 - [YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
 - [Instagram](https://www.instagram.com/glowbom/)
@@ -31,8 +32,6 @@ You can use **ChatGPT API** to enhance your app content if you have an [**OpenAI
 - [YouTube Shorts](https://www.youtube.com/channel/UCCTfdxhS7lfsHWMo-OtvMnw)
 - [App Example for Android](https://play.google.com/store/apps/details?id=com.globalsculptor.us)
 - [App Example for iOS](https://apps.apple.com/us/app/u-s-citizenship-test-2021/id1547492678)
-- [Gamebuilder](https://github.com/Glowbom/gamebuilder)
-- [Glowby Basic](https://github.com/glowbom/glowby)
 
 ## Press
 
