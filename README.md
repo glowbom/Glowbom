@@ -15,7 +15,7 @@ You can easily build chatbots, quizzes, surveys, an online store, a quest app, a
 
 ## Glowbom AI Extensions
 
-**Glowbom AI Extensions** is a feature that uses **ChatGPT with Code Interpreter** to generate and integrate code based on your specific needs directly into your [Glowbom projects](https://twitter.com/jacobilin/status/1680322334048256001). Here's how:
+**Glowbom AI Extensions** is a feature that uses **ChatGPT with Code Interpreter** to generate and integrate code based on your specific needs directly into your [Glowbom projects](https://twitter.com/jacobilin/status/1678968728128724992?s=20). Here's how:
 
 1. Create with a 'Custom' project on Glowbom.
 2. Export Flutter code.
