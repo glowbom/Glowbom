@@ -1,10 +1,3 @@
-//
-//  AiExtensitions.swift
-//  Custom
-//
-//  Created by Jacob Ilin on 7/29/23.
-//
-
 import SwiftUI
 
 // MARK: - QuoteGeneratorView
