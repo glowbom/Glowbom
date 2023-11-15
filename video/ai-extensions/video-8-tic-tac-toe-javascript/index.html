@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+        .cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 1px solid #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        
+    </div>
+    <script>
+        
+document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.querySelector('.grid');
+    let currentPlayer = 'X';
+    const cells = [];
+
+    function createBoard() {
+        for (let i = 0; i < 9; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.addEventListener('click', cellClicked, { once: true });
+            grid.appendChild(cell);
+            cells.push(cell);
+        }
+    }
+
+    function cellClicked() {
+        this.textContent = currentPlayer;
+        if (checkWin(currentPlayer)) {
+            alert(currentPlayer + ' wins!');
+            resetGame();
+        } else if (checkDraw()) {
+            alert('Draw!');
+            resetGame();
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+    }
+
+    function checkWin(player) {
+        const winPatterns = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        return winPatterns.some(pattern => {
+            return pattern.every(index => {
+                return cells[index].textContent === player;
+            });
+        });
+    }
+
+    function checkDraw() {
+        return cells.every(cell => {
+            return cell.textContent === 'X' || cell.textContent === 'O';
+        });
+    }
+
+    function resetGame() {
+        cells.forEach(cell => {
+            cell.textContent = '';
+            cell.addEventListener('click', cellClicked, { once: true });
+        });
+        currentPlayer = 'X';
+    }
+
+    createBoard();
+});
+
+    </script>
+</body>
+</html>
