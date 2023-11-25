@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #333;
+    }
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 400px;
+    }
+    h1 {
+        color: #007BFF;
+        text-align: center;
+    }
+    .day {
+        margin: 20px 0;
+    }
+    .tasks {
+        list-style: none;
+        padding: 0;
+    }
+    .tasks li {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tasks input[type="text"] {
+        border: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .add-btn {
+        background-color: #007BFF;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .task-text {
+        flex-grow: 1;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>HAVE A NICE DAY!</h1>
+    <div class="day">
+        <h2>Monday</h2>
+        <ul class="tasks" id="monday-tasks">
+            <!-- Tasks will be added here -->
+        </ul>
+        <button class="add-btn" onclick="addTask('monday-tasks')">+</button>
+    </div>
+    <div class="day">
+        <h2>Tuesday</h2>
+        <ul class="tasks" id="tuesday-tasks">
+            <!-- Tasks will be added here -->
+        </ul>
+        <button class="add-btn" onclick="addTask('tuesday-tasks')">+</button>
+    </div>
+    <!-- More days can be added similarly -->
+</div>
+<script>
+    function addTask(dayId) {
+        var ul = document.getElementById(dayId);
+        var taskText = prompt("What's the task?");
+        if (taskText) {
+            var li = document.createElement("li");
+            li.innerHTML = '<span class="task-text">' + taskText + '</span>' +
+                '<button class="remove-btn" onclick="removeTask(this)">x</button>';
+            ul.appendChild(li);
+        }
+    }
+    
+    function removeTask(btn) {
+        var li = btn.parentNode;
+        li.remove();
+    }
+</script>
+</body>
+</html>
