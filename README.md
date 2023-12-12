@@ -19,7 +19,7 @@ You can easily build chatbots, quizzes, surveys, an online store, a quest app, a
 
 1. Create with a 'Custom' project on Glowbom.
 2. Export Flutter code.
-3. Upload code_interpreter.zip to ChatGPT.
+3. Upload ai.zip to ChatGPT.
 4. Request your feature.
 5. Copy returned code into your Glowbom project.
 6. Run it.
