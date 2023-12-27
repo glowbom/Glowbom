@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles if needed */
+</style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+<div class="bg-white shadow-xl rounded-lg overflow-hidden" style="width: 320px;">
+  <div id="display" class="text-right p-4 text-2xl bg-gray-200 h-20 flex items-center justify-end">0</div>
+  <div class="grid grid-cols-4 gap-2 p-4">
+    <button class="btn">AC</button>
+    <button class="btn">+/-</button>
+    <button class="btn">%</button>
+    <button class="btn bg-orange-400 text-white">÷</button>
+    <button class="btn">7</button>
+    <button class="btn">8</button>
+    <button class="btn">9</button>
+    <button class="btn bg-orange-400 text-white">×</button>
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+    <button class="btn">6</button>
+    <button class="btn bg-orange-400 text-white">-</button>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn bg-orange-400 text-white">+</button>
+    <button class="btn col-span-2">0</button>
+    <button class="btn">.</button>
+    <button class="btn bg-orange-400 text-white">=</button>
+  </div>
+</div>
+
+<script>
+  // Calculator logic
+  let currentInput = '';
+  let previousInput = '';
+  let operation = null;
+  let shouldResetScreen = false;
+
+  const display = document.getElementById('display');
+  const buttons = document.querySelectorAll('.btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.textContent.match(/[0-9]/)) {
+        appendNumber(button.textContent);
+      } else if (button.textContent === '.') {
+        appendDot();
+      } else if (button.textContent === 'AC') {
+        clear();
+      } else if (button.textContent === '+/-') {
+        toggleSign();
+      } else if (button.textContent === '%') {
+        percentage();
+      } else if (button.textContent.match(/[÷×\-+]/)) {
+        chooseOperation(button.textContent);
+      } else if (button.textContent === '=') {
+        evaluate();
+      }
+      updateDisplay();
+    });
+  });
+
+  function appendNumber(number) {
+    if (display.textContent === '0' || shouldResetScreen) resetScreen();
+    display.textContent += number;
+  }
+
+  function appendDot() {
+    if (shouldResetScreen) resetScreen();
+    if (!display.textContent.includes('.')) {
+      display.textContent += '.';
+    }
+  }
+
+  function clear() {
+    display.textContent = '0';
+    currentInput = '';
+    previousInput = '';
+    operation = null;
+  }
+
+  function toggleSign() {
+    display.textContent = display.textContent.startsWith('-') ? display.textContent.slice(1) : '-' + display.textContent;
+  }
+
+  function percentage() {
+    if (currentInput !== '') {
+      currentInput = String(parseFloat(currentInput) / 100);
+      display.textContent = currentInput;
+    }
+  }
+
+  function chooseOperation(op) {
+    if (currentInput === '') return;
+    if (previousInput !== '') evaluate();
+    operation = op;
+    previousInput = display.textContent;
+    shouldResetScreen = true;
+  }
+
+  function evaluate() {
+    if (operation === null || shouldResetScreen) return;
+    if (operation === '÷' && display.textContent === '0') {
+      alert("You can't divide by 0!");
+      return;
+    }
+    let result;
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(display.textContent);
+    switch (operation) {
+      case '÷':
+        result = prev / current;
+        break;
+      case '×':
+        result = prev * current;
+        break;
+      case '-':
+        result = prev - current;
+        break;
+      case '+':
+        result = prev + current;
+        break;
+    }
+    display.textContent = String(result);
+    operation = null;
+    shouldResetScreen = true;
+  }
+
+  function resetScreen() {
+    display.textContent = '';
+    shouldResetScreen = false;
+  }
+
+  function updateDisplay() {
+    currentInput = display.textContent;
+  }
+</script>
+<style>
+  .btn {
+    background-color: #f3f4f6;
+    border: none;
+    padding: 16px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #e5e7eb;
+  }
+</style>
+</body>
+</html>
