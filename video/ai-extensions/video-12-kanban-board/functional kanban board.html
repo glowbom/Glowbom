@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanban Board</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="module">
+  import Sortable from 'https://unpkg.com/sortablejs@1.14.0/modular/sortable.core.esm.js';
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ['todo', 'doing', 'done'].forEach(column => {
+      new Sortable(document.getElementById(column), {
+        group: 'shared',
+        animation: 150
+      });
+    });
+  });
+</script>
+<style>
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .column {
+    background-color: #f3f4f6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    min-height: 300px;
+  }
+
+  .card {
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+  }
+
+  .card:last-child {
+    margin-bottom: 0;
+  }
+
+  .column-header {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+</style>
+</head>
+<body class="bg-gray-100">
+<div id="board">
+  <div id="todo" class="column">
+    <div class="column-header">TODO</div>
+    <div class="card">Task 1</div>
+    <div class="card">Task 2</div>
+    <div class="card">Task 3</div>
+  </div>
+  <div id="doing" class="column">
+    <div class="column-header">DOING</div>
+  </div>
+  <div id="done" class="column">
+    <div class="column-header">DONE</div>
+  </div>
+</div>
+</body>
+</html>
