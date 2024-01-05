@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Note Taking App</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles if needed */
+</style>
+</head>
+<body class="bg-gray-100">
+
+<div class="flex h-screen">
+  <!-- Sidebar for note titles -->
+  <div class="w-1/4 bg-white p-4 border-r">
+    <div class="flex flex-col">
+      <div class="mb-4">
+        <button id="newNoteBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">New Note</button>
+      </div>
+      <ul id="noteList" class="overflow-auto">
+        <!-- Note titles will be added here dynamically -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main content area for note details -->
+  <div class="w-3/4 p-4">
+    <input id="noteTitle" type="text" placeholder="Note Title" class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+    <textarea id="noteContent" placeholder="Note Content" class="w-full h-5/6 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+  </div>
+</div>
+
+<script>
+  // JavaScript for note-taking functionality
+  const noteList = document.getElementById('noteList');
+  const newNoteBtn = document.getElementById('newNoteBtn');
+  const noteTitle = document.getElementById('noteTitle');
+  const noteContent = document.getElementById('noteContent');
+
+  let notes = [];
+
+  function saveNote() {
+    const title = noteTitle.value.trim();
+    const content = noteContent.value.trim();
+    if (title && content) {
+      notes.push({ title, content });
+      displayNotes();
+      noteTitle.value = '';
+      noteContent.value = '';
+    } else {
+      alert('Please add a title and content for your note.');
+    }
+  }
+
+  function displayNotes() {
+    noteList.innerHTML = notes.map((note, index) => `
+      <li class="px-4 py-2 border-b cursor-pointer hover:bg-gray-100" onclick="selectNote(${index})">${note.title}</li>
+    `).join('');
+  }
+
+  function selectNote(index) {
+    const note = notes[index];
+    noteTitle.value = note.title;
+    noteContent.value = note.content;
+  }
+
+  newNoteBtn.addEventListener('click', saveNote);
+</script>
+
+</body>
+</html>
