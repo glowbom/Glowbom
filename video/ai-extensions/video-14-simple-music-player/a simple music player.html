@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Music Player</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles if needed */
+</style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center">
+        <div class="rounded-full bg-gray-300 h-12 w-12"></div>
+        <div class="ml-4">
+          <p class="text-gray-800 text-lg">Song Title</p>
+          <p class="text-gray-600 text-sm">Artist Name</p>
+        </div>
+      </div>
+      <button id="close" class="text-gray-600 hover:text-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex items-center justify-center mb-4">
+      <button id="prev" class="text-gray-600 hover:text-gray-800 mr-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+        </svg>
+      </button>
+      <button id="playPause" class="text-gray-800 hover:text-gray-900 mx-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path id="playIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-9.504 5.616V5.216l9.504 5.952z" />
+          <path id="pauseIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-9.504 5.616V5.216l9.504 5.952z" style="display: none;" />
+        </svg>
+      </button>
+      <button id="next" class="text-gray-600 hover:text-gray-800 ml-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+    <div class="mb-4">
+      <input type="range" id="progress" value="0" min="0" max="100" class="w-full">
+    </div>
+    <div class="flex items-center justify-between">
+      <p class="text-gray-600 text-sm">0:00</p>
+      <input type="range" id="volume" value="100" min="0" max="100" class="w-24">
+      <p class="text-gray-600 text-sm">3:45</p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for play/pause functionality
+    const playPauseButton = document.getElementById('playPause');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+    let isPlaying = false;
+
+    playPauseButton.addEventListener('click', function() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        // Play music logic here
+      } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        // Pause music logic here
+      }
+    });
+
+    // Additional JavaScript for other controls can be added here
+  </script>
+</body>
+</html>
