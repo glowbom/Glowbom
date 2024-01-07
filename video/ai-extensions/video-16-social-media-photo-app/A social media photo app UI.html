@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Photo App</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles if needed */
+</style>
+</head>
+<body class="bg-gray-100">
+
+<!-- Header -->
+<div class="bg-white p-4 shadow">
+  <div class="flex items-center space-x-4">
+    <img class="w-16 h-16 rounded-full" src="https://picsum.photos/200" alt="Profile Picture">
+    <div class="flex-1">
+      <h1 class="text-xl font-bold">Username</h1>
+      <p class="text-sm text-gray-600">Short description goes here...</p>
+    </div>
+    <div class="flex space-x-2">
+      <button class="bg-blue-500 text-white px-4 py-2 rounded">Follow</button>
+      <button class="border border-gray-300 text-gray-600 px-4 py-2 rounded">Message</button>
+    </div>
+  </div>
+  <div class="flex justify-center space-x-10 mt-4">
+    <div class="text-center">
+      <span class="font-bold text-lg">60</span>
+      <span class="block text-sm text-gray-600">Posts</span>
+    </div>
+    <div class="text-center">
+      <span class="font-bold text-lg">16K</span>
+      <span class="block text-sm text-gray-600">Followers</span>
+    </div>
+    <div class="text-center">
+      <span class="font-bold text-lg">200</span>
+      <span class="block text-sm text-gray-600">Following</span>
+    </div>
+  </div>
+</div>
+
+<!-- Image Grid -->
+<div class="grid grid-cols-3 gap-2 p-4">
+  <script>
+    // JavaScript to load 60 images
+    document.addEventListener('DOMContentLoaded', function() {
+      const imageContainer = document.querySelector('.grid');
+      for (let i = 0; i < 60; i++) {
+        const image = document.createElement('img');
+        image.src = `https://picsum.photos/200?random=${i}`;
+        image.alt = 'Random Image';
+        image.className = 'w-full h-auto';
+        imageContainer.appendChild(image);
+      }
+    });
+  </script>
+</div>
+
+</body>
+</html>
