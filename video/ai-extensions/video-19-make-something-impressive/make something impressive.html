@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Something Impressive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional custom styles if needed */
+      .hero-background {
+        background-image: url("https://source.unsplash.com/random/1920x1080?sig=1");
+        background-size: cover;
+        background-position: center;
+      }
+      .headline {
+        font-size: 3rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="hero-background h-screen flex items-center justify-center text-white text-center"
+    >
+      <div>
+        <h1 class="headline font-bold">DEMO SOMETHING</h1>
+        <p class="mt-4 text-xl">Scroll-stopping content goes here</p>
+        <button
+          class="mt-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+        >
+          Impress Me
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to change the background image on button click
+      document.querySelector("button").addEventListener("click", function () {
+        document.querySelector(
+          ".hero-background"
+        ).style.backgroundImage = `url('https://source.unsplash.com/random/1920x1080?sig=${Math.floor(
+          Math.random() * 100
+        )}')`;
+      });
+    </script>
+  </body>
+</html>
