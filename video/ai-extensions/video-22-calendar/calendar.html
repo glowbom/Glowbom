@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import {
+        format,
+        subMonths,
+        addMonths,
+      } from "https://cdn.jsdelivr.net/npm/date-fns@2.28.0/esm/index.js";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const calendarTitle = document.getElementById("calendar-title");
+        const daysContainer = document.getElementById("days-container");
+        let currentDate = new Date();
+
+        function renderCalendar(date) {
+          const startDay = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            1
+          ).getDay();
+          const daysInMonth = new Date(
+            date.getFullYear(),
+            date.getMonth() + 1,
+            0
+          ).getDate();
+          calendarTitle.textContent = format(date, "MMMM yyyy");
+          daysContainer.innerHTML = "";
+
+          for (let i = 0; i < startDay; i++) {
+            daysContainer.innerHTML +=
+              '<div class="border border-gray-300 w-14 h-14 flex items-center justify-center"></div>';
+          }
+
+          for (let i = 1; i <= daysInMonth; i++) {
+            daysContainer.innerHTML += `<div class="border border-gray-300 w-14 h-14 flex items-center justify-center">${i}</div>`;
+          }
+        }
+
+        document
+          .getElementById("prev-month")
+          .addEventListener("click", function () {
+            currentDate = subMonths(currentDate, 1);
+            renderCalendar(currentDate);
+          });
+
+        document
+          .getElementById("next-month")
+          .addEventListener("click", function () {
+            currentDate = addMonths(currentDate, 1);
+            renderCalendar(currentDate);
+          });
+
+        renderCalendar(currentDate);
+      });
+    </script>
+    <style>
+      /* Additional styles can be placed here */
+    </style>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="bg-white p-4 rounded shadow-md">
+      <div class="flex items-center justify-between mb-4">
+        <button
+          id="prev-month"
+          class="p-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          &lt;
+        </button>
+        <h2 id="calendar-title" class="text-xl font-semibold"></h2>
+        <button
+          id="next-month"
+          class="p-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          &gt;
+        </button>
+      </div>
+      <div class="grid grid-cols-7 gap-2">
+        <div class="font-bold text-center">Sun</div>
+        <div class="font-bold text-center">Mon</div>
+        <div class="font-bold text-center">Tue</div>
+        <div class="font-bold text-center">Wed</div>
+        <div class="font-bold text-center">Thu</div>
+        <div class="font-bold text-center">Fri</div>
+        <div class="font-bold text-center">Sat</div>
+      </div>
+      <div id="days-container" class="grid grid-cols-7 gap-2 mt-2">
+        <!-- Calendar days will be rendered here -->
+      </div>
+    </div>
+  </body>
+</html>
