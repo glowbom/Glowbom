@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .screen {
+        display: none;
+      }
+      .screen.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 p-5">
+    <div id="app" class="max-w-sm mx-auto">
+      <h1 class="text-3xl font-bold mb-5 text-center">ATM</h1>
+
+      <!-- Menu -->
+      <div id="menu" class="screen active">
+        <button
+          onclick="showScreen('transactions')"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Transaction History
+        </button>
+        <button
+          onclick="showScreen('deposit')"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Deposit
+        </button>
+        <button
+          onclick="showScreen('withdraw')"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Withdraw
+        </button>
+        <button
+          onclick="showScreen('transfer')"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Transfer
+        </button>
+        <button
+          onclick="quitApp()"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          Quit
+        </button>
+      </div>
+
+      <!-- Transaction History -->
+      <div id="transactions" class="screen">
+        <h2 class="text-xl font-bold mb-3">Transaction History</h2>
+        <div id="transactionList" class="mb-3">
+          <!-- Transactions will be listed here -->
+        </div>
+        <button
+          onclick="showScreen('menu')"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          Back
+        </button>
+      </div>
+
+      <!-- Deposit -->
+      <div id="deposit" class="screen">
+        <h2 class="text-xl font-bold mb-3">Deposit</h2>
+        <input
+          type="number"
+          id="depositAmount"
+          placeholder="Amount"
+          class="border-2 border-gray-300 p-2 rounded w-full mb-3"
+        />
+        <button
+          onclick="deposit()"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Deposit
+        </button>
+        <button
+          onclick="showScreen('menu')"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          Back
+        </button>
+      </div>
+
+      <!-- Withdraw -->
+      <div id="withdraw" class="screen">
+        <h2 class="text-xl font-bold mb-3">Withdraw</h2>
+        <input
+          type="number"
+          id="withdrawAmount"
+          placeholder="Amount"
+          class="border-2 border-gray-300 p-2 rounded w-full mb-3"
+        />
+        <button
+          onclick="withdraw()"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Withdraw
+        </button>
+        <button
+          onclick="showScreen('menu')"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          Back
+        </button>
+      </div>
+
+      <!-- Transfer -->
+      <div id="transfer" class="screen">
+        <h2 class="text-xl font-bold mb-3">Transfer</h2>
+        <input
+          type="number"
+          id="transferAmount"
+          placeholder="Amount"
+          class="border-2 border-gray-300 p-2 rounded w-full mb-3"
+        />
+        <input
+          type="text"
+          id="recipientAccount"
+          placeholder="Recipient Account"
+          class="border-2 border-gray-300 p-2 rounded w-full mb-3"
+        />
+        <button
+          onclick="transfer()"
+          class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mb-3 w-full"
+        >
+          Transfer
+        </button>
+        <button
+          onclick="showScreen('menu')"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let balance = 1000; // Starting balance
+      let transactions = [];
+
+      function showScreen(screenId) {
+        document.querySelectorAll(".screen").forEach((screen) => {
+          screen.classList.remove("active");
+        });
+        document.getElementById(screenId).classList.add("active");
+        if (screenId === "transactions") {
+          displayTransactions();
+        }
+      }
+
+      function displayTransactions() {
+        const transactionList = document.getElementById("transactionList");
+        transactionList.innerHTML = transactions
+          .map((t) => `<div>${t}</div>`)
+          .join("");
+      }
+
+      function deposit() {
+        const amount = parseFloat(
+          document.getElementById("depositAmount").value
+        );
+        if (amount > 0) {
+          balance += amount;
+          transactions.push(`Deposited: $${amount.toFixed(2)}`);
+          alert("Deposit successful!");
+        } else {
+          alert("Please enter a valid amount.");
+        }
+      }
+
+      function withdraw() {
+        const amount = parseFloat(
+          document.getElementById("withdrawAmount").value
+        );
+        if (amount > 0 && amount <= balance) {
+          balance -= amount;
+          transactions.push(`Withdrew: $${amount.toFixed(2)}`);
+          alert("Withdrawal successful!");
+        } else {
+          alert("Insufficient funds or invalid amount.");
+        }
+      }
+
+      function transfer() {
+        const amount = parseFloat(
+          document.getElementById("transferAmount").value
+        );
+        const recipientAccount =
+          document.getElementById("recipientAccount").value;
+        if (amount > 0 && amount <= balance && recipientAccount) {
+          balance -= amount;
+          transactions.push(
+            `Transferred: $${amount.toFixed(2)} to account ${recipientAccount}`
+          );
+          alert("Transfer successful!");
+        } else {
+          alert("Insufficient funds, invalid amount, or recipient account.");
+        }
+      }
+
+      function quitApp() {
+        alert("Thank you for using our ATM. Goodbye!");
+        window.close();
+      }
+    </script>
+  </body>
+</html>
