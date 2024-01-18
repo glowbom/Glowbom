@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple WYSIWYG Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional styles if needed */
+    </style>
+  </head>
+  <body class="bg-gray-100 p-10">
+    <div class="editor bg-white p-4 shadow-lg rounded-lg">
+      <div class="flex gap-2 mb-4">
+        <button id="bold" class="p-2 bg-gray-200 rounded hover:bg-gray-300">
+          B
+        </button>
+        <button id="italic" class="p-2 bg-gray-200 rounded hover:bg-gray-300">
+          I
+        </button>
+        <button
+          id="underline"
+          class="p-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          U
+        </button>
+        <button
+          id="unorderedList"
+          class="p-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          UL
+        </button>
+      </div>
+      <div
+        id="editorArea"
+        contenteditable="true"
+        class="p-4 border border-gray-300 rounded min-h-[200px]"
+      ></div>
+    </div>
+
+    <script>
+      document.getElementById("bold").addEventListener("click", () => {
+        document.execCommand("bold");
+      });
+
+      document.getElementById("italic").addEventListener("click", () => {
+        document.execCommand("italic");
+      });
+
+      document.getElementById("underline").addEventListener("click", () => {
+        document.execCommand("underline");
+      });
+
+      document.getElementById("unorderedList").addEventListener("click", () => {
+        document.execCommand("insertUnorderedList");
+      });
+
+      // Focus the editor area by default
+      document.getElementById("editorArea").focus();
+    </script>
+  </body>
+</html>
