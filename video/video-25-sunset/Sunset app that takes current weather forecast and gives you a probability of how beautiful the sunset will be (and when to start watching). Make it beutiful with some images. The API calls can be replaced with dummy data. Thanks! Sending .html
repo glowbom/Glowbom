@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Beauty Forecast</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional CSS can be placed here */
+</style>
+</head>
+<body class="bg-gradient-to-r from-yellow-200 via-red-200 to-purple-500 min-h-screen flex flex-col items-center justify-center">
+  <div class="text-center p-6 bg-white rounded-lg shadow-xl">
+    <h1 class="text-2xl font-bold mb-2">Sunset Beauty Forecast</h1>
+    <div class="mb-4">
+      <img src="https://source.unsplash.com/600x400/?sunset" alt="Sunset" class="rounded-lg shadow-md">
+    </div>
+    <div class="mb-4">
+      <h2 class="text-xl font-semibold">San Francisco, CA</h2>
+      <p class="text-gray-700">12°C, Cloudy</p>
+    </div>
+    <div class="mb-4">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="getForecast()">Get Forecast</button>
+    </div>
+    <div id="forecast" class="hidden">
+      <p class="text-lg">Probability of a beautiful sunset: <span class="font-semibold">75%</span></p>
+      <p class="text-lg">Best time to start watching: <span class="font-semibold">7:45 PM</span></p>
+    </div>
+  </div>
+
+  <script>
+    // Dummy data for forecast
+    const dummyForecast = {
+      probability: 75,
+      bestTime: '7:45 PM'
+    };
+
+    function getForecast() {
+      // Simulate API call with dummy data
+      const forecastDiv = document.getElementById('forecast');
+      forecastDiv.innerHTML = `
+        <p class="text-lg">Probability of a beautiful sunset: <span class="font-semibold">${dummyForecast.probability}%</span></p>
+        <p class="text-lg">Best time to start watching: <span class="font-semibold">${dummyForecast.bestTime}</span></p>
+      `;
+      forecastDiv.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
