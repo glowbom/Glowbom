@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional CSS can be placed here */
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto mt-10">
+      <div class="bg-white shadow-md rounded my-6">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">Settings</div>
+          <div class="text-gray-700 text-base">
+            <!-- Bluetooth -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-blue-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6.5 6.5L17.5 12L6.5 17.5V6.5z"
+                    />
+                  </svg>
+                </div>
+                <span>Bluetooth</span>
+              </div>
+              <div class="flex items-center">
+                <label for="toggleB" class="flex items-center cursor-pointer">
+                  <div class="relative">
+                    <input id="toggleB" type="checkbox" class="sr-only" />
+                    <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                    <div
+                      class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"
+                    ></div>
+                  </div>
+                </label>
+                <div class="ml-3 text-gray-500">On</div>
+              </div>
+            </div>
+
+            <!-- Cellular -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-green-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M2 7l10 5 10-5v11a2 2 0 001-1.73V8.27a2 2 0 00-1-1.73L12 1 2 6v11a2 2 0 001 1.73V7z"
+                    />
+                  </svg>
+                </div>
+                <span>Cellular</span>
+              </div>
+              <div class="text-gray-500">></div>
+            </div>
+
+            <!-- Personal Hotspot -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-green-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 1v4m-4 4h4-4zm0 0h4-4zm0 0H8h4m0 0v4-4zm0 4v4-4m0 4h4-4zm0 0h4-4z"
+                    />
+                  </svg>
+                </div>
+                <span>Personal Hotspot</span>
+              </div>
+              <div class="flex items-center">
+                <label for="toggleH" class="flex items-center cursor-pointer">
+                  <div class="relative">
+                    <input id="toggleH" type="checkbox" class="sr-only" />
+                    <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                    <div
+                      class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"
+                    ></div>
+                  </div>
+                </label>
+                <div class="ml-3 text-gray-500">Off</div>
+              </div>
+            </div>
+
+            <!-- General -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-gray-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span>General</span>
+              </div>
+              <div class="text-gray-500">></div>
+            </div>
+
+            <!-- Display & Brightness -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-yellow-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 2L12 12 20.4 12 12 2z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 12L12 22 3.6 22 12 12z"
+                    />
+                  </svg>
+                </div>
+                <span>Display & Brightness</span>
+              </div>
+              <div class="text-gray-500">></div>
+            </div>
+
+            <!-- Home Screen -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-blue-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 7l9 5 9-5-9-5-9 5z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 17l9 5 9-5-9-5-9 5z"
+                    />
+                  </svg>
+                </div>
+                <span>Home Screen</span>
+              </div>
+              <div class="text-gray-500">></div>
+            </div>
+
+            <!-- Accessibility -->
+            <div
+              class="flex items-center justify-between py-3 border-b border-gray-300"
+            >
+              <div class="flex items-center">
+                <div class="text-purple-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 18l6-6-6-6"
+                    />
+                  </svg>
+                </div>
+                <span>Accessibility</span>
+              </div>
+              <div class="text-gray-500">></div>
+            </div>
+
+            <!-- Wallpaper -->
+            <div class="flex items-center justify-between py-3">
+              <div class="flex items-center">
+                <div class="text-red-500 mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 3h18v18H3V3z"
+                    />
+                  </svg>
+                </div>
+                <span>Wallpaper</span>
+              </div>
+              <div class="text-gray-500">></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript for toggle switches
+      document
+        .getElementById("toggleB")
+        .addEventListener("change", function (event) {
+          document
+            .querySelector(".dot")
+            .classList.toggle("transform", event.target.checked);
+        });
+
+      document
+        .getElementById("toggleH")
+        .addEventListener("change", function (event) {
+          document
+            .querySelector(".dot")
+            .classList.toggle("transform", event.target.checked);
+        });
+    </script>
+  </body>
+</html>
