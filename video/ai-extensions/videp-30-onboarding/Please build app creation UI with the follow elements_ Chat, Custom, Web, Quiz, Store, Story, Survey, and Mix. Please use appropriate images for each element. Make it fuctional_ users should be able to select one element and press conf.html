@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Creation UI</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .element-card {
+    transition: transform 0.2s;
+  }
+  .element-card:hover {
+    transform: scale(1.05);
+  }
+  .element-card.selected {
+    border-color: #10b981;
+    background-color: #effaf3;
+  }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="min-h-screen flex flex-col items-center justify-center">
+  <div class="grid grid-cols-4 gap-4 p-4">
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('chat')">
+      <img src="https://via.placeholder.com/100?text=Chat" alt="Chat">
+      <p>Chat</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('custom')">
+      <img src="https://via.placeholder.com/100?text=Custom" alt="Custom">
+      <p>Custom</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('web')">
+      <img src="https://via.placeholder.com/100?text=Web" alt="Web">
+      <p>Web</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('quiz')">
+      <img src="https://via.placeholder.com/100?text=Quiz" alt="Quiz">
+      <p>Quiz</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('store')">
+      <img src="https://via.placeholder.com/100?text=Store" alt="Store">
+      <p>Store</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('story')">
+      <img src="https://via.placeholder.com/100?text=Story" alt="Story">
+      <p>Story</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('survey')">
+      <img src="https://via.placeholder.com/100?text=Survey" alt="Survey">
+      <p>Survey</p>
+    </div>
+    <div class="element-card p-4 border-2 border-gray-300 rounded-lg text-center cursor-pointer" onclick="selectElement('mix')">
+      <img src="https://via.placeholder.com/100?text=Mix" alt="Mix">
+      <p>Mix</p>
+    </div>
+  </div>
+  <div class="flex space-x-4 mt-4">
+    <button class="px-4 py-2 border-2 border-gray-300 rounded text-gray-700" onclick="previewSelection()">Preview</button>
+    <button class="px-4 py-2 bg-green-500 text-white rounded" onclick="confirmSelection()">Confirm</button>
+  </div>
+</div>
+
+<script>
+  let selectedElement = null;
+
+  function selectElement(element) {
+    if (selectedElement) {
+      selectedElement.classList.remove('selected');
+    }
+    selectedElement = document.querySelector(`.element-card[onclick="selectElement('${element}')"]`);
+    selectedElement.classList.add('selected');
+  }
+
+  function previewSelection() {
+    if (selectedElement) {
+      alert(`Previewing: ${selectedElement.querySelector('p').textContent}`);
+    } else {
+      alert('Please select an element first.');
+    }
+  }
+
+  function confirmSelection() {
+    if (selectedElement) {
+      document.body.innerHTML = `<div class="min-h-screen flex items-center justify-center">
+        <h1 class="text-2xl">You have selected: ${selectedElement.querySelector('p').textContent}</h1>
+      </div>`;
+    } else {
+      alert('Please select an element first.');
+    }
+  }
+</script>
+</body>
+</html>
