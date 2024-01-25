@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import Alpine from "https://unpkg.com/alpinejs@3/dist/module.esm.js";
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script>
+    <style>
+      /* Additional styles can be placed here */
+    </style>
+  </head>
+  <body class="bg-gray-100" x-data="{ tab: 'budget' }">
+    <!-- Header -->
+    <div class="bg-white shadow">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900">Money App</h1>
+      </div>
+    </div>
+
+    <!-- Tab navigation -->
+    <div class="flex justify-center my-4">
+      <nav class="flex space-x-4" aria-label="Tabs">
+        <button
+          @click="tab = 'budget'"
+          :class="{ 'bg-blue-500 text-white': tab === 'budget' }"
+          class="px-3 py-2 font-medium text-sm rounded-md"
+        >
+          Budget
+        </button>
+        <button
+          @click="tab = 'invest'"
+          :class="{ 'bg-blue-500 text-white': tab === 'invest' }"
+          class="px-3 py-2 font-medium text-sm rounded-md"
+        >
+          Invest
+        </button>
+        <button
+          @click="tab = 'credit'"
+          :class="{ 'bg-blue-500 text-white': tab === 'credit' }"
+          class="px-3 py-2 font-medium text-sm rounded-md"
+        >
+          Credit Score
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div x-show="tab === 'budget'">
+        <!-- Budget Content -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-xl font-bold mb-4">Budget Planner</h2>
+          <img
+            src="https://via.placeholder.com/600x300"
+            alt="Budget Chart"
+            class="mb-4"
+          />
+          <p class="text-lg font-semibold">Total Budget: $100K</p>
+        </div>
+      </div>
+
+      <div x-show="tab === 'invest'" style="display: none">
+        <!-- Investment Content -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-xl font-bold mb-4">Investment Tracker</h2>
+          <img
+            src="https://via.placeholder.com/600x300"
+            alt="Investment Chart"
+            class="mb-4"
+          />
+          <p class="text-lg font-semibold">Total Investment: $250K</p>
+        </div>
+      </div>
+
+      <div x-show="tab === 'credit'" style="display: none">
+        <!-- Credit Score Content -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-xl font-bold mb-4">Credit Score Monitoring</h2>
+          <div class="flex items-center">
+            <span class="text-5xl font-bold mr-4">750</span>
+            <span class="text-green-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </span>
+          </div>
+          <p class="text-lg font-semibold mt-2">Excellent Credit</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Additional JavaScript can be placed here
+    </script>
+  </body>
+</html>
