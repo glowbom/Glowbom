@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Charts App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional CSS can be placed here */
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto py-8">
+      <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">
+        Top Charts
+      </h1>
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <ul>
+          <!-- Dynamically generated list items -->
+          <!-- Placeholder for 20 items -->
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const list = document.querySelector("ul");
+              for (let i = 1; i <= 20; i++) {
+                list.innerHTML += `
+              <li class="flex items-center px-4 py-2 border-b border-gray-200">
+                <div class="flex-shrink-0 w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                  <img src="https://via.placeholder.com/48" alt="App icon" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-grow px-4">
+                  <div class="text-gray-900 font-medium">App Name ${i}</div>
+                  <div class="text-gray-500 text-sm">App Description</div>
+                </div>
+                <div class="text-blue-600">${
+                  i % 2 === 0 ? "OPEN" : "$" + (i + 0.99).toFixed(2)
+                }</div>
+              </li>
+            `;
+              }
+            });
+          </script>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
