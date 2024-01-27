@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional styles can be added here */
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-4">Unit Converter</h1>
+      <div class="mb-4">
+        <input
+          type="number"
+          id="inputValue"
+          placeholder="Enter value"
+          class="border p-2 w-full"
+        />
+      </div>
+      <div class="mb-4 flex justify-between">
+        <select id="fromUnit" class="border p-2 mr-2 flex-1">
+          <option value="meters">Meters</option>
+          <option value="kilometers">Kilometers</option>
+          <option value="grams">Grams</option>
+          <option value="kilograms">Kilograms</option>
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+        </select>
+        <select id="toUnit" class="border p-2 ml-2 flex-1">
+          <option value="meters">Meters</option>
+          <option value="kilometers">Kilometers</option>
+          <option value="grams">Grams</option>
+          <option value="kilograms">Kilograms</option>
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+        </select>
+      </div>
+      <button id="convertBtn" class="bg-blue-500 text-white p-2 w-full rounded">
+        Convert
+      </button>
+      <div id="result" class="mt-4 p-2 text-center text-lg font-semibold"></div>
+    </div>
+
+    <script>
+      // Conversion functions
+      const conversions = {
+        length: {
+          meters: {
+            meters: (value) => value,
+            kilometers: (value) => value / 1000,
+          },
+          kilometers: {
+            meters: (value) => value * 1000,
+            kilometers: (value) => value,
+          },
+        },
+        weight: {
+          grams: {
+            grams: (value) => value,
+            kilograms: (value) => value / 1000,
+          },
+          kilograms: {
+            grams: (value) => value * 1000,
+            kilograms: (value) => value,
+          },
+        },
+        temperature: {
+          celsius: {
+            celsius: (value) => value,
+            fahrenheit: (value) => (value * 9) / 5 + 32,
+          },
+          fahrenheit: {
+            celsius: (value) => ((value - 32) * 5) / 9,
+            fahrenheit: (value) => value,
+          },
+        },
+      };
+
+      // Determine the type of conversion based on the units selected
+      function getConversionType(fromUnit, toUnit) {
+        if (
+          fromUnit === "meters" ||
+          fromUnit === "kilometers" ||
+          toUnit === "meters" ||
+          toUnit === "kilometers"
+        ) {
+          return conversions.length;
+        } else if (
+          fromUnit === "grams" ||
+          fromUnit === "kilograms" ||
+          toUnit === "grams" ||
+          toUnit === "kilograms"
+        ) {
+          return conversions.weight;
+        } else if (
+          fromUnit === "celsius" ||
+          fromUnit === "fahrenheit" ||
+          toUnit === "celsius" ||
+          toUnit === "fahrenheit"
+        ) {
+          return conversions.temperature;
+        }
+      }
+
+      // Convert function
+      function convert() {
+        const inputValue = document.getElementById("inputValue").value;
+        const fromUnit = document.getElementById("fromUnit").value;
+        const toUnit = document.getElementById("toUnit").value;
+        const conversionType = getConversionType(fromUnit, toUnit);
+        const result = conversionType[fromUnit][toUnit](parseFloat(inputValue));
+        document.getElementById(
+          "result"
+        ).textContent = `${inputValue} ${fromUnit} is ${result.toFixed(
+          2
+        )} ${toUnit}`;
+      }
+
+      // Event listener for the convert button
+      document.getElementById("convertBtn").addEventListener("click", convert);
+    </script>
+  </body>
+</html>
