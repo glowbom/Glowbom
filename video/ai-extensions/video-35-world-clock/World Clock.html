@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Clock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import { DateTime } from "https://cdn.skypack.dev/luxon";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const cityList = document.getElementById("cityList");
+        const searchInput = document.getElementById("searchInput");
+        const addButton = document.getElementById("addButton");
+
+        const cities = {
+          Cupertino: { offset: -7 },
+          "New York": { offset: -4 },
+        };
+
+        function updateClocks() {
+          cityList.innerHTML = "";
+          for (const [city, data] of Object.entries(cities)) {
+            const time = DateTime.now()
+              .plus({ hours: data.offset })
+              .toLocaleString(DateTime.TIME_SIMPLE);
+            cityList.innerHTML += `
+          <div class="flex justify-between items-center p-4 border-b border-gray-200">
+            <div>
+              <p class="font-semibold">${city}</p>
+              <p class="text-sm text-gray-500">${data.offset >= 0 ? "+" : ""}${
+              data.offset
+            } hrs</p>
+            </div>
+            <p class="font-mono text-lg">${time}</p>
+          </div>
+        `;
+          }
+        }
+
+        addButton.addEventListener("click", function () {
+          const cityName = searchInput.value.trim();
+          if (cityName && !cities[cityName]) {
+            cities[cityName] = { offset: new Date().getTimezoneOffset() / -60 }; // Placeholder offset
+            updateClocks();
+          }
+          searchInput.value = "";
+        });
+
+        setInterval(updateClocks, 1000);
+        updateClocks();
+      });
+    </script>
+    <style>
+      /* Additional styles can be placed here */
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+      <h1 class="text-3xl font-bold mb-4">World Clock</h1>
+      <div class="flex gap-2 mb-4">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Add city..."
+          class="flex-1 p-2 border border-gray-300 rounded"
+        />
+        <button
+          id="addButton"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add
+        </button>
+      </div>
+      <div id="cityList" class="bg-white rounded shadow">
+        <!-- City times will be injected here -->
+      </div>
+    </div>
+  </body>
+</html>
