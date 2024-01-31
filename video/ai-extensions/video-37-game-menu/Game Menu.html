@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+      }
+      #app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #333;
+      }
+      .menu-item {
+        background-color: #555;
+        border: 2px solid #777;
+        padding: 1rem;
+        margin: 0.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .menu-item:hover {
+        transform: scale(1.05);
+      }
+      .screen {
+        display: none;
+      }
+      .screen.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="menuScreen" class="screen active">
+        <h1 class="text-white text-3xl mb-4">Choose Your Instrument</h1>
+        <div class="menu-item" onclick="changeScreen('gameScreen1')">
+          <p class="text-white">Guitar</p>
+          <p class="text-yellow-300">Score: 0000</p>
+          <p class="text-yellow-300">Complete: 0%</p>
+          <button class="bg-red-500 text-white px-4 py-2 mt-2">Play</button>
+        </div>
+        <div class="menu-item" onclick="changeScreen('gameScreen2')">
+          <p class="text-white">Bass</p>
+          <p class="text-yellow-300">Score: 0000</p>
+          <p class="text-yellow-300">Complete: 0%</p>
+          <button class="bg-red-500 text-white px-4 py-2 mt-2">Play</button>
+        </div>
+        <div class="menu-item" onclick="changeScreen('gameScreen3')">
+          <p class="text-white">Drums</p>
+          <p class="text-yellow-300">Score: 0000</p>
+          <p class="text-yellow-300">Complete: 0%</p>
+          <button class="bg-red-500 text-white px-4 py-2 mt-2">Play</button>
+        </div>
+      </div>
+      <div id="gameScreen1" class="screen">
+        <h1 class="text-white text-3xl mb-4">Guitar Screen</h1>
+        <button
+          class="bg-red-500 text-white px-4 py-2"
+          onclick="changeScreen('menuScreen')"
+        >
+          Back
+        </button>
+      </div>
+      <div id="gameScreen2" class="screen">
+        <h1 class="text-white text-3xl mb-4">Bass Screen</h1>
+        <button
+          class="bg-red-500 text-white px-4 py-2"
+          onclick="changeScreen('menuScreen')"
+        >
+          Back
+        </button>
+      </div>
+      <div id="gameScreen3" class="screen">
+        <h1 class="text-white text-3xl mb-4">Drums Screen</h1>
+        <button
+          class="bg-red-500 text-white px-4 py-2"
+          onclick="changeScreen('menuScreen')"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function changeScreen(screenId) {
+        document.querySelectorAll(".screen").forEach((screen) => {
+          screen.classList.remove("active");
+        });
+        document.getElementById(screenId).classList.add("active");
+      }
+    </script>
+  </body>
+</html>
