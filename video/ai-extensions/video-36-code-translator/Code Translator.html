@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code and Chat App</title>
+    <script type="module">
+      import { ClipboardCopyIcon } from "https://unpkg.com/@heroicons/react/outline";
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function switchTab(tabName) {
+        const tabs = ["jetpack-compose", "swiftui", "flutter", "react"];
+        tabs.forEach((tab) => {
+          document.getElementById(tab).style.display = "none";
+        });
+        document.getElementById(tabName).style.display = "block";
+      }
+
+      function copyToClipboard(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          alert("Code copied to clipboard!");
+        });
+      }
+    </script>
+    <style>
+      /* Additional styles if needed */
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="flex h-screen">
+      <!-- Chat App -->
+      <div class="w-1/2 bg-white p-4">
+        <!-- Chat content will go here -->
+        <div class="mb-4">
+          <p>
+            Create a button with custom text that triggers a function when
+            clicked...
+          </p>
+        </div>
+        <div class="mb-4">
+          <p>There you go!</p>
+        </div>
+        <div class="mt-auto">
+          <input
+            type="text"
+            placeholder="Ask Glowby anything"
+            class="border p-2 w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Code Viewer -->
+      <div class="w-1/2 bg-white p-4">
+        <div class="flex justify-between mb-4">
+          <div>
+            <button
+              onclick="switchTab('jetpack-compose')"
+              class="px-4 py-2 bg-gray-200"
+            >
+              Jetpack Compose
+            </button>
+            <button
+              onclick="switchTab('swiftui')"
+              class="px-4 py-2 bg-gray-200"
+            >
+              SwiftUI
+            </button>
+            <button
+              onclick="switchTab('flutter')"
+              class="px-4 py-2 bg-gray-200"
+            >
+              Flutter
+            </button>
+            <button onclick="switchTab('react')" class="px-4 py-2 bg-gray-200">
+              React
+            </button>
+          </div>
+          <button
+            onclick="copyToClipboard('code-container')"
+            class="px-4 py-2 bg-gray-200 flex items-center"
+          >
+            Copy
+          </button>
+        </div>
+        <div id="code-container">
+          <pre id="jetpack-compose" class="hidden">
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+
+@Composable
+fun MyButton(text: String, onClick: () -> Unit) {
+    Button(onClick = onClick) {
+        Text(text)
+    }
+}
+      </pre
+          >
+          <pre id="swiftui" class="hidden">
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        Button("Click Me") {
+            print("Button was tapped")
+        }
+    }
+}
+      </pre
+          >
+          <pre id="flutter" class="hidden">
+import 'package:flutter/material.dart';
+
+class MyButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+
+  MyButton({required this.text, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Text(text),
+    );
+  }
+}
+      </pre
+          >
+          <pre id="react">
+import React from 'react';
+
+const MyButton = ({ text, onClick }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
+      </pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize the app with Jetpack Compose tab open
+      switchTab("jetpack-compose");
+    </script>
+  </body>
+</html>
