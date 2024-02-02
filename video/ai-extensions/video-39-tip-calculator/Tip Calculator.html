@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional styles if needed */
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+      <h1 class="text-2xl font-bold mb-6 text-center">Tip Calculator</h1>
+      <div class="mb-4">
+        <label
+          for="billAmount"
+          class="block text-gray-700 text-sm font-bold mb-2"
+          >Bill Amount ($)</label
+        >
+        <input
+          type="number"
+          id="billAmount"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Enter bill amount"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          for="splitWith"
+          class="block text-gray-700 text-sm font-bold mb-2"
+          >Split With (People)</label
+        >
+        <input
+          type="number"
+          id="splitWith"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Number of people"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          for="tipPercentage"
+          class="block text-gray-700 text-sm font-bold mb-2"
+          >Tip Percentage (%)</label
+        >
+        <input
+          type="number"
+          id="tipPercentage"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Tip percentage"
+        />
+      </div>
+      <button
+        id="calculateBtn"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+      >
+        Calculate
+      </button>
+      <div id="result" class="mt-6 text-center"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("calculateBtn")
+        .addEventListener("click", function () {
+          const billAmount = parseFloat(
+            document.getElementById("billAmount").value
+          );
+          const splitWith = parseInt(
+            document.getElementById("splitWith").value
+          );
+          const tipPercentage = parseFloat(
+            document.getElementById("tipPercentage").value
+          );
+
+          if (
+            !isNaN(billAmount) &&
+            !isNaN(splitWith) &&
+            !isNaN(tipPercentage)
+          ) {
+            const tipAmount = billAmount * (tipPercentage / 100);
+            const totalAmount = billAmount + tipAmount;
+            const perPerson = totalAmount / splitWith;
+
+            document.getElementById("result").innerHTML = `
+        <p class="text-lg">Total Tip: $${tipAmount.toFixed(2)}</p>
+        <p class="text-lg">Total Bill: $${totalAmount.toFixed(2)}</p>
+        <p class="text-lg">Each Person Owes: $${perPerson.toFixed(2)}</p>
+      `;
+          } else {
+            document.getElementById("result").innerHTML =
+              '<p class="text-red-500">Please fill out all fields correctly.</p>';
+          }
+        });
+    </script>
+  </body>
+</html>
