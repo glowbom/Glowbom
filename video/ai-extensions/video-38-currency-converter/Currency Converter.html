@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      const apiURL = "https://api.exchangerate-api.com/v4/latest/USD";
+
+      async function getRates() {
+        const response = await fetch(apiURL);
+        const rates = await response.json();
+        return rates;
+      }
+
+      async function convertCurrency(amount, fromCurrency, toCurrency, rates) {
+        const fromRate = rates.rates[fromCurrency];
+        const toRate = rates.rates[toCurrency];
+        return ((amount / fromRate) * toRate).toFixed(2);
+      }
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const rates = await getRates();
+        const currencyKeys = Object.keys(rates.rates);
+        const fromSelect = document.getElementById("from-currency");
+        const toSelect = document.getElementById("to-currency");
+
+        currencyKeys.forEach((key) => {
+          fromSelect.add(new Option(key, key));
+          toSelect.add(new Option(key, key));
+        });
+
+        document
+          .getElementById("convert-btn")
+          .addEventListener("click", async () => {
+            const amount = document.getElementById("amount").value;
+            const fromCurrency = fromSelect.value;
+            const toCurrency = toSelect.value;
+            const result = await convertCurrency(
+              amount,
+              fromCurrency,
+              toCurrency,
+              rates
+            );
+            document.getElementById(
+              "result"
+            ).textContent = `${amount} ${fromCurrency} is approximately ${result} ${toCurrency}`;
+          });
+      });
+    </script>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto">
+      <input
+        id="amount"
+        type="number"
+        placeholder="Amount"
+        class="input bg-white mb-4 w-full p-2 border border-gray-300 rounded-md"
+      />
+      <div class="flex gap-2 mb-4">
+        <select
+          id="from-currency"
+          class="select bg-white p-2 border border-gray-300 rounded-md"
+        ></select>
+        <span class="self-center">to</span>
+        <select
+          id="to-currency"
+          class="select bg-white p-2 border border-gray-300 rounded-md"
+        ></select>
+      </div>
+      <button
+        id="convert-btn"
+        class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Convert
+      </button>
+      <div
+        id="result"
+        class="result bg-white mt-4 p-4 border border-gray-300 rounded-md"
+      ></div>
+    </div>
+  </body>
+</html>
