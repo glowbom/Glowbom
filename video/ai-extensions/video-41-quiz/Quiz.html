@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geography Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .correct {
+        background-color: #4ade80;
+      }
+      .wrong {
+        background-color: #f87171;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div id="quiz" class="max-w-lg mx-auto my-10 p-6 bg-white rounded shadow">
+      <div id="question" class="text-lg font-semibold mb-4"></div>
+      <div id="answers" class="space-y-2"></div>
+      <button
+        id="next"
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Next
+      </button>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          question: "What is the capital of France?",
+          options: ["Paris", "London", "Rome", "Madrid"],
+          answer: "Paris",
+        },
+        {
+          question: "Which country is not in Europe?",
+          options: ["Germany", "Egypt", "Spain", "Italy"],
+          answer: "Egypt",
+        },
+        {
+          question: "What is the largest continent?",
+          options: ["Africa", "Asia", "Europe", "Antarctica"],
+          answer: "Asia",
+        },
+        {
+          question: "Which river is the longest?",
+          options: ["Nile", "Amazon", "Yangtze", "Mississippi"],
+          answer: "Nile",
+        },
+        {
+          question: "Mount Everest is located in which range?",
+          options: ["Alps", "Himalayas", "Rockies", "Andes"],
+          answer: "Himalayas",
+        },
+        {
+          question: "What is the smallest country in the world?",
+          options: ["Monaco", "Nauru", "Vatican City", "San Marino"],
+          answer: "Vatican City",
+        },
+        {
+          question: "Which desert is the largest?",
+          options: ["Sahara", "Arabian", "Gobi", "Kalahari"],
+          answer: "Sahara",
+        },
+        {
+          question: "Which of these cities is not in Asia?",
+          options: ["Shanghai", "Moscow", "Tokyo", "Dubai"],
+          answer: "Moscow",
+        },
+        {
+          question: "What is the longest river in the USA?",
+          options: ["Colorado", "Missouri", "Mississippi", "Rio Grande"],
+          answer: "Missouri",
+        },
+        {
+          question: "Which country has the most natural lakes?",
+          options: ["Canada", "USA", "Russia", "Brazil"],
+          answer: "Canada",
+        },
+      ];
+      let currentQuestionIndex = 0;
+
+      function displayQuestion() {
+        const questionObj = questions[currentQuestionIndex];
+        document.getElementById("question").textContent = questionObj.question;
+        const answersHtml = questionObj.options
+          .map((option) => {
+            return `<button class="w-full text-left px-4 py-2 border border-gray-300 rounded hover:bg-gray-50">${option}</button>`;
+          })
+          .join("");
+        document.getElementById("answers").innerHTML = answersHtml;
+      }
+
+      function setupQuiz() {
+        displayQuestion();
+        document
+          .getElementById("answers")
+          .addEventListener("click", function (event) {
+            if (event.target.tagName === "BUTTON") {
+              const selectedAnswer = event.target.textContent;
+              const correctAnswer = questions[currentQuestionIndex].answer;
+              Array.from(document.getElementById("answers").children).forEach(
+                (button) => {
+                  button.disabled = true;
+                  if (button.textContent === correctAnswer) {
+                    button.classList.add("correct");
+                  } else if (button.textContent === selectedAnswer) {
+                    button.classList.add("wrong");
+                  }
+                }
+              );
+            }
+          });
+        document.getElementById("next").addEventListener("click", function () {
+          currentQuestionIndex++;
+          if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+          } else {
+            document.getElementById("quiz").innerHTML =
+              '<div class="text-center text-lg font-semibold">Quiz Completed!</div>';
+          }
+        });
+      }
+
+      setupQuiz();
+    </script>
+  </body>
+</html>
