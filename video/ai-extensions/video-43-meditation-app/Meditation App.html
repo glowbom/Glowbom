@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meditation App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Initialize TailwindCSS
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Additional styles can be placed here */
+      .timer {
+        font-size: 3rem;
+        color: #374151;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-8">
+      <div class="bg-white rounded shadow-lg p-6">
+        <h1 class="text-4xl font-bold mb-4 text-center text-gray-700">
+          Meditation
+        </h1>
+
+        <!-- Meditation Type Selector -->
+        <div class="mb-4">
+          <label
+            for="meditationType"
+            class="block text-gray-700 text-sm font-bold mb-2"
+            >Type</label
+          >
+          <select
+            id="meditationType"
+            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          >
+            <option>Guided Meditation</option>
+            <option>Unguided Meditation</option>
+            <option>Body Scan</option>
+            <option>Breathing Exercise</option>
+          </select>
+        </div>
+
+        <!-- Duration Selector -->
+        <div class="mb-6">
+          <label
+            for="duration"
+            class="block text-gray-700 text-sm font-bold mb-2"
+            >Duration</label
+          >
+          <input
+            type="number"
+            id="duration"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Minutes"
+          />
+        </div>
+
+        <!-- Start Button -->
+        <div class="flex items-center justify-between">
+          <button
+            id="startButton"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+          >
+            Start
+          </button>
+        </div>
+
+        <!-- Timer Display -->
+        <div class="mt-6">
+          <div id="timerDisplay" class="timer text-center hidden"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript for the meditation app functionality
+      document
+        .getElementById("startButton")
+        .addEventListener("click", function () {
+          const meditationType =
+            document.getElementById("meditationType").value;
+          const duration = parseInt(
+            document.getElementById("duration").value,
+            10
+          );
+          const timerDisplay = document.getElementById("timerDisplay");
+
+          if (isNaN(duration) || duration <= 0) {
+            alert("Please enter a valid duration in minutes.");
+            return;
+          }
+
+          let timeRemaining = duration * 60;
+          timerDisplay.classList.remove("hidden");
+          timerDisplay.textContent = formatTime(timeRemaining);
+
+          const intervalId = setInterval(() => {
+            timeRemaining--;
+            timerDisplay.textContent = formatTime(timeRemaining);
+
+            if (timeRemaining <= 0) {
+              clearInterval(intervalId);
+              timerDisplay.textContent = "Time's up!";
+              // Play a sound or do something to indicate the end of the session
+            }
+          }, 1000);
+        });
+
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${
+          remainingSeconds < 10 ? "0" : ""
+        }${remainingSeconds}`;
+      }
+    </script>
+  </body>
+</html>
