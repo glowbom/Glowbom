@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Police Creed Pomodoro Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional styles can be added here if needed */
+    </style>
+  </head>
+  <body
+    class="bg-blue-800 text-white font-sans flex items-center justify-center min-h-screen"
+  >
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold mb-8">Police Creed Pomodoro Timer</h1>
+      <div id="timer" class="text-6xl font-mono mb-4">25:00</div>
+      <div class="space-x-2">
+        <button
+          id="start"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Start
+        </button>
+        <button
+          id="stop"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Stop
+        </button>
+        <button
+          id="reset"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let timerDisplay = document.getElementById("timer");
+      let startButton = document.getElementById("start");
+      let stopButton = document.getElementById("stop");
+      let resetButton = document.getElementById("reset");
+
+      let pomodoroTimer;
+      let isRunning = false;
+      let timeLeft = 25 * 60; // 25 minutes
+
+      function updateDisplay() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      }
+
+      function startTimer() {
+        if (!isRunning) {
+          isRunning = true;
+          pomodoroTimer = setInterval(() => {
+            timeLeft--;
+            updateDisplay();
+            if (timeLeft <= 0) {
+              clearInterval(pomodoroTimer);
+              alert("Time is up!");
+              resetTimer();
+            }
+          }, 1000);
+        }
+      }
+
+      function stopTimer() {
+        if (isRunning) {
+          clearInterval(pomodoroTimer);
+          isRunning = false;
+        }
+      }
+
+      function resetTimer() {
+        stopTimer();
+        timeLeft = 25 * 60;
+        updateDisplay();
+      }
+
+      startButton.addEventListener("click", startTimer);
+      stopButton.addEventListener("click", stopTimer);
+      resetButton.addEventListener("click", resetTimer);
+
+      // Initialize display
+      updateDisplay();
+    </script>
+  </body>
+</html>
