@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>San Francisco Tour Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            // Extend the theme to include custom colors, fonts, etc.
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="bg-blue-600 text-white p-6">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-bold">San Francisco Tour Guide</h1>
+        <nav>
+          <ul class="flex space-x-4">
+            <li><a href="#" class="hover:text-blue-200">Home</a></li>
+            <li><a href="#" class="hover:text-blue-200">Tours</a></li>
+            <li><a href="#" class="hover:text-blue-200">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Column 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <img
+            src="https://source.unsplash.com/random/?sanfrancisco,landmarks&client_id=YOUR_UNSPLASH_ACCESS_KEY"
+            alt="San Francisco Landmark"
+            class="rounded w-full mb-4"
+          />
+          <h2 class="text-2xl font-bold mb-2">Famous Landmarks</h2>
+          <p>
+            Explore the iconic landmarks that define the San Francisco skyline,
+            including the Golden Gate Bridge, Alcatraz Island, and more.
+          </p>
+        </div>
+        <!-- Column 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <img
+            src="https://source.unsplash.com/random/?sanfrancisco,culture&client_id=YOUR_UNSPLASH_ACCESS_KEY"
+            alt="San Francisco Culture"
+            class="rounded w-full mb-4"
+          />
+          <h2 class="text-2xl font-bold mb-2">Cultural Experiences</h2>
+          <p>
+            Immerse yourself in the diverse cultural experiences San Francisco
+            has to offer, from Chinatown to the vibrant arts scene.
+          </p>
+        </div>
+        <!-- Column 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <img
+            src="https://source.unsplash.com/random/?sanfrancisco,food&client_id=YOUR_UNSPLASH_ACCESS_KEY"
+            alt="San Francisco Food"
+            class="rounded w-full mb-4"
+          />
+          <h2 class="text-2xl font-bold mb-2">Gastronomy Tours</h2>
+          <p>
+            Savor the flavors of San Francisco's world-renowned culinary scene,
+            with tours of local eateries, food markets, and wineries.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-blue-600 text-white p-6 mt-8">
+      <div class="container mx-auto text-center">
+        &copy; 2023 San Francisco Tour Guide. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
