@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Story in San Francisco</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Function to change the story item
+        function changeStory(newImage, newText, newActions) {
+            // Update the image
+            document.getElementById('story-image').src = newImage;
+
+            // Update the text
+            document.getElementById('story-text').textContent = newText;
+
+            // Update the actions
+            const actionsContainer = document.getElementById('story-actions');
+            actionsContainer.innerHTML = ''; // Clear current actions
+            newActions.forEach(action => {
+                const button = document.createElement('button');
+                button.textContent = action.text;
+                button.className = 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2';
+                button.onclick = function() { changeStory(action.image, action.text, action.actions); };
+                actionsContainer.appendChild(button);
+            });
+        }
+    </script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="max-w-lg mx-auto p-8 bg-white shadow-lg rounded-lg">
+        <img id="story-image" src="https://source.unsplash.com/featured/?sanfrancisco,startup" alt="Startup Life" class="w-full h-64 object-cover rounded-t-lg">
+        <div class="p-4">
+            <p id="story-text" class="text-gray-800 text-lg">
+                Welcome to the startup life in San Francisco! The city buzzes with innovation and opportunity.
+            </p>
+            <div id="story-actions" class="flex justify-center mt-4">
+                <!-- Example action buttons -->
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">
+                    Explore the city
+                </button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">
+                    Visit a startup
+                </button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">
+                    Network with founders
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
