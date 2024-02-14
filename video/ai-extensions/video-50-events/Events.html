@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-6">Event Planner</h1>
+
+        <div class="mb-4">
+            <label for="event-name" class="block text-lg font-medium text-gray-700">Event Name</label>
+            <input type="text" id="event-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter event name">
+        </div>
+
+        <div class="mb-4">
+            <label for="event-date" class="block text-lg font-medium text-gray-700">Event Date</label>
+            <input type="date" id="event-date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        </div>
+
+        <div class="mb-4">
+            <label for="guest-list" class="block text-lg font-medium text-gray-700">Guest List</label>
+            <textarea id="guest-list" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="5" placeholder="Enter guest names"></textarea>
+        </div>
+
+        <div class="mb-4">
+            <label for="budget" class="block text-lg font-medium text-gray-700">Budget</label>
+            <input type="number" id="budget" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter budget amount">
+        </div>
+
+        <div class="flex justify-center">
+            <button class="px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Save Event
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Here you can add your JavaScript to make the app functional
+    </script>
+</body>
+</html>
