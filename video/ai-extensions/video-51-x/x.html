@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+      <div class="bg-white rounded-lg shadow-lg">
+        <!-- Profile Header -->
+        <div class="relative">
+          <!-- Cover Image -->
+          <img
+            src="https://source.unsplash.com/random/1000x400?landscape"
+            alt="Cover"
+            class="w-full h-48 object-cover rounded-t-lg"
+          />
+          <!-- Profile Image -->
+          <img
+            src="https://source.unsplash.com/random/100x100?person"
+            alt="Profile"
+            class="rounded-full border-4 border-white absolute -bottom-12 left-4 w-24 h-24"
+          />
+        </div>
+        <div class="pt-16 pb-4 px-4">
+          <!-- Profile Name and Verified Badge -->
+          <div class="flex items-center">
+            <h1 class="text-2xl font-bold">Jacob Illin</h1>
+            <span
+              class="bg-blue-500 text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ml-3"
+              >Verified</span
+            >
+          </div>
+          <!-- Profile Bio -->
+          <p class="text-sm text-gray-600 mt-2">
+            Founder, CEO @glowbomcorp. Formerly @everlance. Built 50+ apps with
+            millions of downloads as an indie dev. Ran 3 full marathons.
+          </p>
+          <!-- Profile Details -->
+          <div class="flex items-center text-sm text-gray-600 mt-4">
+            <span class="mr-4"
+              ><i class="fas fa-user-tie"></i> Entrepreneur</span
+            >
+            <span class="mr-4"
+              ><i class="fas fa-map-marker-alt"></i> San Francisco, CA</span
+            >
+            <span
+              ><i class="fas fa-link"></i>
+              <a href="https://glowbom.com" class="text-blue-500"
+                >glowbom.com</a
+              ></span
+            >
+          </div>
+          <!-- Profile Stats -->
+          <div
+            class="flex justify-start items-center text-sm text-gray-600 mt-4"
+          >
+            <span class="mr-4">128 Following</span>
+            <span>456 Followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
