@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const timerDisplay = document.getElementById("timer");
+        const startButton = document.getElementById("startButton");
+        let timer = null;
+        let seconds = 33;
+
+        function updateTimerDisplay() {
+          timerDisplay.textContent = seconds.toString().padStart(2, "0");
+        }
+
+        function toggleTimer() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+            startButton.textContent = "START";
+          } else {
+            startButton.textContent = "STOP";
+            timer = setInterval(function () {
+              seconds--;
+              updateTimerDisplay();
+              if (seconds <= 0) {
+                clearInterval(timer);
+                alert("Time is up!");
+                seconds = 33;
+                startButton.textContent = "START";
+              }
+            }, 1000);
+          }
+        }
+
+        startButton.addEventListener("click", toggleTimer);
+        updateTimerDisplay();
+      });
+    </script>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+      <h1 class="text-2xl font-bold mb-4">Exercise List</h1>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Bench Press</li>
+        <li>Squats</li>
+        <li>Deadlift</li>
+        <li>Overhead Press</li>
+        <li>Barbell Row</li>
+        <li>Push Ups</li>
+        <li>Pull Ups</li>
+        <li>Leg Press</li>
+        <li>Bicep Curls</li>
+        <li>Tricep Dips</li>
+      </ul>
+      <div class="flex items-center justify-between mb-4">
+        <span id="timer" class="text-3xl font-bold">00</span>
+        <button
+          id="startButton"
+          class="bg-yellow-400 text-white px-4 py-2 rounded hover:bg-yellow-500 transition duration-300"
+        >
+          START
+        </button>
+      </div>
+      <div class="h-2 bg-gray-300 rounded-full">
+        <div
+          id="progress"
+          class="h-2 bg-green-400 rounded-full"
+          style="width: 0%"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>
