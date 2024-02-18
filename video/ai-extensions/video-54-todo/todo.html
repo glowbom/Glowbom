@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple To-Do App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Initialize TailwindCSS
+      tailwind.config = {
+        theme: {
+          extend: {
+            // Customizations go here
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="bg-white p-6 rounded shadow-md w-full max-w-sm">
+      <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
+      <div class="mb-4">
+        <input
+          type="text"
+          id="new-task"
+          placeholder="Add a new task"
+          class="border p-2 w-full"
+        />
+        <button
+          onclick="addTask()"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 w-full"
+        >
+          Add Task
+        </button>
+      </div>
+      <ul id="task-list" class="list-disc list-inside">
+        <!-- Tasks will be added here -->
+      </ul>
+    </div>
+
+    <script>
+      function addTask() {
+        const taskList = document.getElementById("task-list");
+        const newTaskInput = document.getElementById("new-task");
+        const taskText = newTaskInput.value.trim();
+
+        if (taskText !== "") {
+          const listItem = document.createElement("li");
+          listItem.innerHTML = `
+                    <input type="checkbox" class="mr-2">
+                    <span>${taskText}</span>
+                    <button onclick="removeTask(this)" class="text-red-500 hover:text-red-700 ml-2">&times;</button>
+                `;
+          taskList.appendChild(listItem);
+          newTaskInput.value = "";
+        }
+      }
+
+      function removeTask(button) {
+        const taskItem = button.parentElement;
+        taskItem.remove();
+      }
+    </script>
+  </body>
+</html>
