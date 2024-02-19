@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Order to Stay Focused</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-800">
+    <div class="container mx-auto px-4 py-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold mb-4">Stay Focused</h1>
+        <p class="text-xl mb-8">Order a coffee to help maintain your focus!</p>
+        <!-- Unsplash Image Placeholder -->
+        <div class="mb-8">
+          <img
+            src="https://source.unsplash.com/featured/?coffee"
+            alt="Featured Coffee"
+            class="rounded shadow-lg mx-auto"
+            style="max-width: 400px"
+          />
+        </div>
+        <!-- Order Button -->
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+        >
+          Order Coffee
+        </button>
+      </div>
+    </div>
+
+    <!-- Add your JavaScript here for the order functionality -->
+    <script>
+      // Example JavaScript for handling the order button click
+      document.querySelector("button").addEventListener("click", function () {
+        alert("Thank you for your order!");
+        // Implement actual order logic here
+      });
+    </script>
+  </body>
+</html>
