@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery with AirDrop Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Additional styles can go here */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<!-- Photo Gallery -->
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Replace with your own image URLs -->
+        <img src="https://source.unsplash.com/random/400x300" alt="Random Unsplash Image" class="rounded shadow-lg">
+        <img src="https://source.unsplash.com/random/400x300" alt="Random Unsplash Image" class="rounded shadow-lg">
+        <img src="https://source.unsplash.com/random/400x300" alt="Random Unsplash Image" class="rounded shadow-lg">
+        <!-- Add more images as needed -->
+    </div>
+</div>
+
+<!-- AirDrop Modal -->
+<div id="airdropModal" class="modal">
+    <div class="modal-content rounded-lg shadow-lg">
+        <div class="flex justify-between items-center border-b p-3">
+            <span class="text-lg font-bold">AirDrop a Copy</span>
+            <button onclick="document.getElementById('airdropModal').style.display='none'" class="text-black">&times;</button>
+        </div>
+        <div class="p-3">
+            <p>Devices</p>
+            <div class="flex items-center justify-between p-2">
+                <div class="flex items-center">
+                    <img src="https://source.unsplash.com/random/50x50" alt="iPhone" class="rounded-full">
+                    <span class="ml-2">iPhone 13 Pro</span>
+                </div>
+                <span>Waiting...</span>
+            </div>
+            <div class="flex items-center justify-between p-2">
+                <div class="flex items-center">
+                    <img src="https://source.unsplash.com/random/50x50" alt="Mac mini" class="rounded-full">
+                    <span class="ml-2">Jacob's Mac mini</span>
+                </div>
+                <span>Waiting...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simple script to show the modal
+    window.onload = function() {
+        document.getElementById('airdropModal').style.display = 'block';
+    };
+</script>
+
+</body>
+</html>
+
