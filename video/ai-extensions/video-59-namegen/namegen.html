@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name Generator App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Function to fetch images from Unsplash and update the background
+      async function updateBackground() {
+        const response = await fetch(
+          "https://api.unsplash.com/photos/random?client_id=YOUR_UNSPLASH_ACCESS_KEY&query=inspiration"
+        );
+        const data = await response.json();
+        document.getElementById(
+          "app"
+        ).style.backgroundImage = `url(${data.urls.regular})`;
+      }
+
+      // Function to generate names (placeholder function)
+      function generateNames() {
+        const ideas = [
+          "Innova",
+          "Creativio",
+          "IdeaStorm",
+          "Conceptualize",
+          "Brainwave",
+        ];
+        const displayArea = document.getElementById("nameList");
+        displayArea.innerHTML = ideas
+          .map((name) => `<li class="text-sm text-gray-700">${name}</li>`)
+          .join("");
+      }
+
+      // Call updateBackground on page load
+      document.addEventListener("DOMContentLoaded", updateBackground);
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div
+      id="app"
+      class="min-h-screen bg-center bg-cover flex items-center justify-center p-4"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-4">Name Generator App</h1>
+        <input
+          type="text"
+          id="ideaInput"
+          placeholder="Enter idea"
+          class="border-2 border-gray-300 p-2 rounded w-full mb-4"
+        />
+        <button
+          onclick="generateNames()"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full mb-4"
+        >
+          Generate
+        </button>
+        <ul id="nameList" class="list-disc pl-5">
+          <!-- Generated names will appear here -->
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
