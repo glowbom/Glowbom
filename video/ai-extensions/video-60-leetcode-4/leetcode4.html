@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Median of Two Sorted Arrays</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // JavaScript function to calculate the median of two sorted arrays
+      function findMedianSortedArrays(nums1, nums2) {
+        const merged = [...nums1, ...nums2].sort((a, b) => a - b);
+        const mid = Math.floor(merged.length / 2);
+        return merged.length % 2 !== 0
+          ? merged[mid]
+          : (merged[mid - 1] + merged[mid]) / 2;
+      }
+
+      // Function to handle form submission
+      function handleSubmit(event) {
+        event.preventDefault();
+        const nums1 = document
+          .getElementById("nums1")
+          .value.split(",")
+          .map(Number);
+        const nums2 = document
+          .getElementById("nums2")
+          .value.split(",")
+          .map(Number);
+        const median = findMedianSortedArrays(nums1, nums2);
+        document.getElementById("result").textContent = `Median: ${median}`;
+      }
+    </script>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="container mx-auto p-4 bg-white shadow rounded">
+      <h1 class="text-xl font-bold mb-4">Median of Two Sorted Arrays</h1>
+      <form id="medianForm" onsubmit="handleSubmit(event)" class="mb-4">
+        <div class="mb-2">
+          <label for="nums1" class="block text-sm font-medium text-gray-700"
+            >Array 1:</label
+          >
+          <input
+            type="text"
+            id="nums1"
+            name="nums1"
+            required
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            placeholder="e.g., 1,3"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="nums2" class="block text-sm font-medium text-gray-700"
+            >Array 2:</label
+          >
+          <input
+            type="text"
+            id="nums2"
+            name="nums2"
+            required
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            placeholder="e.g., 2"
+          />
+        </div>
+        <button
+          type="submit"
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        >
+          Calculate Median
+        </button>
+      </form>
+      <div id="result" class="text-lg font-semibold"></div>
+    </div>
+  </body>
+</html>
