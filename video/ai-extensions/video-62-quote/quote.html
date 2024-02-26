@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Quote App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional styles if needed */
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-lg">
+      <div class="mb-4">
+        <!-- Image from Unsplash -->
+        <img
+          id="quoteImage"
+          class="w-full h-64 object-cover rounded-lg"
+          src="https://source.unsplash.com/random/800x600"
+          alt="Random Unsplash Image"
+        />
+      </div>
+      <div class="mb-4">
+        <!-- Quote text -->
+        <p id="quoteText" class="text-lg text-gray-800">"Your quote here"</p>
+      </div>
+      <div class="mb-4">
+        <!-- Author's name -->
+        <p id="quoteAuthor" class="text-md text-gray-600">- Author's name</p>
+      </div>
+      <div class="flex justify-center">
+        <!-- Next button -->
+        <button
+          id="nextQuote"
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+        >
+          NEXT
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Array of quotes
+      const quotes = [
+        {
+          text: "Be yourself; everyone else is already taken.",
+          author: "Oscar Wilde",
+        },
+        {
+          text: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+          author: "Albert Einstein",
+        },
+        { text: "So many books, so little time.", author: "Frank Zappa" },
+        // Add more quotes as needed
+      ];
+
+      // Function to get a random quote
+      function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+      }
+
+      // Function to display a quote
+      function displayQuote() {
+        const quote = getRandomQuote();
+        document.getElementById("quoteText").textContent = `"${quote.text}"`;
+        document.getElementById(
+          "quoteAuthor"
+        ).textContent = `- ${quote.author}`;
+      }
+
+      // Event listener for the NEXT button
+      document
+        .getElementById("nextQuote")
+        .addEventListener("click", displayQuote);
+
+      // Display a random quote on initial load
+      displayQuote();
+    </script>
+  </body>
+</html>
