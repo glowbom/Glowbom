@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Longest Palindromic Substring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Additional styles if needed */
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+      <div
+        class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+      >
+        <div class="md:flex">
+          <div class="md:flex-shrink-0">
+            <img
+              class="h-48 w-full object-cover md:w-48"
+              src="https://source.unsplash.com/featured/?abstract,pattern"
+              alt="Unsplash Image"
+            />
+          </div>
+          <div class="p-8">
+            <div
+              class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+            >
+              Problem
+            </div>
+            <a
+              href="#"
+              class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+              >Longest Palindromic Substring</a
+            >
+            <p class="mt-2 text-gray-500">
+              Given a string s, return the longest palindromic substring in s.
+            </p>
+            <input
+              type="text"
+              id="userInput"
+              class="mt-4 p-2 border rounded"
+              placeholder="Enter a string"
+            />
+            <button
+              onclick="findLongestPalindrome()"
+              class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Find Palindrome
+            </button>
+            <p class="mt-4">
+              Result: <span id="result" class="font-bold"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function isPalindrome(str) {
+        return str === str.split("").reverse().join("");
+      }
+
+      function findLongestPalindrome() {
+        let s = document.getElementById("userInput").value;
+        let longest = "";
+
+        for (let i = 0; i < s.length; i++) {
+          for (let j = i + 1; j <= s.length; j++) {
+            let substr = s.slice(i, j);
+            if (isPalindrome(substr) && substr.length > longest.length) {
+              longest = substr;
+            }
+          }
+        }
+
+        document.getElementById("result").textContent = longest;
+      }
+    </script>
+  </body>
+</html>
