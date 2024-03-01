@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* You can add custom styles here if needed */
+    </style>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+      <h1 class="text-4xl font-bold mb-6">My Habits</h1>
+      <ul id="habitList" class="space-y-4">
+        <!-- Habit items will be added here by JavaScript -->
+      </ul>
+    </div>
+
+    <script>
+      // Array of habits with their respective Unsplash image URLs
+      const habits = [
+        {
+          name: "Running",
+          imageUrl: "https://source.unsplash.com/featured/?running",
+        },
+        { name: "Gym", imageUrl: "https://source.unsplash.com/featured/?gym" },
+        {
+          name: "Coding",
+          imageUrl: "https://source.unsplash.com/featured/?coding",
+        },
+        {
+          name: "Reading",
+          imageUrl: "https://source.unsplash.com/featured/?reading",
+        },
+        {
+          name: "Meditation",
+          imageUrl: "https://source.unsplash.com/featured/?meditation",
+        },
+        // Add more habits here
+      ];
+
+      // Function to initialize the habit list
+      function initHabitList() {
+        const habitList = document.getElementById("habitList");
+        habits.forEach((habit) => {
+          const listItem = document.createElement("li");
+          listItem.className =
+            "flex items-center p-4 bg-white rounded-lg shadow";
+          listItem.innerHTML = `
+                    <img class="w-16 h-16 rounded mr-4" src="${habit.imageUrl}" alt="${habit.name}">
+                    <span class="flex-1">${habit.name}</span>
+                    <input type="checkbox" class="form-checkbox h-5 w-5">
+                `;
+          habitList.appendChild(listItem);
+        });
+      }
+
+      // Call the function to initialize the habit list
+      initHabitList();
+    </script>
+  </body>
+</html>
