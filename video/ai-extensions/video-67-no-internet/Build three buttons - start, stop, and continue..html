@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Buttons</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional custom styles if needed */
+</style>
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+  <div class="space-x-4">
+    <button id="startButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onclick="startAction()">Start</button>
+    <button id="stopButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="stopAction()">Stop</button>
+    <button id="continueButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="continueAction()">Continue</button>
+  </div>
+
+<script>
+  function startAction() {
+    console.log('Start button clicked');
+    // Implement start action
+  }
+
+  function stopAction() {
+    console.log('Stop button clicked');
+    // Implement stop action
+  }
+
+  function continueAction() {
+    console.log('Continue button clicked');
+    // Implement continue action
+  }
+</script>
+</body>
+</html>
