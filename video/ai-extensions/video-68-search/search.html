@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Hosting App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("search");
+        const videoTitles = document.querySelectorAll(".video-title");
+
+        searchInput.addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          videoTitles.forEach((title) => {
+            const videoCard = title.closest(".video-card");
+            if (title.textContent.toLowerCase().includes(searchTerm)) {
+              videoCard.style.display = "";
+            } else {
+              videoCard.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-center my-10">
+        <div class="relative w-full max-w-xl">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search"
+            class="w-full h-10 pl-8 pr-3 rounded-full focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+          />
+          <div class="absolute top-0 left-0 inline-flex items-center p-2">
+            <svg
+              class="h-6 w-6 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 10l4 4m0 0l4-4m-4 4V3"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
+        <!-- Video Cards -->
+        <div class="video-card">
+          <img
+            src="https://source.unsplash.com/random/300x169"
+            alt="Video Thumbnail"
+            class="rounded-lg"
+          />
+          <h3 class="video-title mt-2 text-gray-900 font-semibold">
+            Video Title 1
+          </h3>
+        </div>
+        <div class="video-card">
+          <img
+            src="https://source.unsplash.com/random/300x169?sig=1"
+            alt="Video Thumbnail"
+            class="rounded-lg"
+          />
+          <h3 class="video-title mt-2 text-gray-900 font-semibold">
+            Video Title 2
+          </h3>
+        </div>
+        <div class="video-card">
+          <img
+            src="https://source.unsplash.com/random/300x169?sig=2"
+            alt="Video Thumbnail"
+            class="rounded-lg"
+          />
+          <h3 class="video-title mt-2 text-gray-900 font-semibold">
+            Video Title 3
+          </h3>
+        </div>
+        <div class="video-card">
+          <img
+            src="https://source.unsplash.com/random/300x169?sig=3"
+            alt="Video Thumbnail"
+            class="rounded-lg"
+          />
+          <h3 class="video-title mt-2 text-gray-900 font-semibold">
+            Video Title 4
+          </h3>
+        </div>
+        <!-- More video cards... -->
+      </div>
+    </div>
+  </body>
+</html>
