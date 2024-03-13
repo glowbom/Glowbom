@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Additional CSS can be placed here */
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <div class="container mx-auto p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Light Control -->
+            <div class="bg-white rounded-lg shadow p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Light Control</h3>
+                    <div id="light-status" class="text-sm text-gray-500">Off</div>
+                </div>
+                <button id="light-toggle" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Toggle Light
+                </button>
+            </div>
+
+            <!-- Temperature Control -->
+            <div class="bg-white rounded-lg shadow p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Temperature</h3>
+                    <div id="temperature" class="text-lg">70°F</div>
+                </div>
+                <input type="range" id="temp-slider" min="60" max="80" value="70" class="w-full" />
+            </div>
+
+            <!-- Security Camera -->
+            <div class="bg-white rounded-lg shadow p-5">
+                <h3 class="text-lg font-semibold mb-4">Security Camera</h3>
+                <img src="https://source.unsplash.com/featured/?security,camera" alt="Security Camera" class="w-full h-48 object-cover rounded-lg">
+            </div>
+
+            <!-- Home/Away Toggle -->
+            <div class="md:col-span-3 bg-white rounded-lg shadow p-5">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold">Home/Away</h3>
+                    <div id="home-away-status" class="text-sm text-gray-500">Home</div>
+                </div>
+                <button id="home-away-toggle" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
+                    Toggle Status
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for interactive features
+        document.addEventListener('DOMContentLoaded', function () {
+            const lightToggle = document.getElementById('light-toggle');
+            const lightStatus = document.getElementById('light-status');
+            const tempSlider = document.getElementById('temp-slider');
+            const temperature = document.getElementById('temperature');
+            const homeAwayToggle = document.getElementById('home-away-toggle');
+            const homeAwayStatus = document.getElementById('home-away-status');
+
+            lightToggle.addEventListener('click', function () {
+                if (lightStatus.textContent === 'Off') {
+                    lightStatus.textContent = 'On';
+                    lightToggle.classList.replace('bg-blue-500', 'bg-yellow-500');
+                    lightToggle.classList.replace('hover:bg-blue-700', 'hover:bg-yellow-700');
+                } else {
+                    lightStatus.textContent = 'Off';
+                    lightToggle.classList.replace('bg-yellow-500', 'bg-blue-500');
+                    lightToggle.classList.replace('hover:bg-yellow-700', 'hover:bg-blue-700');
+                }
+            });
+
+            tempSlider.addEventListener('input', function () {
+                temperature.textContent = `${tempSlider.value}°F`;
+            });
+
+            homeAwayToggle.addEventListener('click', function () {
+                if (homeAwayStatus.textContent === 'Home') {
+                    homeAwayStatus.textContent = 'Away';
+                    homeAwayToggle.classList.replace('bg-green-500', 'bg-red-500');
+                    homeAwayToggle.classList.replace('hover:bg-green-700', 'hover:bg-red-700');
+                } else {
+                    homeAwayStatus.textContent = 'Home';
+                    homeAwayToggle.classList.replace('bg-red-500', 'bg-green-500');
+                    homeAwayToggle.classList.replace('hover:bg-red-700', 'hover:bg-green-700');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
