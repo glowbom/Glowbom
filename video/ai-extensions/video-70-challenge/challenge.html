@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Challenge App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Additional styles can be added here */
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="text-center">
+        <img id="challenge-image" class="mx-auto mb-4 rounded-lg" src="https://source.unsplash.com/random/600x400" alt="Daily Challenge">
+        <div id="challenge-text" class="text-lg font-semibold mb-6 p-4 bg-white rounded shadow-lg">
+            Click the button to see today's challenge!
+        </div>
+        <button id="new-challenge" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Challenge
+        </button>
+    </div>
+
+    <script type="module">
+        const challenges = [
+            "Write a letter to your future self.",
+            "Take a walk and photograph something interesting.",
+            "Learn to cook a new recipe.",
+            "Read a chapter of a book you've been putting off.",
+            "Do a random act of kindness.",
+            "Practice meditation for 10 minutes.",
+            "Declutter your workspace."
+        ];
+
+        function getRandomChallenge() {
+            return challenges[Math.floor(Math.random() * challenges.length)];
+        }
+
+        document.getElementById('new-challenge').addEventListener('click', () => {
+            const challengeText = document.getElementById('challenge-text');
+            challengeText.textContent = getRandomChallenge();
+            // Update the image with a new random image from Unsplash
+            document.getElementById('challenge-image').src = `https://source.unsplash.com/random/600x400?sig=${Math.random()}`;
+        });
+    </script>
+</body>
+</html>
