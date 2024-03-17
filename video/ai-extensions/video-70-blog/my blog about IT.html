@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Additional CSS can be placed here */
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
+        <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
+            <div class="w-1/2 pl-2 md:pl-0">
+                <a class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
+                    IT Blog
+                </a>
+            </div>
+            <div class="w-1/2 pr-0">
+                <div class="flex relative inline-block float-right">
+                    <div class="relative text-sm">
+                        <button id="userButton" class="flex items-center focus:outline-none mr-3">
+                            <span class="hidden md:inline-block">Hi, User</span>
+                            <svg class="pl-2 h-2" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                                <g>
+                                    <path d="m121.3,34.6c-1.6-1.6-4.1-1.6-5.7,0l-46.9,46.9-46.9-46.9c-1.6-1.6-4.1-1.6-5.7,0-1.6,1.6-1.6,4.1 0,5.7l51,51c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2l51-51c1.6-1.6 1.6-4.1 0-5.7z"/>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container w-full mx-auto pt-20">
+        <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+            <!--Console Content-->
+
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+                    <!--Metric Card-->
+                    <div class="bg-white border rounded shadow p-2">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded p-3 bg-green-600"><img src="https://source.unsplash.com/random/100x100?sig=tech" alt="Technology"></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-500">Technology</h5>
+                                <h3 class="font-bold text-3xl">24 Posts <span class="text-green-500"><i class="fas fa-caret-up"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+                    <!--Metric Card-->
+                    <div class="bg-white border rounded shadow p-2">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded p-3 bg-pink-600"><img src="https://source.unsplash.com/random/100x100?sig=programming" alt="Programming"></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-500">Programming</h5>
+                                <h3 class="font-bold text-3xl">12 Posts <span class="text-pink-500"><i class="fas fa-exchange-alt"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+                    <!--Metric Card-->
+                    <div class="bg-white border rounded shadow p-2">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded p-3 bg-yellow-600"><img src="https://source.unsplash.com/random/100x100?sig=innovation" alt="Innovation"></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-500">Innovation</h5>
+                                <h3 class="font-bold text-3xl">8 Posts <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+            </div>
+
+            <!--Divider-->
+            <hr class="border-b-2 border-gray-400 my-8 mx-4">
+
+            <div class="flex flex-row flex-wrap flex-grow mt-2">
+
+                <div class="w-full md:w-1/2 p-3">
+                    <!--Graph Card-->
+                    <div class="bg-white border rounded shadow">
+                        <div class="border-b p-3">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5">
+                            <img src="https://source.unsplash.com/random/400x200?sig=graph" alt="Graph related to IT">
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+
+                <div class="w-full md:w-1/2 p-3">
+                    <!--Graph Card-->
+                    <div class="bg-white border rounded shadow">
+                        <div class="border-b p-3">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5">
+                            <img src="https://source.unsplash.com/random/400x200?sig=chart" alt="Chart related to IT">
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-400 shadow">
+        <div class="container max-w-md mx-auto flex py-8">
+
+            <div class="w-full mx-auto flex flex-wrap">
+                <div class="flex w-full md:w-1/2 ">
+                    <div class="px-8">
+                        <h3 class="font-bold text-gray-900">About</h3>
+                        <p class="py-4 text-gray-600 text-sm">
+                            IT Blog is a place where you can find the latest news and articles on technology, programming, and innovation.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex w-full md:w-1/2">
+                    <div class="px-8">
+                        <h3 class="font-bold text-gray-900">Social</h3>
+                        <ul class="list-reset items-center text-sm pt-3">
+                            <li>
+                                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social link</a>
+                            </li>
+                            <li>
+                                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social link</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder for any additional JavaScript
+    </script>
+</body>
+</html>
