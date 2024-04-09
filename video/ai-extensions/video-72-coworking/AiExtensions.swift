@@ -1,59 +1,69 @@
-
 import SwiftUI
 
 struct GlowbyScreen: View {
-    // This is a designated area where the OpenAI model can add or modify code.
-    // To enable the screen, set this value to true
-    // If it is false, the screen won't be visible in the app
     static let enabled = true
-
-    // Change the title according to the assigned task
-    // This will be the name of the screen in the app
     static let title = "Best Working Spaces in San Francisco"
 
-    // Replace this with the generated SwiftUI view
-    // Ensure the generated content shows up in the center of the screen
-    // within a frame with a maximum width of 360.0.
+    // Unsplash URLs for images
+    let imageUrls = [
+        URL(string: "https://source.unsplash.com/featured/?office,sanfrancisco"),
+        URL(string: "https://source.unsplash.com/featured/?workspace,sanfrancisco"),
+        URL(string: "https://source.unsplash.com/featured/?coworking,sanfrancisco")
+    ]
+
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack {
                 Text("SF's Best Working Spaces")
-                    .font(.title2)
-                    .fontWeight(.semibold)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.black)
-                    .cornerRadius(8)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.gray.opacity(0.8))
                 
                 Text("Explore Top Working Spaces")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .padding(.vertical)
-                
-                ForEach(1...3, id: \.self) { index in
-                    VStack(alignment: .leading) {
-                        Image("workspace\(index)")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
-                            .clipped()
-                            .cornerRadius(8)
-                        
-                        Text("Space \(index)")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.vertical, 2)
-                        
-                        Text("Description for Space \(index)")
-                            .foregroundColor(.secondary)
-                            .padding(.bottom, 4)
-                    }
+                    .foregroundColor(.gray)
+                    .padding()
+                    .frame(maxWidth: .infinity)
                     .background(Color.white)
-                    .cornerRadius(8)
-                    .shadow(radius: 4)
-                    .padding(.horizontal)
-                    .padding(.bottom, 4)
+                
+                ForEach(imageUrls.indices, id: \.self) { index in
+                    if let url = imageUrls[index] {
+                        VStack(alignment: .leading) {
+                            AsyncImage(url: url) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                case .success(let image):
+                                    image.resizable()
+                                         .aspectRatio(contentMode: .fill)
+                                         .frame(height: 200)
+                                         .cornerRadius(8)
+                                case .failure:
+                                    Image(systemName: "photo")
+                                         .frame(height: 200)
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: 200)
+
+                            Text("Space \(index + 1)")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            
+                            Text("Description for Space \(index + 1)") // Replace with actual descriptions
+                                .foregroundColor(.gray)
+                                .padding(.vertical, 4)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .shadow(radius: 2)
+                    }
                 }
                 
                 Spacer(minLength: 50)
@@ -63,13 +73,17 @@ struct GlowbyScreen: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.black)
-                    .cornerRadius(8)
+                    .background(Color.gray.opacity(0.8))
             }
+            .padding()
         }
         .frame(maxWidth: 360)
+        .background(Color.gray.opacity(0.1))
     }
 }
 
-// Note: Image names "workspace1", "workspace2", "workspace3" should be replaced with actual images of the working spaces.
-// The text "Description for Space \(index)" should be replaced with actual descriptions of the working spaces.
+struct GlowbyScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        GlowbyScreen()
+    }
+}
