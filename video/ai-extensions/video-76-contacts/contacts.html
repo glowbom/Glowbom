@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Manager</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles can be added here */
+</style>
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-8">
+  <div class="mb-4">
+    <input type="text" id="searchInput" placeholder="Search" class="px-4 py-2 w-full border rounded-md" onkeyup="searchContacts()">
+  </div>
+  <ul id="contactList" class="space-y-4">
+    <!-- Contact items will be inserted here by JavaScript -->
+  </ul>
+</div>
+
+<script>
+  // Sample contact data
+  const contacts = [
+    { name: 'Alice Johnson', email: 'alice@example.com', image: 'https://source.unsplash.com/random/100x100?sig=1' },
+    { name: 'Bob Smith', email: 'bob@example.com', image: 'https://source.unsplash.com/random/100x100?sig=2' },
+    { name: 'Carol Williams', email: 'carol@example.com', image: 'https://source.unsplash.com/random/100x100?sig=3' },
+    { name: 'David Brown', email: 'david@example.com', image: 'https://source.unsplash.com/random/100x100?sig=4' }
+  ];
+
+  // Function to display contacts
+  function displayContacts() {
+    const contactList = document.getElementById('contactList');
+    contactList.innerHTML = '';
+    contacts.forEach(contact => {
+      contactList.innerHTML += `
+        <li class="bg-white shadow rounded-lg p-4 flex items-center">
+          <img src="${contact.image}" alt="${contact.name}" class="w-16 h-16 rounded-full mr-4">
+          <div>
+            <div class="font-semibold">${contact.name}</div>
+            <div class="text-sm text-gray-600">${contact.email}</div>
+          </div>
+        </li>
+      `;
+    });
+  }
+
+  // Function to search and filter contacts
+  function searchContacts() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const contactList = document.getElementById('contactList');
+    const filteredContacts = contacts.filter(contact => {
+      return contact.name.toLowerCase().includes(filter) || contact.email.toLowerCase().includes(filter);
+    });
+
+    contactList.innerHTML = '';
+    filteredContacts.forEach(contact => {
+      contactList.innerHTML += `
+        <li class="bg-white shadow rounded-lg p-4 flex items-center">
+          <img src="${contact.image}" alt="${contact.name}" class="w-16 h-16 rounded-full mr-4">
+          <div>
+            <div class="font-semibold">${contact.name}</div>
+            <div class="text-sm text-gray-600">${contact.email}</div>
+          </div>
+        </li>
+      `;
+    });
+  }
+
+  // Initial display of contacts
+  displayContacts();
+</script>
+
+</body>
+</html>
