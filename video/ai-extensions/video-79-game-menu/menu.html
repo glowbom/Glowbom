@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Menu</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles if needed */
+</style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+    <div class="mb-4">
+      <!-- Unsplash image as a placeholder for the game title -->
+      <img src="https://source.unsplash.com/featured/?office" alt="Game Title" class="mx-auto">
+    </div>
+    <div id="menu" class="space-y-4">
+      <button onclick="changeScreen('continue')" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Continue</button>
+      <button onclick="changeScreen('newGame')" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">New Game</button>
+      <button onclick="changeScreen('quit')" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Quit</button>
+    </div>
+    <div id="screenContent" class="hidden">
+      <!-- Content will be updated by JavaScript -->
+    </div>
+  </div>
+
+<script>
+  function changeScreen(screen) {
+    const menu = document.getElementById('menu');
+    const screenContent = document.getElementById('screenContent');
+
+    menu.classList.add('hidden');
+    screenContent.classList.remove('hidden');
+
+    let content = '';
+    switch (screen) {
+      case 'continue':
+        content = '<p>Continuing game...</p>';
+        break;
+      case 'newGame':
+        content = '<p>Starting a new game...</p>';
+        break;
+      case 'quit':
+        content = '<p>Quitting game. Goodbye!</p>';
+        break;
+      default:
+        content = '<p>Unknown action.</p>';
+    }
+
+    screenContent.innerHTML = content;
+  }
+</script>
+</body>
+</html>
