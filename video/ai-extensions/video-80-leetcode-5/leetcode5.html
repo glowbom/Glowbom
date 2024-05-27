@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zigzag Conversion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        pre {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4">6. Zigzag Conversion</h1>
+        <div class="flex items-center mb-4">
+            <span class="bg-yellow-500 text-white text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Medium</span>
+            <span class="bg-gray-200 text-gray-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Topics</span>
+            <span class="bg-gray-200 text-gray-800 text-sm font-semibold px-2.5 py-0.5 rounded">Companies</span>
+        </div>
+        <p class="mb-4">The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+        <pre class="mb-4">
+P   A   H   N
+A P L S I I G
+Y   I   R
+        </pre>
+        <p class="mb-4">And then read line by line: <code>"PAHNAPLSIIGYIR"</code></p>
+        <p class="mb-4">Write the code that will take a string and make this conversion given a number of rows:</p>
+        <pre class="mb-4">string convert(string s, int numRows);</pre>
+        <h2 class="text-2xl font-bold mb-2">Example 1:</h2>
+        <pre class="mb-4">
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+        </pre>
+        <h2 class="text-2xl font-bold mb-2">Example 2:</h2>
+        <pre class="mb-4">
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+Explanation:
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+        </pre>
+        <h2 class="text-2xl font-bold mb-2">Example 3:</h2>
+        <pre class="mb-4">
+Input: s = "A", numRows = 1
+Output: "A"
+        </pre>
+        <h2 class="text-2xl font-bold mb-2">Constraints:</h2>
+        <ul class="list-disc list-inside mb-4">
+            <li>1 &lt;= s.length &lt;= 1000</li>
+            <li>s consists of English letters (lower-case and upper-case), ',' and '.'.</li>
+            <li>1 &lt;= numRows &lt;= 1000</li>
+        </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src="https://source.unsplash.com/random/400x300?code" alt="Code Image" class="rounded-lg shadow-md">
+            <img src="https://source.unsplash.com/random/400x300?programming" alt="Programming Image" class="rounded-lg shadow-md">
+        </div>
+    </div>
+    <script>
+        // Add any interactive JavaScript here
+    </script>
+</body>
+</html>
