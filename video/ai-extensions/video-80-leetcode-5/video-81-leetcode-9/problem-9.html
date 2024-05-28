@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Number Problem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+        <h1 class="text-2xl font-bold mb-4">9. Palindrome Number</h1>
+        <div class="flex items-center mb-4">
+            <span class="bg-green-200 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Easy</span>
+            <span class="bg-gray-200 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Topics</span>
+            <span class="bg-gray-200 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Companies</span>
+            <span class="bg-gray-200 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Hint</span>
+        </div>
+        <p class="mb-4">Given an integer <code>x</code>, return <code>true</code> if <code>x</code> is a <span class="text-blue-600">palindrome</span>, and <code>false</code> otherwise.</p>
+        
+        <div class="mb-4">
+            <h2 class="font-semibold mb-2">Example 1:</h2>
+            <pre class="bg-gray-100 p-4 rounded-lg">
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+            </pre>
+        </div>
+        
+        <div class="mb-4">
+            <h2 class="font-semibold mb-2">Example 2:</h2>
+            <pre class="bg-gray-100 p-4 rounded-lg">
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+            </pre>
+        </div>
+        
+        <div class="mb-4">
+            <h2 class="font-semibold mb-2">Example 3:</h2>
+            <pre class="bg-gray-100 p-4 rounded-lg">
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+            </pre>
+        </div>
+        
+        <div class="mb-4">
+            <h2 class="font-semibold mb-2">Constraints:</h2>
+            <pre class="bg-gray-100 p-4 rounded-lg">
+-2<sup>31</sup> <= x <= 2<sup>31</sup> - 1
+            </pre>
+        </div>
+        
+        <p class="font-semibold">Follow up: Could you solve it without converting the integer to a string?</p>
+    </div>
+</body>
+</html>
