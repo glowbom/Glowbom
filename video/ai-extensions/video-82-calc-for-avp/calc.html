@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .calculator {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .display {
+            height: 60px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 2rem;
+            text-align: right;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+        .button-blue {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="calculator bg-white p-6 rounded-lg shadow-lg">
+        <div class="display bg-gray-100 text-gray-800 flex items-center justify-end p-4 rounded-lg mb-4">
+            <span id="display">0</span>
+        </div>
+        <div class="grid grid-cols-6 gap-2">
+            <button class="button bg-gray-200" onclick="clearDisplay()">AC</button>
+            <button class="button bg-gray-200" onclick="deleteLast()">⌫</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('%')">%</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('/')">÷</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('(')">(</button>
+            <button class="button bg-gray-200" onclick="appendCharacter(')')">)</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('7')">7</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('8')">8</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('9')">9</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('*')">×</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('sin(')">sin</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('cos(')">cos</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('4')">4</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('5')">5</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('6')">6</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('-')">−</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('tan(')">tan</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('log(')">log</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('1')">1</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('2')">2</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('3')">3</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('+')">+</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('e')">e</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('π')">π</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('0')">0</button>
+            <button class="button bg-gray-200" onclick="appendCharacter('.')">.</button>
+            <button class="button button-blue" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function clearDisplay() {
+            display.textContent = '0';
+        }
+
+        function deleteLast() {
+            if (display.textContent.length > 1) {
+                display.textContent = display.textContent.slice(0, -1);
+            } else {
+                display.textContent = '0';
+            }
+        }
+
+        function appendCharacter(character) {
+            if (display.textContent === '0') {
+                display.textContent = character;
+            } else {
+                display.textContent += character;
+            }
+        }
+
+        function calculateResult() {
+            try {
+                display.textContent = eval(display.textContent.replace('π', 'Math.PI').replace('e', 'Math.E'));
+            } catch {
+                display.textContent = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
