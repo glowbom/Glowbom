@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Name Gen</h1>
+        <div class="mb-4">
+            <label for="category" class="block text-gray-700">Choose Category:</label>
+            <select id="category" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                <option value="character">Character</option>
+                <option value="business">Business</option>
+                <option value="product">Product</option>
+                <option value="username">Username</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="result" class="block text-gray-700">Result:</label>
+            <div id="result" class="mt-1 block w-full p-4 border border-gray-300 rounded-md bg-gray-50 h-24 flex items-center justify-center text-lg font-semibold text-gray-600">
+                Result
+            </div>
+        </div>
+        <button id="generateBtn" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Gen</button>
+    </div>
+
+    <script>
+        const names = {
+            character: ["Aragorn", "Hermione", "Frodo", "Daenerys", "Gandalf"],
+            business: ["TechCorp", "InnovateX", "EcoSolutions", "HealthPlus", "EduWorld"],
+            product: ["SmartWidget", "EcoBottle", "HealthTracker", "EduApp", "TechGadget"],
+            username: ["CoolCat123", "TechGuru", "NatureLover", "HealthFanatic", "EduMaster"]
+        };
+
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            const category = document.getElementById('category').value;
+            const result = document.getElementById('result');
+            const randomName = names[category][Math.floor(Math.random() * names[category].length)];
+            result.textContent = randomName;
+        });
+    </script>
+</body>
+</html>
