@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home and Casino Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .character {
+            transition: transform 0.5s;
+        }
+    </style>
+</head>
+<body class="bg-green-200 flex items-center justify-center h-screen">
+    <div class="relative w-full max-w-4xl h-96 bg-green-500 border-4 border-gray-800">
+        <div id="home" class="absolute top-10 left-10 w-32 h-32 bg-yellow-300 border-4 border-gray-800 flex items-center justify-center cursor-pointer">
+            <span class="text-lg font-bold">Home</span>
+        </div>
+        <div id="casino" class="absolute top-10 right-10 w-32 h-32 bg-yellow-300 border-4 border-gray-800 flex items-center justify-center cursor-pointer">
+            <span class="text-lg font-bold">Casino</span>
+        </div>
+        <div id="character" class="character absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-500 border-4 border-gray-800"></div>
+    </div>
+
+    <script>
+        document.getElementById('home').addEventListener('click', function() {
+            document.getElementById('character').style.transform = 'translate(-50%, -50%) translateX(-200px)';
+        });
+
+        document.getElementById('casino').addEventListener('click', function() {
+            document.getElementById('character').style.transform = 'translate(-50%, -50%) translateX(200px)';
+        });
+    </script>
+</body>
+</html>
