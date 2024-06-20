@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Runner Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #gameCanvas {
+            display: block;
+            background: url('https://picsum.photos/800/400') no-repeat center center;
+            background-size: cover;
+        }
+        .character {
+            width: 50px;
+            height: 50px;
+            background: url('https://picsum.photos/50/50') no-repeat center center;
+            background-size: cover;
+            position: absolute;
+            bottom: 10px;
+            left: 50px;
+        }
+        .obstacle {
+            width: 50px;
+            height: 50px;
+            background: url('https://picsum.photos/50/50') no-repeat center center;
+            background-size: cover;
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex justify-center items-center h-screen bg-gray-800">
+        <div class="text-white text-4xl font-bold absolute top-10">RUNNER</div>
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        <div class="character" id="character"></div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const character = document.getElementById('character');
+        let obstacles = [];
+        let gameSpeed = 5;
+        let isJumping = false;
+        let jumpHeight = 0;
+        let jumpSpeed = 0;
+
+        function createObstacle() {
+            const obstacle = document.createElement('div');
+            obstacle.classList.add('obstacle');
+            obstacle.style.right = '0px';
+            document.body.appendChild(obstacle);
+            obstacles.push(obstacle);
+        }
+
+        function moveObstacles() {
+            obstacles.forEach((obstacle, index) => {
+                let right = parseInt(obstacle.style.right);
+                if (right > canvas.width) {
+                    obstacle.remove();
+                    obstacles.splice(index, 1);
+                } else {
+                    obstacle.style.right = right + gameSpeed + 'px';
+                }
+            });
+        }
+
+        function jump() {
+            if (!isJumping) {
+                isJumping = true;
+                jumpSpeed = 15;
+            }
+        }
+
+        function updateCharacter() {
+            if (isJumping) {
+                jumpHeight += jumpSpeed;
+                jumpSpeed -= 1;
+                if (jumpHeight <= 0) {
+                    jumpHeight = 0;
+                    isJumping = false;
+                }
+            }
+            character.style.bottom = 10 + jumpHeight + 'px';
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            moveObstacles();
+            updateCharacter();
+            requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener('click', jump);
+        setInterval(createObstacle, 2000);
+        gameLoop();
+    </script>
+</body>
+</html>
