@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starship Lander Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 h-screen flex flex-col items-center justify-center">
+    <div id="game-container" class="relative w-80 h-96 bg-black border-4 border-blue-500 overflow-hidden">
+        <div id="lander" class="absolute w-8 h-12 bg-white transform rotate-0 transition-transform duration-100 ease-linear" style="left: 160px; top: 20px;"></div>
+        <div id="landing-pad" class="absolute bottom-0 w-24 h-4 bg-green-500" style="left: 112px;"></div>
+    </div>
+    <div class="mt-4 text-white text-xl">Score: <span id="score">0</span></div>
+    <div class="mt-2 flex space-x-4">
+        <button id="left-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            ←
+        </button>
+        <button id="right-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            →
+        </button>
+    </div>
+    <button id="restart-btn" class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Restart
+    </button>
+
+    <script>
+        const lander = document.getElementById('lander');
+        const landingPad = document.getElementById('landing-pad');
+        const scoreElement = document.getElementById('score');
+        const leftBtn = document.getElementById('left-btn');
+        const rightBtn = document.getElementById('right-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        let posX = 160;
+        let posY = 20;
+        let velocityY = 0;
+        let rotation = 0;
+        let score = 0;
+        let gameLoop;
+
+        function updateLanderPosition() {
+            lander.style.left = `${posX}px`;
+            lander.style.top = `${posY}px`;
+            lander.style.transform = `rotate(${rotation}deg)`;
+        }
+
+        function gameStep() {
+            velocityY += 0.1; // Gravity
+            posY += velocityY;
+
+            if (posY > 360) { // Ground level
+                if (posX > 112 && posX < 176 && Math.abs(rotation) < 15) {
+                    // Successful landing
+                    clearInterval(gameLoop);
+                    score += 100;
+                    scoreElement.textContent = score;
+                    alert('Successful landing! +100 points');
+                } else {
+                    // Crash
+                    clearInterval(gameLoop);
+                    alert('Crash! Game Over');
+                }
+                posY = 360;
+            }
+
+            updateLanderPosition();
+        }
+
+        function startGame() {
+            posX = 160;
+            posY = 20;
+            velocityY = 0;
+            rotation = 0;
+            updateLanderPosition();
+            clearInterval(gameLoop);
+            gameLoop = setInterval(gameStep, 50);
+        }
+
+        leftBtn.addEventListener('click', () => {
+            posX -= 5;
+            rotation = Math.max(rotation - 5, -30);
+            updateLanderPosition();
+        });
+
+        rightBtn.addEventListener('click', () => {
+            posX += 5;
+            rotation = Math.min(rotation + 5, 30);
+            updateLanderPosition();
+        });
+
+        restartBtn.addEventListener('click', startGame);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') leftBtn.click();
+            if (e.key === 'ArrowRight') rightBtn.click();
+        });
+
+        startGame();
+    </script>
+</body>
+</html>
