@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Messenger App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col" x-data="messageApp()">
+    <div class="flex-1 overflow-auto p-4 space-y-4" id="messageContainer">
+        <template x-for="message in messages" :key="message.id">
+            <div :class="{'flex flex-row-reverse': message.sent, 'flex': !message.sent}">
+                <div :class="{'bg-blue-500 text-white': message.sent, 'bg-white': !message.sent}" class="rounded-lg p-3 max-w-xs lg:max-w-md">
+                    <p x-text="message.text"></p>
+                    <img x-show="message.image" :src="message.image" class="mt-2 rounded-lg max-w-full h-auto" />
+                    <p class="text-xs mt-1 text-gray-500" x-text="message.timestamp"></p>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="bg-white border-t p-4">
+        <div class="flex space-x-2">
+            <input type="text" x-model="newMessage" @keyup.enter="sendMessage" placeholder="Start a new message" class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+            <button @click="triggerFileInput" class="bg-gray-200 rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+            </button>
+            <input type="file" id="fileInput" class="hidden" @change="handleFileUpload" accept="image/*">
+            <button @click="sendMessage" class="bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function messageApp() {
+            return {
+                messages: [
+                    { id: 1, text: "Welcome to the messenger app!", sent: false, timestamp: new Date().toLocaleString() }
+                ],
+                newMessage: '',
+                sendMessage() {
+                    if (this.newMessage.trim() !== '') {
+                        this.messages.push({
+                            id: Date.now(),
+                            text: this.newMessage,
+                            sent: true,
+                            timestamp: new Date().toLocaleString()
+                        });
+                        this.newMessage = '';
+                        this.scrollToBottom();
+                        this.simulateBotResponse();
+                    }
+                },
+                simulateBotResponse() {
+                    setTimeout(() => {
+                        const responses = [
+                            "That's interesting! Tell me more.",
+                            "I see. How does that make you feel?",
+                            "Fascinating! What led you to that conclusion?",
+                            "I understand. What do you think about that?",
+                            "Interesting perspective. Can you elaborate?"
+                        ];
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        this.messages.push({
+                            id: Date.now(),
+                            text: randomResponse,
+                            sent: false,
+                            timestamp: new Date().toLocaleString()
+                        });
+                        this.scrollToBottom();
+                    }, 1000);
+                },
+                scrollToBottom() {
+                    setTimeout(() => {
+                        const container = document.getElementById('messageContainer');
+                        container.scrollTop = container.scrollHeight;
+                    }, 50);
+                },
+                triggerFileInput() {
+                    document.getElementById('fileInput').click();
+                },
+                handleFileUpload(event) {
+                    const file = event.target.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.messages.push({
+                                id: Date.now(),
+                                image: e.target.result,
+                                sent: true,
+                                timestamp: new Date().toLocaleString()
+                            });
+                            this.scrollToBottom();
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
