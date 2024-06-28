@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowby Build Completed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes launch {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-1000px); }
+        }
+        .launch {
+            animation: launch 2s ease-in forwards;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .star {
+            animation: twinkle 1s infinite;
+        }
+    </style>
+</head>
+<body class="bg-black min-h-screen flex items-center justify-center">
+    <div class="relative w-full max-w-lg">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div class="relative">
+            <div class="bg-black bg-opacity-50 rounded-lg shadow-2xl p-8">
+                <div id="stars" class="absolute inset-0"></div>
+                <div id="rocketContainer" class="flex justify-center mb-8">
+                    <svg id="rocket" class="w-24 h-24" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2.5s5.5 2.5 5.5 10.5c0 3.5-2 4.5-2 4.5l-1 3h-5l-1-3s-2-1-2-4.5C6.5 5 12 2.5 12 2.5z"/>
+                        <path d="M12 15.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                        <path d="M12 12.5v-2"/>
+                        <path d="M12 18.5v2"/>
+                        <path d="M8.5 20.5h7"/>
+                    </svg>
+                </div>
+                <h1 class="text-4xl font-bold text-center text-white mb-4">BUILD COMPLETED!</h1>
+                <h2 class="text-6xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-8">Glowby</h2>
+                <p class="text-lg text-center text-gray-300">TOGETHER WE SHIPPED - BACKRODBUILD.COM</p>
+            </div>
+        </div>
+    </div>
+    <div id="fireworks" class="fixed inset-0 pointer-events-none"></div>
+
+    <script type="module">
+        import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star', 'absolute', 'bg-white', 'rounded-full');
+            star.style.width = '2px';
+            star.style.height = '2px';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            starsContainer.appendChild(star);
+        }
+
+        // Animate rocket
+        const rocket = document.getElementById('rocket');
+        setTimeout(() => {
+            rocket.classList.add('launch');
+        }, 1000);
+
+        // Fireworks effect
+        function launchFireworks() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Launch fireworks every 2 seconds
+        setInterval(launchFireworks, 2000);
+    </script>
+</body>
+</html>
