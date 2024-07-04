@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Solar System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-4">Interactive Solar System</h1>
+        <p class="mb-4">Explore our solar system in 3D. Click and drag to rotate, scroll to zoom.</p>
+        <div id="canvas-container" class="w-full h-[600px] bg-black rounded-lg shadow-lg"></div>
+        <div class="mt-4 flex justify-center space-x-4">
+            <button id="reset-view" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded">Reset View</button>
+            <button id="toggle-rotation" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded">Toggle Rotation</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        camera.position.z = 50;
+
+        const textureLoader = new THREE.TextureLoader();
+
+        // Sun
+        const sunGeometry = new THREE.SphereGeometry(5, 32, 32);
+        const sunMaterial = new THREE.MeshBasicMaterial({ 
+            map: textureLoader.load('https://picsum.photos/id/1032/200/200')
+        });
+        const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+        scene.add(sun);
+
+        // Planets
+        const planetData = [
+            { name: 'Mercury', radius: 0.5, distance: 10, speed: 0.01, texture: 'https://picsum.photos/id/1025/200/200' },
+            { name: 'Venus', radius: 0.8, distance: 15, speed: 0.007, texture: 'https://picsum.photos/id/1026/200/200' },
+            { name: 'Earth', radius: 1, distance: 20, speed: 0.005, texture: 'https://picsum.photos/id/1027/200/200' },
+            { name: 'Mars', radius: 0.7, distance: 25, speed: 0.003, texture: 'https://picsum.photos/id/1028/200/200' },
+        ];
+
+        const planets = planetData.map(planet => {
+            const geometry = new THREE.SphereGeometry(planet.radius, 32, 32);
+            const material = new THREE.MeshBasicMaterial({ 
+                map: textureLoader.load(planet.texture)
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = planet.distance;
+            scene.add(mesh);
+            return { mesh, ...planet };
+        });
+
+        let isRotating = true;
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (isRotating) {
+                sun.rotation.y += 0.002;
+                planets.forEach(planet => {
+                    planet.mesh.rotation.y += 0.01;
+                    planet.mesh.position.x = Math.cos(Date.now() * planet.speed) * planet.distance;
+                    planet.mesh.position.z = Math.sin(Date.now() * planet.speed) * planet.distance;
+                });
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Event Listeners
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        document.getElementById('reset-view').addEventListener('click', () => {
+            camera.position.set(0, 0, 50);
+            camera.lookAt(0, 0, 0);
+            controls.reset();
+        });
+
+        document.getElementById('toggle-rotation').addEventListener('click', () => {
+            isRotating = !isRotating;
+        });
+    </script>
+</body>
+</html>
