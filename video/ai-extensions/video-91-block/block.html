@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Explorer 3D</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-6 text-center">Block Explorer 3D</h1>
+        <div class="flex flex-wrap -mx-2">
+            <div class="w-full md:w-2/3 px-2 mb-4">
+                <div id="game-container" class="bg-gray-800 rounded-lg overflow-hidden" style="height: 480px;"></div>
+            </div>
+            <div class="w-full md:w-1/3 px-2">
+                <div class="bg-gray-800 rounded-lg p-4 mb-4">
+                    <h2 class="text-xl font-semibold mb-2">Controls</h2>
+                    <p>WASD: Move</p>
+                    <p>Mouse: Look around</p>
+                    <p>Click: Place block</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <h2 class="text-xl font-semibold mb-2">About</h2>
+                    <p>Explore a procedurally generated block world. Build, destroy, and discover!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        
+        const gameContainer = document.getElementById('game-container');
+        renderer.setSize(gameContainer.clientWidth, gameContainer.clientHeight);
+        gameContainer.appendChild(renderer.domElement);
+
+        // Create a simple ground plane
+        const planeGeometry = new THREE.PlaneGeometry(100, 100);
+        const planeMaterial = new THREE.MeshBasicMaterial({color: 0x999999, side: THREE.DoubleSide});
+        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = Math.PI / 2;
+        scene.add(plane);
+
+        // Function to create a random block
+        function createBlock(x, y, z) {
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshBasicMaterial({color: Math.random() * 0xffffff});
+            const cube = new THREE.Mesh(geometry, material);
+            cube.position.set(x, y, z);
+            scene.add(cube);
+        }
+
+        // Generate some random blocks
+        for (let i = 0; i < 50; i++) {
+            const x = Math.floor(Math.random() * 20) - 10;
+            const y = Math.floor(Math.random() * 5);
+            const z = Math.floor(Math.random() * 20) - 10;
+            createBlock(x, y, z);
+        }
+
+        camera.position.set(0, 5, 10);
+        camera.lookAt(0, 0, 0);
+
+        // Simple controls for demonstration
+        let moveForward = false;
+        let moveBackward = false;
+        let moveLeft = false;
+        let moveRight = false;
+
+        document.addEventListener('keydown', onKeyDown, false);
+        document.addEventListener('keyup', onKeyUp, false);
+
+        function onKeyDown(event) {
+            switch (event.keyCode) {
+                case 87: // W
+                    moveForward = true;
+                    break;
+                case 83: // S
+                    moveBackward = true;
+                    break;
+                case 65: // A
+                    moveLeft = true;
+                    break;
+                case 68: // D
+                    moveRight = true;
+                    break;
+            }
+        }
+
+        function onKeyUp(event) {
+            switch (event.keyCode) {
+                case 87: // W
+                    moveForward = false;
+                    break;
+                case 83: // S
+                    moveBackward = false;
+                    break;
+                case 65: // A
+                    moveLeft = false;
+                    break;
+                case 68: // D
+                    moveRight = false;
+                    break;
+            }
+        }
+
+        const animate = function () {
+            requestAnimationFrame(animate);
+
+            // Simple movement
+            if (moveForward) camera.position.z -= 0.1;
+            if (moveBackward) camera.position.z += 0.1;
+            if (moveLeft) camera.position.x -= 0.1;
+            if (moveRight) camera.position.x += 0.1;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        window.addEventListener('resize', function () {
+            camera.aspect = gameContainer.clientWidth / gameContainer.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(gameContainer.clientWidth, gameContainer.clientHeight);
+        });
+
+        // Add block on click
+        gameContainer.addEventListener('click', function (event) {
+            const rect = gameContainer.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / gameContainer.clientWidth) * 2 - 1;
+            const y = -((event.clientY - rect.top) / gameContainer.clientHeight) * 2 + 1;
+
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(new THREE.Vector2(x, y), camera);
+
+            const intersects = raycaster.intersectObjects(scene.children);
+
+            if (intersects.length > 0) {
+                const intersect = intersects[0];
+                createBlock(
+                    Math.round(intersect.point.x),
+                    Math.round(intersect.point.y),
+                    Math.round(intersect.point.z)
+                );
+            }
+        });
+    </script>
+</body>
+</html>
