@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div id="menu" class="text-center">
+        <h1 class="text-3xl mb-4">Choose Your Song</h1>
+        <div class="mb-4">
+            <img src="https://source.unsplash.com/random/200x200?music" alt="Song 1" class="mx-auto mb-2">
+            <p>Score: 0000</p>
+            <p>Song Name</p>
+            <p>Artist Name</p>
+            <button onclick="showPopup()" class="bg-yellow-500 text-black px-4 py-2 rounded">Play</button>
+        </div>
+        <div class="mb-4">
+            <img src="https://source.unsplash.com/random/200x200?concert" alt="Song 2" class="mx-auto mb-2">
+            <p>Score: 0000</p>
+            <p>Song Name</p>
+            <p>Artist Name</p>
+            <button onclick="showPopup()" class="bg-yellow-500 text-black px-4 py-2 rounded">Play</button>
+        </div>
+        <button onclick="performGig()" class="bg-blue-500 text-white px-4 py-2 rounded mb-2">Perform Gig</button>
+        <button onclick="goBack()" class="bg-gray-500 text-white px-4 py-2 rounded">Back</button>
+    </div>
+
+    <div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+        <div class="bg-gray-800 p-8 rounded text-center">
+            <p class="mb-4">You can perform a gig upon completing at least 3 songs</p>
+            <button onclick="closePopup()" class="bg-yellow-500 text-black px-4 py-2 rounded">Okay</button>
+        </div>
+    </div>
+
+    <div id="gig" class="hidden text-center">
+        <h1 class="text-3xl mb-4">Performing Gig...</h1>
+        <p class="mb-4">Get ready to rock the stage!</p>
+        <button onclick="goBack()" class="bg-gray-500 text-white px-4 py-2 rounded">Back</button>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').classList.remove('hidden');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.add('hidden');
+        }
+
+        function performGig() {
+            document.getElementById('menu').classList.add('hidden');
+            document.getElementById('gig').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('menu').classList.remove('hidden');
+            document.getElementById('gig').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
