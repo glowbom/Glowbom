@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Search Results</h1>
+        <div class="flex space-x-4 mb-6">
+            <input id="searchInput" type="text" placeholder="Search..." class="flex-1 p-2 border border-gray-300 rounded">
+            <select id="categoryFilter" class="p-2 border border-gray-300 rounded">
+                <option value="">All Categories</option>
+                <option value="nature">Nature</option>
+                <option value="city">City</option>
+                <option value="technology">Technology</option>
+            </select>
+            <button onclick="applyFilters()" class="bg-blue-500 text-white p-2 rounded">Apply Filters</button>
+        </div>
+        <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            { title: "Beautiful Nature Scene", category: "nature", imageUrl: "https://picsum.photos/200/300?nature,forest" },
+            { title: "Urban Cityscape", category: "city", imageUrl: "https://picsum.photos/200/300?city,buildings" },
+            { title: "Tech Innovation", category: "technology", imageUrl: "https://picsum.photos/200/300?technology,innovation" },
+            { title: "Mountain Landscape", category: "nature", imageUrl: "https://picsum.photos/200/300?mountains" },
+            { title: "City Nightlife", category: "city", imageUrl: "https://picsum.photos/200/300?city,night" },
+            { title: "Futuristic Gadget", category: "technology", imageUrl: "https://picsum.photos/200/300?gadget,technology" }
+        ];
+
+        function renderResults(results) {
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = '';
+            results.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md overflow-hidden';
+                card.innerHTML = `
+                    <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold mb-2">${item.title}</h2>
+                        <p class="text-gray-600">Category: ${item.category}</p>
+                    </div>
+                `;
+                resultsGrid.appendChild(card);
+            });
+        }
+
+        function applyFilters() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const filteredResults = data.filter(item => {
+                return (item.title.toLowerCase().includes(searchInput) || searchInput === '') &&
+                       (item.category === categoryFilter || categoryFilter === '');
+            });
+            renderResults(filteredResults);
+        }
+
+        // Initial render
+        renderResults(data);
+    </script>
+</body>
+</html>
