@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .event {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <h1 class="text-2xl font-bold mb-4">Calendar</h1>
+        <div class="grid grid-cols-7 gap-4 text-center">
+            <div class="font-bold">Sun</div>
+            <div class="font-bold">Mon</div>
+            <div class="font-bold">Tue</div>
+            <div class="font-bold">Wed</div>
+            <div class="font-bold">Thu</div>
+            <div class="font-bold">Fri</div>
+            <div class="font-bold">Sat</div>
+            <div class="bg-gray-200 rounded-lg p-4">1 <div class="event bg-blue-500 text-white rounded mt-2 p-1" data-title="Event 1" data-description="Meeting with investors" data-image="https://picsum.photos/200/300?business">Event 1</div></div>
+            <div class="bg-gray-200 rounded-lg p-4">2</div>
+            <div class="bg-gray-200 rounded-lg p-4">3</div>
+            <div class="bg-gray-200 rounded-lg p-4">4</div>
+            <div class="bg-gray-200 rounded-lg p-4">5</div>
+            <div class="bg-gray-200 rounded-lg p-4">6</div>
+            <div class="bg-gray-200 rounded-lg p-4">7 <div class="event bg-green-500 text-white rounded mt-2 p-1" data-title="Event 2" data-description="Product launch" data-image="https://picsum.photos/200/300?tech">Event 2</div></div>
+            <div class="bg-gray-200 rounded-lg p-4">8</div>
+            <div class="bg-gray-200 rounded-lg p-4">9</div>
+            <div class="bg-gray-200 rounded-lg p-4">10</div>
+            <div class="bg-gray-200 rounded-lg p-4">11</div>
+            <div class="bg-gray-200 rounded-lg p-4">12</div>
+            <div class="bg-gray-200 rounded-lg p-4">13</div>
+            <div class="bg-gray-200 rounded-lg p-4">14</div>
+            <div class="bg-gray-200 rounded-lg p-4">15</div>
+            <div class="bg-gray-200 rounded-lg p-4">16</div>
+            <div class="bg-gray-200 rounded-lg p-4">17</div>
+            <div class="bg-gray-200 rounded-lg p-4">18</div>
+            <div class="bg-gray-200 rounded-lg p-4">19</div>
+            <div class="bg-gray-200 rounded-lg p-4">20</div>
+            <div class="bg-gray-200 rounded-lg p-4">21</div>
+            <div class="bg-gray-200 rounded-lg p-4">22</div>
+            <div class="bg-gray-200 rounded-lg p-4">23</div>
+            <div class="bg-gray-200 rounded-lg p-4">24</div>
+            <div class="bg-gray-200 rounded-lg p-4">25</div>
+            <div class="bg-gray-200 rounded-lg p-4">26</div>
+            <div class="bg-gray-200 rounded-lg p-4">27</div>
+            <div class="bg-gray-200 rounded-lg p-4">28</div>
+            <div class="bg-gray-200 rounded-lg p-4">29</div>
+            <div class="bg-gray-200 rounded-lg p-4">30</div>
+            <div class="bg-gray-200 rounded-lg p-4">31</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="eventModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-6 max-w-lg w-full">
+            <h2 id="eventTitle" class="text-xl font-bold mb-4"></h2>
+            <p id="eventDescription" class="mb-4"></p>
+            <img id="eventImage" class="w-full rounded-lg mb-4" src="" alt="Event Image">
+            <button onclick="closeModal()" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.event').forEach(event => {
+            event.addEventListener('click', () => {
+                document.getElementById('eventTitle').innerText = event.getAttribute('data-title');
+                document.getElementById('eventDescription').innerText = event.getAttribute('data-description');
+                document.getElementById('eventImage').src = event.getAttribute('data-image');
+                document.getElementById('eventModal').classList.remove('hidden');
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('eventModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
