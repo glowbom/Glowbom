@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Balneário Camboriú</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .accordion-content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Frequently Asked Questions about Balneário Camboriú</h1>
+        <div class="mb-6">
+            <img src="https://source.unsplash.com/featured/?ferris-wheel" alt="Ferris Wheel" class="w-full h-64 object-cover rounded-lg shadow-md">
+        </div>
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleAccordion(this)">Where is Balneário Camboriú located?</button>
+                <div class="accordion-content mt-2">
+                    <p>Balneário Camboriú is a resort city in the southern Brazilian state of Santa Catarina. It's known for its high-rise buildings and beaches, such as Praia Central.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleAccordion(this)">What are the main attractions in Balneário Camboriú?</button>
+                <div class="accordion-content mt-2">
+                    <p>The main attractions include the Unipraias Park, Cristo Luz, and the beautiful beaches like Praia dos Amores and Praia Brava.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleAccordion(this)">What's the best time to visit Balneário Camboriú?</button>
+                <div class="accordion-content mt-2">
+                    <p>The best time to visit is during the summer months from December to March when the weather is warm and perfect for beach activities.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleAccordion(this)">How can I get to Balneário Camboriú?</button>
+                <div class="accordion-content mt-2">
+                    <p>You can get to Balneário Camboriú by flying into the nearest airport, Navegantes Airport, and then taking a bus or taxi to the city.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

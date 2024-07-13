@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .notification:hover {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Notifications</h1>
+        <div class="space-y-4">
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?meeting" alt="Meeting" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Meeting</h2>
+                        <p class="text-gray-500">Board meeting at 2 PM today</p>
+                        <p class="text-gray-400 text-sm">10 min ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?email" alt="Email" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Email</h2>
+                        <p class="text-gray-500">New investment opportunity from VC firm</p>
+                        <p class="text-gray-400 text-sm">30 min ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?alert" alt="Alert" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Alert</h2>
+                        <p class="text-gray-500">Stock price up 5% this morning</p>
+                        <p class="text-gray-400 text-sm">1 hour ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Mark as read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?message" alt="Message" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Message</h2>
+                        <p class="text-gray-500">CFO: Q3 financial reports ready for review</p>
+                        <p class="text-gray-400 text-sm">2 hours ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?invitation" alt="Invitation" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Invitation</h2>
+                        <p class="text-gray-500">Tech conference keynote speaker invitation</p>
+                        <p class="text-gray-400 text-sm">3 hours ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Mark as read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?news" alt="News" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">News</h2>
+                        <p class="text-gray-500">Your company featured in TechCrunch</p>
+                        <p class="text-gray-400 text-sm">4 hours ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Mark as read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?reminder" alt="Reminder" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Reminder</h2>
+                        <p class="text-gray-500">Employee town hall tomorrow at 11 AM</p>
+                        <p class="text-gray-400 text-sm">5 hours ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Mark as read</button>
+            </div>
+            <div class="notification flex items-center justify-between p-4 bg-white rounded-lg shadow">
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/50?message" alt="Message" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h2 class="font-semibold">Message</h2>
+                        <p class="text-gray-500">HR: New diversity initiative proposal</p>
+                        <p class="text-gray-400 text-sm">6 hours ago</p>
+                    </div>
+                </div>
+                <button class="text-blue-500 hover:underline" onclick="markAsRead(this)">Mark as read</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function markAsRead(button) {
+            button.innerText = 'Read';
+            button.classList.remove('text-blue-500');
+            button.classList.add('text-gray-500');
+            button.classList.remove('hover:underline');
+        }
+    </script>
+</body>
+</html>
