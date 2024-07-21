@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Francisco Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+        <h1 class="text-2xl font-bold mb-6 text-center">San Francisco Quiz</h1>
+        <div id="quiz-container">
+            <!-- Questions will be inserted here -->
+        </div>
+        <button id="submit-btn" class="mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full hidden">Submit</button>
+        <div id="result" class="mt-6 text-center font-bold hidden"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the famous cable car system in San Francisco called?",
+                options: ["Golden Gate Transit", "BART", "Muni", "CalTrain"],
+                answer: 2
+            },
+            {
+                question: "Which famous prison is located on an island in San Francisco Bay?",
+                options: ["San Quentin", "Folsom", "Alcatraz", "Rikers Island"],
+                answer: 2
+            },
+            {
+                question: "What is the name of San Francisco's Chinatown?",
+                options: ["Little Italy", "Japantown", "North Beach", "Chinatown"],
+                answer: 3
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const quizContainer = document.getElementById('quiz-container');
+        const submitBtn = document.getElementById('submit-btn');
+        const resultDiv = document.getElementById('result');
+
+        function loadQuestion() {
+            if (currentQuestion < questions.length) {
+                const question = questions[currentQuestion];
+                let html = `
+                    <div class="mb-6">
+                        <img src="https://picsum.photos/400/200?random=${currentQuestion}" alt="San Francisco" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h2 class="text-lg font-semibold mb-2">${question.question}</h2>
+                        ${question.options.map((option, index) => `
+                            <div class="mb-2">
+                                <input type="radio" id="option${index}" name="answer" value="${index}" class="mr-2">
+                                <label for="option${index}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                quizContainer.innerHTML = html;
+                submitBtn.classList.remove('hidden');
+            } else {
+                showResult();
+            }
+        }
+
+        function checkAnswer() {
+            const selected = document.querySelector('input[name="answer"]:checked');
+            if (selected) {
+                if (parseInt(selected.value) === questions[currentQuestion].answer) {
+                    score++;
+                }
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                alert("Please select an answer!");
+            }
+        }
+
+        function showResult() {
+            quizContainer.innerHTML = '';
+            submitBtn.classList.add('hidden');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `You scored ${score} out of ${questions.length}!`;
+        }
+
+        submitBtn.addEventListener('click', checkAnswer);
+        loadQuestion();
+    </script>
+</body>
+</html>
