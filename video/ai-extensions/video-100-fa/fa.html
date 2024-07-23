@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Financial Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Personal Financial Analyst</h1>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Enter Your Data</h2>
+            <form id="dataForm" class="space-y-4">
+                <div>
+                    <label for="revenue" class="block text-sm font-medium text-gray-700">Revenue</label>
+                    <input type="number" id="revenue" name="revenue" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+                <div>
+                    <label for="users" class="block text-sm font-medium text-gray-700">Users</label>
+                    <input type="number" id="users" name="users" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+                <div>
+                    <label for="mau" class="block text-sm font-medium text-gray-700">Monthly Active Users (MAU)</label>
+                    <input type="number" id="mau" name="mau" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Analyze Data
+                </button>
+            </form>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">Financial Analysis</h2>
+            <canvas id="financialChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const dataForm = document.getElementById('dataForm');
+        const ctx = document.getElementById('financialChart').getContext('2d');
+        let chart;
+
+        dataForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const revenue = parseFloat(document.getElementById('revenue').value);
+            const users = parseInt(document.getElementById('users').value);
+            const mau = parseInt(document.getElementById('mau').value);
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Revenue', 'Users', 'MAU'],
+                    datasets: [{
+                        label: 'Financial Data',
+                        data: [revenue, users, mau],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Financial Analysis Chart'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
