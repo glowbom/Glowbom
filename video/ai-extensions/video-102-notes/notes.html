@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>My SF & Silicon Valley Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-6">My SF & Silicon Valley Notes</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Categories</h2>
+        <ul class="space-y-2">
+          <li>Landmarks</li>
+          <li>Technology</li>
+          <li>Attractions</li>
+          <li>Education</li>
+          <li>Transportation</li>
+        </ul>
+      </div>
+
+      <div class="col-span-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <img src="https://picsum.photos/400/200?random=1" alt="Golden Gate Bridge" class="w-full h-40 object-cover rounded-t-lg">
+            <h3 class="text-lg font-medium mt-4">Golden Gate Bridge</h3>
+            <p class="text-gray-600">Iconic suspension bridge and symbol of San Francisco.</p>
+            <div class="mt-4 flex justify-end">
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none">Delete</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <img src="https://picsum.photos/400/200?random=2" alt="Silicon Valley Tech Hub" class="w-full h-40 object-cover rounded-t-lg">
+            <h3 class="text-lg font-medium mt-4">Silicon Valley Tech Hub</h3>
+            <p class="text-gray-600">Home to many start-ups and global technology companies.</p>
+            <div class="mt-4 flex justify-end">
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none">Delete</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <img src="https://picsum.photos/400/200?random=3" alt="Fisherman's Wharf" class="w-full h-40 object-cover rounded-t-lg">
+            <h3 class="text-lg font-medium mt-4">Fisherman's Wharf</h3>
+            <p class="text-gray-600">Popular waterfront neighborhood with seafood restaurants.</p>
+            <div class="mt-4 flex justify-end">
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none">Delete</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <img src="https://picsum.photos/400/200?random=4" alt="Stanford University" class="w-full h-40 object-cover rounded-t-lg">
+            <h3 class="text-lg font-medium mt-4">Stanford University</h3>
+            <p class="text-gray-600">Prestigious private research university in Silicon Valley.</p>
+            <div class="mt-4 flex justify-end">
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none">Delete</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <img src="https://picsum.photos/400/200?random=5" alt="Cable Cars" class="w-full h-40 object-cover rounded-t-lg">
+            <h3 class="text-lg font-medium mt-4">Cable Cars</h3>
+            <p class="text-gray-600">San Francisco's historic cable car system.</p>
+            <div class="mt-4 flex justify-end">
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none">Delete</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <img src="https://picsum.photos/400/200?random=6" alt="Apple Park" class="w-full h-40 object-cover rounded-t-lg">
+            <h3 class="text-lg font-medium mt-4">Apple Park</h3>
+            <p class="text-gray-600">Circular "spaceship" campus of Apple Inc. in Cupertino.</p>
+            <div class="mt-4 flex justify-end">
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold mb-4">Add New Note</h2>
+      <form>
+        <div class="mb-4">
+          <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+          <input type="text" id="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+          <label for="content" class="block text-gray-700 text-sm font-bold mb-2">Content</label>
+          <textarea id="content" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
+          <select id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">Select Category</option>
+            <option value="Landmarks">Landmarks</option>
+            <option value="Technology">Technology</option>
+            <option value="Attractions">Attractions</option>
+            <option value="Education">Education</option>
+            <option value="Transportation">Transportation</option>
+          </select>
+        </div>
+
+        <div class="flex justify-end">
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none">Add Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Add JavaScript for interactive features here
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Plans</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .plan {
+      @apply bg-green-100 rounded-lg p-8 border border-gray-200;
+    }
+    .plan:hover {
+      @apply shadow-md;
+    }
+  </style>
+</head>
+<body>
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap -mx-4">
+      <div class="w-full md:w-1/3 xl:w-1/3 p-4">
+        <div class="plan">
+          <h2 class="text-lg font-bold mb-2">Free</h2>
+          <p class="text-3xl font-bold mb-2">$0 <span class="text-sm">/ month</span></p>
+          <p class="text-sm text-gray-600 mb-4">to start</p>
+          <p class="text-sm text-gray-600 mb-4">All you need to create apps.</p>
+          <ul>
+            <li class="text-sm text-gray-600 mb-2">Brainstorm with Glowby</li>
+            <li class="text-sm text-gray-600 mb-2">App creation powered by GPT-4</li>
+            <li class="text-sm text-gray-600 mb-2">Claude 3.5 Sorrel</li>
+            <li class="text-sm text-gray-600 mb-2">Llama 3.1 and Gemini 1.5 Pro</li>
+          </ul>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get Started</button>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3 xl:w-1/3 p-4">
+        <div class="plan">
+          <h2 class="text-lg font-bold mb-2">Creator</h2>
+          <p class="text-3xl font-bold mb-2">$20 <span class="text-sm">/ month</span></p>
+          <p class="text-sm text-gray-600 mb-4">Everything in Free, plus.</p>
+          <ul>
+            <li class="text-sm text-gray-600 mb-2">Unlimited projects</li>
+            <li class="text-sm text-gray-600 mb-2">Unlimited code exports</li>
+            <li class="text-sm text-gray-600 mb-2">All boilerplates</li>
+            <li class="text-sm text-gray-600 mb-2">$10 monthly credits for AI usage</li>
+          </ul>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Start Free Trial</button>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3 xl:w-1/3 p-4">
+        <div class="plan">
+          <h2 class="text-lg font-bold mb-2">Pro</h2>
+          <p class="text-3xl font-bold mb-2">$40 <span class="text-sm">/ month</span></p>
+          <p class="text-sm text-gray-600 mb-4">Everything in Creator, plus.</p>
+          <ul>
+            <li class="text-sm text-gray-600 mb-2">Early feature access</li>
+            <li class="text-sm text-gray-600 mb-2">Priority support</li>
+            <li class="text-sm text-gray-600 mb-2">Testflight access</li>
+            <li class="text-sm text-gray-600 mb-2">$20 monthly credits for AI usage</li>
+          </ul>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Start Free Trial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script>
+    // Add event listener to buttons
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Button clicked!');
+      });
+    });
+  </script>
+</body>
+</html>
