@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center" style="background-image: url('https://picsum.photos/1920/1080?blur=5'); background-size: cover; background-position: center;">
+    <div class="container mx-auto p-8">
+        <div class="bg-white bg-opacity-90 rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Profile Showcase</h1>
+            <div id="profileContainer" class="space-y-6"></div>
+        </div>
+    </div>
+
+    <script>
+        const profiles = [
+            {
+                name: "Jacob Ilin",
+                twitter: "https://twitter.com/jacobilin",
+                image: "https://pbs.twimg.com/profile_images/1662261768432025602/evWd6Is7_400x400.jpg"
+            },
+            {
+                name: "Emin Israfil",
+                twitter: "https://twitter.com/EminIsrafil",
+                image: "https://pbs.twimg.com/profile_images/1715131385185492992/EFe1XsvQ_400x400.jpg"
+            }
+        ];
+
+        const profileContainer = document.getElementById('profileContainer');
+
+        profiles.forEach(profile => {
+            const profileCard = document.createElement('div');
+            profileCard.className = 'bg-white rounded-lg shadow-md p-6 flex items-center space-x-4 transition-transform transform hover:scale-105';
+            profileCard.innerHTML = `
+                <img src="${profile.image}" alt="${profile.name}" class="w-20 h-20 rounded-full object-cover">
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">${profile.name}</h2>
+                    <a href="${profile.twitter}" target="_blank" class="text-blue-500 hover:underline">Twitter Profile</a>
+                </div>
+            `;
+            profileContainer.appendChild(profileCard);
+        });
+    </script>
+</body>
+</html>
