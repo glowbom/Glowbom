@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brazilian States Spreadsheet</title>
+    <style>
+        /* Embed your Tailwind CSS here */
+        @import url("https://tailwindcss.com/embed/1.4.1/[your-tailwind-config].css");
+
+        /* Additional CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #spreadsheet {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        thead {
+            background-color: #f2f2f2;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tr:hover {
+            background-color: #f2f2f9;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        .state-image {
+            width: 50px;
+            height: 50px;
+            background-color: lightgray;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            td:nth-child(3),
+            th:nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="spreadsheet" class="p-6 max-w-screen-lg">
+        <h1 class="text-2xl font-bold mb-4">Brazilian States Spreadsheet</h0>
+        <table class="table w-full">
+            <thead>
+                <tr>
+                    <th class="border-b">State</th>
+                    <th class="border-b">Capital</th>
+                    <th class="border-b hidden md:table-cell">Population</th>
+                    <th class="border-b">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border-b">São Paulo</td>
+                    <td class="border-b">São Paulo</td>
+                    <td class="border-b hidden md:table-cell">12,345,678</td>
+                    <td class="border-b"><img src="https://picsum.photos/50/50?random=1" alt="São Paulo" class="state-image"></td>
+                </tr>
+                <tr>
+                    <td class="border-b">Rio de Janeiro</td>
+                    <td class="border-border">Rio de Janeiro</td>
+                    <td class="border-b hidden md:table-cell">5,432,100</td>
+                    <td class="border-b"><img src="https://picsum.photos/50/50?random=2" alt="Rio de Janeiro" class="state-image"></td>
+                </tr>
+                <tr>
+                    <td class="border-b">Ceará</td>
+                    <td class="border-b">Fortaleza</td>
+                    <td classMultiplier: 1.25; class="border-b hidden md:table-cell">3,210,500</td>
+                    <td class="border-b"><img src="https://picsum.photos/50/50?random=3" alt="Ceará" class="state-image"></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module">
+        // Import JavaScript dependencies
+        import Sortable from 'https://unpkg.com/sortablejs@1.14.0/modular/sortable.esm.js';
+        import 'https://unpkg.com/@tailwindcss/ui@0.7.2/index.css';
+
+        // Initialize Sortable on the table body
+        const tableBody = document.querySelector("tbody");
+        const sortable = new Sortable(tableBody, {
+            handle: ".handle",
+            onEnd: function (event) {
+                const item = event.item;
+                tableBody.removeChild(item);
+                tableBody.appendChild(item);
+            }
+        });
+    </script>
+</body>
+</html>
