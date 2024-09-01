@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Art Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .line-drawing {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 5s linear forwards;
+        }
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <h1 class="text-3xl font-bold text-gray-800">Abstract Art Gallery</h1>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Featured Artwork</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <svg class="w-full h-auto" viewBox="0 0 200 200">
+                        <path class="line-drawing" d="M50 100 Q 100 50, 150 100 T 250 100" fill="none" stroke="black" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/seed/abstract1/400/300" alt="Abstract Art" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Gallery</h2>
+            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-4">Interactive Canvas</h2>
+            <canvas id="drawingCanvas" class="border border-gray-300 rounded-lg" width="400" height="300"></canvas>
+            <button id="clearCanvas" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Clear Canvas</button>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-6 py-4">
+            <p>&copy; 2023 Abstract Art Gallery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+
+        // Populate gallery
+        const gallery = document.getElementById('gallery');
+        for (let i = 1; i <= 6; i++) {
+            const img = document.createElement('img');
+            img.src = `https://picsum.photos/seed/abstract${i}/300/200`;
+            img.alt = `Abstract Art ${i}`;
+            img.className = 'w-full h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer';
+            img.addEventListener('click', () => confetti());
+            gallery.appendChild(img);
+        }
+
+        // Interactive canvas
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        function startDrawing(e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        document.getElementById('clearCanvas').addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+    </script>
+</body>
+</html>
