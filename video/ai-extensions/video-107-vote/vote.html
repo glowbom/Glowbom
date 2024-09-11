@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Voting App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Group Voting App</h1>
+        <div id="candidates"></div>
+        <div class="mt-6">
+            <label for="groupSize" class="block mb-2">Group Size:</label>
+            <input type="number" id="groupSize" class="w-full p-2 border rounded" min="1" value="5">
+        </div>
+        <div class="mt-4">
+            <p>Total Votes: <span id="totalVotes">0</span></p>
+            <p>Remaining Votes: <span id="remainingVotes">5</span></p>
+        </div>
+        <button id="addCandidate" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Candidate</button>
+    </div>
+
+    <script>
+        const candidates = [
+            { name: "Movie Night", image: "https://picsum.photos/seed/movie/200/100" },
+            { name: "Game Night", image: "https://picsum.photos/seed/game/200/100" }
+        ];
+        let groupSize = 5;
+
+        function renderCandidates() {
+            const container = document.getElementById('candidates');
+            container.innerHTML = '';
+            candidates.forEach((candidate, index) => {
+                const div = document.createElement('div');
+                div.className = 'mb-4';
+                div.innerHTML = `
+                    <h3 class="font-semibold">${candidate.name}</h3>
+                    <img src="${candidate.image}" alt="${candidate.name}" class="w-full h-32 object-cover rounded mb-2">
+                    <input type="range" min="0" max="${groupSize}" value="${candidate.votes || 0}" 
+                           class="w-full" oninput="updateVotes(${index}, this.value)">
+                    <span class="vote-count">${candidate.votes || 0}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateVotes(index, value) {
+            candidates[index].votes = parseInt(value);
+            updateTotalVotes();
+            renderCandidates();
+        }
+
+        function updateTotalVotes() {
+            const totalVotes = candidates.reduce((sum, candidate) => sum + (candidate.votes || 0), 0);
+            document.getElementById('totalVotes').textContent = totalVotes;
+            document.getElementById('remainingVotes').textContent = groupSize - totalVotes;
+        }
+
+        document.getElementById('groupSize').addEventListener('change', (e) => {
+            groupSize = parseInt(e.target.value);
+            candidates.forEach(candidate => candidate.votes = 0);
+            updateTotalVotes();
+            renderCandidates();
+        });
+
+        document.getElementById('addCandidate').addEventListener('click', () => {
+            const name = prompt("Enter candidate name:");
+            if (name) {
+                candidates.push({ name, image: `https://picsum.photos/seed/${name}/200/100`, votes: 0 });
+                renderCandidates();
+            }
+        });
+
+        renderCandidates();
+    </script>
+</body>
+</html>
