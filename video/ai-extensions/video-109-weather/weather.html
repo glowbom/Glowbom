@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Weather App with Animations</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header with Temperature -->
+    <div class="flex justify-between items-center p-6 bg-white shadow-md">
+        <h1 class="text-3xl font-bold text-gray-800">Weather App</h1>
+        <div class="text-2xl font-semibold text-indigo-600">30°C</div>
+    </div>
+    <!-- City List with Animated Bars -->
+    <div class="p-6">
+        <!-- SF -->
+        <div class="mb-6">
+            <div class="flex items-center">
+                <div class="w-24 text-xl font-medium text-gray-700">SF</div>
+                <div class="relative w-full h-4 bg-gray-300 rounded-full overflow-hidden ml-4">
+                    <div class="absolute top-0 left-0 h-full bg-blue-500" data-percentage="70%"></div>
+                </div>
+            </div>
+        </div>
+        <!-- LA -->
+        <div class="mb-6">
+            <div class="flex items-center">
+                <div class="w-24 text-xl font-medium text-gray-700">LA</div>
+                <div class="relative w-full h-4 bg-gray-300 rounded-full overflow-hidden ml-4">
+                    <div class="absolute top-0 left-0 h-full bg-green-500" data-percentage="50%"></div>
+                </div>
+            </div>
+        </div>
+        <!-- NYC -->
+        <div class="mb-6">
+            <div class="flex items-center">
+                <div class="w-24 text-xl font-medium text-gray-700">NYC</div>
+                <div class="relative w-full h-4 bg-gray-300 rounded-full overflow-hidden ml-4">
+                    <div class="absolute top-0 left-0 h-full bg-red-500" data-percentage="80%"></div>
+                </div>
+            </div>
+        </div>
+        <!-- EL PASO -->
+        <div class="mb-6">
+            <div class="flex items-center">
+                <div class="w-24 text-xl font-medium text-gray-700">EL PASO</div>
+                <div class="relative w-full h-4 bg-gray-300 rounded-full overflow-hidden ml-4">
+                    <div class="absolute top-0 left-0 h-full bg-yellow-500" data-percentage="30%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Images from Lorem Picsum -->
+    <div class="p-6 grid grid-cols-2 gap-6">
+        <div class="relative group">
+            <img src="https://picsum.photos/seed/sf/400/300" alt="SF" class="w-full h-full object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-white text-xl font-semibold">San Francisco</span>
+            </div>
+        </div>
+        <div class="relative group">
+            <img src="https://picsum.photos/seed/la/400/300" alt="LA" class="w-full h-full object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-white text-xl font-semibold">Los Angeles</span>
+            </div>
+        </div>
+        <div class="relative group">
+            <img src="https://picsum.photos/seed/nyc/400/300" alt="NYC" class="w-full h-full object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-white text-xl font-semibold">New York City</span>
+            </div>
+        </div>
+        <div class="relative group">
+            <img src="https://picsum.photos/seed/elpaso/400/300" alt="EL PASO" class="w-full h-full object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-white text-xl font-semibold">El Paso</span>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript for Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('[data-percentage]');
+            bars.forEach(bar => {
+                const percentage = bar.getAttribute('data-percentage');
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.transition = 'width 2s ease';
+                    bar.style.width = percentage;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
