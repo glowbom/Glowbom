@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/howler@2.2.3/dist/howler.min.js"></script>
+</head>
+<body class="bg-purple-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">DJ Mix Master</h1>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="w-full md:w-1/2">
+                <img src="https://picsum.photos/seed/dj/600/400" alt="DJ Setup" class="rounded-lg shadow-lg mb-4">
+                <div class="bg-purple-800 p-4 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4">Mixer Controls</h2>
+                    <div class="flex justify-between mb-4">
+                        <button id="play" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                            Play
+                        </button>
+                        <button id="stop" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                            Stop
+                        </button>
+                    </div>
+                    <div class="mb-4">
+                        <label for="volume" class="block mb-2">Volume</label>
+                        <input type="range" id="volume" min="0" max="100" value="50" class="w-full">
+                    </div>
+                    <div>
+                        <label for="effect" class="block mb-2">Effect</label>
+                        <select id="effect" class="w-full bg-purple-700 border border-purple-600 rounded py-2 px-3">
+                            <option>Echo</option>
+                            <option>Reverb</option>
+                            <option>Distortion</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2">
+                <div class="bg-purple-800 p-4 rounded-lg shadow-lg mb-4">
+                    <h2 class="text-2xl font-semibold mb-4">Playlist</h2>
+                    <ul id="playlist" class="space-y-2">
+                        <li class="flex items-center justify-between bg-purple-700 p-2 rounded">
+                            <span>Track 1</span>
+                            <button class="text-sm bg-blue-500 hover:bg-blue-600 py-1 px-2 rounded">Add</button>
+                        </li>
+                        <li class="flex items-center justify-between bg-purple-700 p-2 rounded">
+                            <span>Track 2</span>
+                            <button class="text-sm bg-blue-500 hover:bg-blue-600 py-1 px-2 rounded">Add</button>
+                        </li>
+                        <li class="flex items-center justify-between bg-purple-700 p-2 rounded">
+                            <span>Track 3</span>
+                            <button class="text-sm bg-blue-500 hover:bg-blue-600 py-1 px-2 rounded">Add</button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-purple-800 p-4 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4">Equalizer</h2>
+                    <div class="flex justify-between">
+                        <div class="text-center">
+                            <label for="low" class="block mb-2">Low</label>
+                            <input type="range" id="low" min="0" max="100" value="50" class="w-full" orient="vertical">
+                        </div>
+                        <div class="text-center">
+                            <label for="mid" class="block mb-2">Mid</label>
+                            <input type="range" id="mid" min="0" max="100" value="50" class="w-full" orient="vertical">
+                        </div>
+                        <div class="text-center">
+                            <label for="high" class="block mb-2">High</label>
+                            <input type="range" id="high" min="0" max="100" value="50" class="w-full" orient="vertical">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple audio player setup using Howler.js
+        const sound = new Howl({
+            src: ['https://actions.google.com/sounds/v1/ambiences/playground_with_seagulls.ogg'],
+            loop: true,
+            volume: 0.5
+        });
+
+        document.getElementById('play').addEventListener('click', () => sound.play());
+        document.getElementById('stop').addEventListener('click', () => sound.stop());
+        document.getElementById('volume').addEventListener('input', (e) => sound.volume(e.target.value / 100));
+
+        // Add tracks to playlist
+        document.querySelectorAll('#playlist button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const li = e.target.parentElement;
+                li.classList.add('bg-green-600');
+                e.target.textContent = 'Added';
+                e.target.disabled = true;
+            });
+        });
+
+        // Equalizer visualization (for demonstration purposes)
+        const eqInputs = ['low', 'mid', 'high'].map(id => document.getElementById(id));
+        eqInputs.forEach(input => {
+            input.addEventListener('input', updateEqualizer);
+        });
+
+        function updateEqualizer() {
+            const values = eqInputs.map(input => input.value);
+            console.log('Equalizer settings:', values);
+            // Here you would typically apply these values to audio filters
+        }
+    </script>
+</body>
+</html>
