@@ -1,0 +1,165 @@
+<html>
+<head>
+    <title>Food Ordering App</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include additional JavaScript dependencies -->
+    <script type="module">
+        // Example of importing a JavaScript module (if needed)
+    </script>
+</head>
+<body class="bg-white font-sans">
+    <!-- Navigation Bar -->
+    <nav class="flex items-center justify-between px-4 py-2 bg-white shadow-md">
+        <div class="text-xl font-bold">Ortibpos</div>
+        <div class="flex space-x-6">
+            <button id="home-tab" class="text-blue-500 font-semibold focus:outline-none">Home</button>
+            <button id="salsa-tab" class="text-gray-600 hover:text-blue-500 focus:outline-none">Salsa</button>
+            <button id="caligous-tab" class="text-gray-600 hover:text-blue-500 focus:outline-none">Caligous</button>
+            <button id="shop-tab" class="text-gray-600 hover:text-blue-500 focus:outline-none">Shop</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="p-4">
+        <!-- Featured Image Section -->
+        <section id="home-section">
+            <div class="mb-6">
+                <img src="https://picsum.photos/800/400?random=1" alt="Featured Food" class="w-full h-56 object-cover rounded-lg shadow-md">
+                <p class="mt-4 text-gray-700">Experience the exquisite taste of our signature chicken and tomato salad on a crispy base.</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between mb-6">
+                <button class="w-1/3 bg-blue-500 text-white py-2 rounded-md mr-2">Cast Africa</button>
+                <button class="w-1/3 bg-blue-500 text-white py-2 rounded-md mr-2">Carter & Ribs</button>
+                <button class="w-1/3 bg-blue-500 text-white py-2 rounded-md">Sort Here</button>
+            </div>
+
+            <!-- Correct Ternepy Section -->
+            <div class="mb-6">
+                <h2 class="text-xl font-bold mb-4">Correct Ternepy</h2>
+                <div class="flex items-center">
+                    <img src="https://picsum.photos/100/100?random=2" alt="Salad" class="w-24 h-24 object-cover rounded-lg shadow-md mr-4">
+                    <p class="text-gray-700">A delightful mix of fresh greens and vegetables to refresh your palate.</p>
+                </div>
+            </div>
+
+            <!-- Canse Mulierond Button -->
+            <div class="mb-6">
+                <button class="w-full bg-green-500 text-white py-3 rounded-md flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-7 9 7v11a2 2 0 0 1-2 2h-3.5a2 2 0 0 1-2-2v-4h-3v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10z"/>
+                    </svg>
+                    Canse Mulierond
+                </button>
+            </div>
+        </section>
+
+        <!-- Other Sections (Salsa, Caligous, Shop) -->
+        <section id="salsa-section" class="hidden">
+            <!-- Content for Salsa Tab -->
+            <h2 class="text-2xl font-bold mb-4">Salsa</h2>
+            <p class="text-gray-700">Explore our variety of salsas to spice up your meals.</p>
+        </section>
+
+        <section id="caligous-section" class="hidden">
+            <!-- Content for Caligous Tab -->
+            <h2 class="text-2xl font-bold mb-4">Caligous</h2>
+            <p class="text-gray-700">Discover the rich flavors of our Caligous menu.</p>
+        </section>
+
+        <section id="shop-section" class="hidden">
+            <!-- Content for Shop Tab -->
+            <h2 class="text-2xl font-bold mb-4">Shop</h2>
+            <p class="text-gray-700">Browse our products and add them to your cart.</p>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation Icons -->
+    <footer class="fixed bottom-0 left-0 w-full bg-white shadow-inner">
+        <div class="flex justify-around p-2">
+            <button class="flex flex-col items-center text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a6 6 0 000 12V2z"/>
+                </svg>
+                Home
+            </button>
+            <button class="flex flex-col items-center text-gray-600 hover:text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M12 7a2 2 0 10-4 0 5 5 0 00-.5 9.9V19a1 1 0 001 1h5a1 1 0 001-1v-2.1a5 5 0 00-.5-9.9zM10 9a4.002 4.002 0 013.446 3H6.554A4.002 4.002 0 0110 9z" clip-rule="evenodd"/>
+                </svg>
+                Search
+            </button>
+            <button class="flex flex-col items-center text-gray-600 hover:text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M16 11V9a5 5 0 10-10 0v2H4a1 1 0 000 2h1v6a1 1 0 001 1h8a1 1 0 001-1v-6h1a1 1 0 100-2h-1zm-9-2a3 3 0 016 0v2H7V9z"/>
+                </svg>
+                Cart
+            </button>
+            <button class="flex flex-col items-center text-gray-600 hover:text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 3a7 7 0 00-5.9 11.2 7.004 7.004 0 0011.8 0A7 7 0 0010 3zM2 10a8 8 0 1116 0 8 8 0 01-16 0z"/>
+                </svg>
+                Profile
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // Tab Navigation Functionality
+        const homeTab = document.getElementById('home-tab');
+        const salsaTab = document.getElementById('salsa-tab');
+        const caligousTab = document.getElementById('caligous-tab');
+        const shopTab = document.getElementById('shop-tab');
+
+        const homeSection = document.getElementById('home-section');
+        const salsaSection = document.getElementById('salsa-section');
+        const caligousSection = document.getElementById('caligous-section');
+        const shopSection = document.getElementById('shop-section');
+
+        homeTab.addEventListener('click', () => {
+            showSection(homeSection);
+            setActiveTab(homeTab);
+        });
+
+        salsaTab.addEventListener('click', () => {
+            showSection(salsaSection);
+            setActiveTab(salsaTab);
+        });
+
+        caligousTab.addEventListener('click', () => {
+            showSection(caligousSection);
+            setActiveTab(caligousTab);
+        });
+
+        shopTab.addEventListener('click', () => {
+            showSection(shopSection);
+            setActiveTab(shopTab);
+        });
+
+        function showSection(section) {
+            homeSection.classList.add('hidden');
+            salsaSection.classList.add('hidden');
+            caligousSection.classList.add('hidden');
+            shopSection.classList.add('hidden');
+            section.classList.remove('hidden');
+        }
+
+        function setActiveTab(tab) {
+            homeTab.classList.remove('text-blue-500', 'font-semibold');
+            homeTab.classList.add('text-gray-600');
+            salsaTab.classList.remove('text-blue-500', 'font-semibold');
+            salsaTab.classList.add('text-gray-600');
+            caligousTab.classList.remove('text-blue-500', 'font-semibold');
+            caligousTab.classList.add('text-gray-600');
+            shopTab.classList.remove('text-blue-500', 'font-semibold');
+            shopTab.classList.add('text-gray-600');
+
+            tab.classList.remove('text-gray-600');
+            tab.classList.add('text-blue-500', 'font-semibold');
+        }
+    </script>
+</body>
+</html>
