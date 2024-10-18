@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of San Francisco</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <header class="flex justify-between items-center py-4">
+            <h1 class="text-3xl font-bold">History of San Francisco</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#section1" class="text-blue-500 hover:underline">Section 1</a></li>
+                    <li><a href="#section2" class="text-blue-500 hover:underline">Section 2</a></li>
+                    <li><a href="#section3" class="text-blue-500 hover:underline">Section 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <section id="section1" class="bg-white p-4 rounded shadow">
+                <h2 class="text-2xl font-semibold mb-2">Early History</h2>
+                <img src="" alt="Early San Francisco" class="w-full h-48 object-cover mb-2" id="img1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+            </section>
+
+            <section id="section2" class="bg-white p-4 rounded shadow">
+                <h2 class="text-2xl font-semibold mb-2">Gold Rush Era</h2>
+                <img src="" alt="Gold Rush" class="w-full h-48 object-cover mb-2" id="img2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+            </section>
+
+            <section id="section3" class="bg-white p-4 rounded shadow">
+                <h2 class="text-2xl font-semibold mb-2">Modern Times</h2>
+                <img src="" alt="Modern San Francisco" class="w-full h-48 object-cover mb-2" id="img3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+            </section>
+        </main>
+
+        <footer class="text-center py-4">
+            <p class="text-gray-600">&copy; 2023 History of San Francisco</p>
+        </footer>
+    </div>
+
+    <script>
+        // Image placeholders
+        const img1 = 'glowbyimage:3D render of early San Francisco with historical buildings';
+        const img2 = 'glowbyimage:3D render of San Francisco during the Gold Rush with miners and tools';
+        const img3 = 'glowbyimage:3D render of modern San Francisco skyline with iconic landmarks';
+
+        // Assign images to elements
+        document.getElementById('img1').src = img1;
+        document.getElementById('img2').src = img2;
+        document.getElementById('img3').src = img3;
+    </script>
+</body>
+</html>
