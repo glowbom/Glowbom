@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorado History</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-blue-900/90 text-white fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold font-['Playfair_Display']">Colorado Heritage</h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-yellow-300 transition">Home</a>
+                <a href="#history" class="hover:text-yellow-300 transition">History</a>
+                <a href="#gallery" class="hover:text-yellow-300 transition">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="h-screen relative flex items-center justify-center">
+        <div id="hero-image" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+        <div class="container mx-auto px-6 relative z-20 text-center text-white">
+            <h2 class="text-6xl md:text-7xl font-bold mb-4 font-['Playfair_Display']">Colorado</h2>
+            <p class="text-xl md:text-2xl">Discover the Rich History of the Centennial State</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="history" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-12 text-center font-['Playfair_Display']">Historical Journey</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div id="mining-image" class="h-80 rounded-lg shadow-lg"></div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4">The Gold Rush Era</h3>
+                        <p class="text-gray-600">Colorado's history was forever changed by the Gold Rush of 1859, attracting thousands of prospectors and leading to the territory's rapid development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-12 text-center font-['Playfair_Display']">Pixel Art Gallery</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div id="mountain-image-1" class="h-64 rounded-lg shadow-lg transition transform hover:scale-105"></div>
+                    <div id="mountain-image-2" class="h-64 rounded-lg shadow-lg transition transform hover:scale-105"></div>
+                    <div id="mountain-image-3" class="h-64 rounded-lg shadow-lg transition transform hover:scale-105"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Colorado Heritage. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image prompts for Glowby Images
+        const heroImage = 'glowbyimage:pixel art style majestic Colorado Rocky Mountains landscape with snow-capped peaks and pine forests at sunset';
+        const miningImage = 'glowbyimage:pixel art style historical Colorado gold mining scene with old wooden structures and miners';
+        const mountainImage1 = 'glowbyimage:pixel art style Pikes Peak Colorado with vibrant colors and detailed landscape';
+        const mountainImage2 = 'glowbyimage:pixel art style Garden of the Gods rock formations in Colorado Springs';
+        const mountainImage3 = 'glowbyimage:pixel art style Maroon Bells peaks reflecting in crystal clear lake';
+
+        // Apply background images
+        document.getElementById('hero-image').style.backgroundImage = `url(${heroImage})`;
+        document.getElementById('mining-image').style.backgroundImage = `url(${miningImage})`;
+        document.getElementById('mountain-image-1').style.backgroundImage = `url(${mountainImage1})`;
+        document.getElementById('mountain-image-2').style.backgroundImage = `url(${mountainImage2})`;
+        document.getElementById('mountain-image-3').style.backgroundImage = `url(${mountainImage3})`;
+
+        // Common background properties
+        const bgElements = document.querySelectorAll('[id$="-image"]');
+        bgElements.forEach(el => {
+            el.style.backgroundSize = 'cover';
+            el.style.backgroundPosition = 'center';
+            el.style.backgroundRepeat = 'no-repeat';
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax effect for hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.getElementById('hero-image').style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
