@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF History Timeline</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-center mb-4">San Francisco Through Time</h1>
+            <p class="text-xl text-center">Exploring the Rich History of the Golden Gate City</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="" alt="Gold Rush Era" id="img1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">1849 Gold Rush</h2>
+                        <p class="text-gray-600">The city's population exploded during the California Gold Rush, transforming SF from a small settlement into a bustling metropolis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="" alt="1906 Earthquake" id="img2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">1906 Earthquake</h2>
+                        <p class="text-gray-600">The devastating earthquake and fire that reshaped the city's architecture and spirit of resilience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="" alt="Golden Gate Bridge" id="img3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">1937 Golden Gate Bridge</h2>
+                        <p class="text-gray-600">The construction of the iconic Golden Gate Bridge, now a symbol of the city.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="" alt="Tech Boom" id="img4" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">Modern Tech Hub</h2>
+                        <p class="text-gray-600">San Francisco's evolution into a global technology and innovation center.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 SF History Project</p>
+        </div>
+    </footer>
+
+    <script>
+        class GlowbyImages {
+            static img1 = 'glowbyimage:isometric 3d style illustration of san francisco during gold rush 1849, detailed cityscape';
+            static img2 = 'glowbyimage:isometric 3d illustration of san francisco 1906 earthquake and fire, historical architecture';
+            static img3 = 'glowbyimage:isometric 3d illustration of golden gate bridge construction 1937, engineering marvel';
+            static img4 = 'glowbyimage:isometric 3d illustration of modern san francisco skyline with tech companies, contemporary architecture';
+        }
+
+        // Set image sources
+        document.getElementById('img1').src = GlowbyImages.img1;
+        document.getElementById('img2').src = GlowbyImages.img2;
+        document.getElementById('img3').src = GlowbyImages.img3;
+        document.getElementById('img4').src = GlowbyImages.img4;
+
+        // Add hover animation
+        document.querySelectorAll('.transform').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
