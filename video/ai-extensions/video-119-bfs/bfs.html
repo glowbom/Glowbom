@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowby Black Friday Sale</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        <!-- Main Content -->
+        <div class="max-w-4xl w-full text-center space-y-8">
+            <!-- Header -->
+            <div class="animate-bounce">
+                <h1 class="pixel-font text-4xl md:text-6xl text-pink-500 mb-4">BLACK FRIDAY</h1>
+                <div class="pixel-font text-7xl md:text-9xl text-yellow-400 font-bold">50% OFF</div>
+                <p class="pixel-font text-green-400 text-xl md:text-2xl mt-4">FOREVER!</p>
+            </div>
+
+            <!-- Pixel Art Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="transform hover:scale-105 transition-transform duration-300">
+                    <img id="pixel1" src="" alt="Pixel Art 1" class="rounded-lg shadow-2xl w-full">
+                </div>
+                <div class="transform hover:scale-105 transition-transform duration-300">
+                    <img id="pixel2" src="" alt="Pixel Art 2" class="rounded-lg shadow-2xl w-full">
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <button onclick="handleClick()" class="pixel-font bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-lg mt-8 transform hover:scale-110 transition-all duration-300">
+                CLAIM OFFER NOW!
+            </button>
+
+            <!-- Timer -->
+            <div class="pixel-font text-white text-xl" id="timer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Image prompts for Glowby
+        const img1 = 'glowbyimage:pixel art retro gaming style shopping cart with sparkles and neon colors';
+        const img2 = 'glowbyimage:pixel art cyber marketplace with retro vaporwave aesthetic';
+
+        // Set image sources
+        document.getElementById('pixel1').src = img1;
+        document.getElementById('pixel2').src = img2;
+
+        // Interactive features
+        function handleClick() {
+            alert('🎉 Congratulations! Your 50% OFF discount is activated!');
+        }
+
+        // Countdown timer
+        function updateTimer() {
+            const now = new Date();
+            const end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            const diff = end - now;
+
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').innerHTML = 
+                `Offer refreshes in: ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Add some particle effects
+        const colors = ['#ff69b4', '#4ade80', '#fbbf24'];
+        document.addEventListener('mousemove', (e) => {
+            const particle = document.createElement('div');
+            particle.className = 'absolute w-2 h-2 rounded-full pointer-events-none';
+            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.left = e.clientX + 'px';
+            particle.style.top = e.clientY + 'px';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
