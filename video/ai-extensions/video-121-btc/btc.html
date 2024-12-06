@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin $100k Celebration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- Hero Section -->
+        <header class="text-center py-20">
+            <div id="bitcoinLogo" class="w-32 h-32 mx-auto mb-8 rounded-full bg-yellow-400 p-4">
+                <!-- Bitcoin Logo placeholder -->
+            </div>
+            <h1 class="text-6xl font-bold mb-4">Bitcoin Hits $100k!</h1>
+            <p class="text-xl text-gray-400 mb-8">A Historic Milestone in Cryptocurrency</p>
+            <div id="priceCounter" class="text-4xl font-mono text-yellow-400">$100,000</div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-gray-800 p-6 rounded-lg text-center">
+                <h3 class="text-xl mb-2">Market Cap</h3>
+                <p class="text-yellow-400 text-2xl">$2.1T</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg text-center">
+                <h3 class="text-xl mb-2">24h Volume</h3>
+                <p class="text-yellow-400 text-2xl">$48.2B</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg text-center">
+                <h3 class="text-xl mb-2">Dominance</h3>
+                <p class="text-yellow-400 text-2xl">48.2%</p>
+            </div>
+        </div>
+
+        <!-- Price Chart -->
+        <div class="bg-gray-800 p-6 rounded-lg mb-16">
+            <canvas id="priceChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Celebration Images -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="rounded-lg overflow-hidden">
+                <img id="celebrationImg1" class="w-full h-64 object-cover" alt="Bitcoin Celebration">
+            </div>
+            <div class="rounded-lg overflow-hidden">
+                <img id="celebrationImg2" class="w-full h-64 object-cover" alt="Bitcoin Future">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Glowby Image prompts
+        const img1 = 'glowbyimage:pixel art style bitcoin logo celebration with confetti and fireworks, vibrant colors';
+        const img2 = 'glowbyimage:pixel art style futuristic city with bitcoin symbols floating in the sky, cyberpunk theme';
+
+        // Set image sources
+        document.getElementById('celebrationImg1').src = img1;
+        document.getElementById('celebrationImg2').src = img2;
+
+        // Price counter animation
+        let currentPrice = 90000;
+        const targetPrice = 100000;
+        const priceCounter = document.getElementById('priceCounter');
+
+        const updatePrice = () => {
+            if (currentPrice < targetPrice) {
+                currentPrice += 100;
+                priceCounter.textContent = `$${currentPrice.toLocaleString()}`;
+                setTimeout(updatePrice, 50);
+            }
+        };
+
+        updatePrice();
+
+        // Price Chart
+        const ctx = document.getElementById('priceChart').getContext('2d');
+        const priceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Bitcoin Price (USD)',
+                    data: [50000, 65000, 75000, 85000, 95000, 100000],
+                    borderColor: '#F7931A',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
