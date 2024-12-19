@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF History - An Artistic Journey</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .doodle-font {
+            font-family: 'Caveat', cursive;
+        }
+        .content-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .image-container {
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4">
+                        <span class="doodle-font text-4xl font-bold text-gray-800">SF History</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="content-font hover:text-blue-600 transition">About</a>
+                    <a href="#" class="content-font hover:text-blue-600 transition">Gallery</a>
+                    <a href="#" class="content-font hover:text-blue-600 transition">Timeline</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <section class="text-center mb-16">
+            <h1 class="doodle-font text-6xl mb-4">San Francisco Through Time</h1>
+            <p class="content-font text-xl text-gray-600">Exploring the city's rich history through artistic doodles</p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery">
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="content-font text-center">&copy; 2024 SF History Project</p>
+        </div>
+    </footer>
+
+    <script>
+        // Glowby Image prompts
+        const img1 = 'glowbyimage:san francisco golden gate bridge sketch doodle style black and white';
+        const img2 = 'glowbyimage:san francisco cable car historical doodle art style';
+        const img3 = 'glowbyimage:san francisco victorian houses sketch artistic doodle';
+        const img4 = 'glowbyimage:san francisco chinatown gate historical drawing sketch';
+        const img5 = 'glowbyimage:san francisco fishermans wharf sketch doodle style';
+        const img6 = 'glowbyimage:san francisco lombard street curved road doodle art';
+
+        const gallery = document.getElementById('gallery');
+        const images = [
+            { src: img1, title: 'Golden Gate Bridge', year: '1937' },
+            { src: img2, title: 'Cable Cars', year: '1873' },
+            { src: img3, title: 'Victorian Architecture', year: '1880s' },
+            { src: img4, title: 'Chinatown Gateway', year: '1970' },
+            { src: img5, title: "Fisherman's Wharf", year: '1900s' },
+            { src: img6, title: 'Lombard Street', year: '1922' }
+        ];
+
+        images.forEach(image => {
+            const card = document.createElement('div');
+            card.className = 'image-container bg-white rounded-lg shadow-md overflow-hidden';
+            card.innerHTML = `
+                <img src="${image.src}" alt="${image.title}" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="doodle-font text-2xl mb-2">${image.title}</h3>
+                    <p class="content-font text-gray-600">Established: ${image.year}</p>
+                </div>
+            `;
+            card.addEventListener('click', () => {
+                card.classList.add('scale-105');
+                setTimeout(() => card.classList.remove('scale-105'), 200);
+            });
+            gallery.appendChild(card);
+        });
+    </script>
+</body>
+</html>
