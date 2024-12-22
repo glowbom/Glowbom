@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+        canvas {
+            background-color: #ffffff;
+            border: 2px solid #4B5563;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center min-h-screen p-4">
+    <header class="w-full mb-6">
+        <img src="https://picsum.photos/1200/300" alt="Header Image" class="w-full h-48 object-cover rounded-lg shadow-lg">
+    </header>
+    <main class="flex flex-col items-center w-full max-w-3xl">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800">Snake Game</h1>
+        <canvas id="gameCanvas" width="600" height="400" class="mb-4"></canvas>
+        <div class="flex space-x-4">
+            <button id="startBtn" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Start</button>
+            <button id="pauseBtn" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">Pause</button>
+            <button id="resetBtn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Reset</button>
+        </div>
+        <div class="mt-6 w-full">
+            <img src="https://picsum.photos/800/200" alt="Decoration Image" class="w-full h-48 object-cover rounded-lg shadow-md">
+        </div>
+    </main>
+    <footer class="w-full mt-6 text-center text-gray-600">
+        &copy; 2023 Snake Game Inc.
+    </footer>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const startBtn = document.getElementById('startBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        const grid = 20;
+        let count = 0;
+        let snake = {
+            x: 160,
+            y: 160,
+            dx: grid,
+            dy: 0,
+            cells: [],
+            maxCells: 4
+        };
+        let apple = {
+            x: 320,
+            y: 320
+        };
+        let running = false;
+        let requestId;
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function gameLoop() {
+            if (!running) return;
+
+            requestId = requestAnimationFrame(gameLoop);
+
+            if (++count < 4) {
+                return;
+            }
+            count = 0;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            snake.x += snake.dx;
+            snake.y += snake.dy;
+
+            if (snake.x < 0) {
+                snake.x = canvas.width - grid;
+            } else if (snake.x >= canvas.width) {
+                snake.x = 0;
+            }
+
+            if (snake.y < 0) {
+                snake.y = canvas.height - grid;
+            } else if (snake.y >= canvas.height) {
+                snake.y = 0;
+            }
+
+            snake.cells.unshift({x: snake.x, y: snake.y});
+
+            if (snake.cells.length > snake.maxCells) {
+                snake.cells.pop();
+            }
+
+            ctx.fillStyle = '#FF0000';
+            ctx.fillRect(apple.x, apple.y, grid-1, grid-1);
+
+            ctx.fillStyle = '#00FF00';
+            snake.cells.forEach((cell, index) => {
+                ctx.fillRect(cell.x, cell.y, grid-1, grid-1);  
+                if (cell.x === apple.x && cell.y === apple.y) {
+                    snake.maxCells++;
+                    apple.x = getRandomInt(0, 30) * grid;
+                    apple.y = getRandomInt(0, 20) * grid;
+                }
+
+                for (let i = index + 1; i < snake.cells.length; i++) {
+                    if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                        running = false;
+                        cancelAnimationFrame(requestId);
+                        alert('Game Over! Press Reset to play again.');
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.which === 37 && snake.dx === 0) {
+                snake.dx = -grid;
+                snake.dy = 0;
+            } else if (e.which === 38 && snake.dy === 0) {
+                snake.dy = -grid;
+                snake.dx = 0;
+            } else if (e.which === 39 && snake.dx === 0) {
+                snake.dx = grid;
+                snake.dy = 0;
+            } else if (e.which === 40 && snake.dy === 0) {
+                snake.dy = grid;
+                snake.dx = 0;
+            }
+        });
+
+        startBtn.addEventListener('click', () => {
+            if (!running) {
+                running = true;
+                requestId = requestAnimationFrame(gameLoop);
+            }
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            if (running) {
+                running = false;
+                cancelAnimationFrame(requestId);
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            running = false;
+            cancelAnimationFrame(requestId);
+            snake.x = 160;
+            snake.y = 160;
+            snake.cells = [];
+            snake.maxCells = 4;
+            snake.dx = grid;
+            snake.dy = 0;
+            apple.x = getRandomInt(0, 30) * grid;
+            apple.y = getRandomInt(0, 20) * grid;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+    </script>
+</body>
+</html>
