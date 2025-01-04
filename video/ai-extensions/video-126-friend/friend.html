@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gratitude Companion</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-indigo-50 to-purple-100 min-h-screen font-['Poppins']">
+    <div class="container mx-auto px-4 py-8">
+        <main class="max-w-2xl mx-auto">
+            <!-- AI Character Section -->
+            <div class="text-center mb-12">
+                <div class="w-48 h-48 mx-auto mb-6 relative">
+                    <img src="" alt="3D AI Character" id="aiCharacter" class="w-full h-full object-cover rounded-full shadow-xl">
+                </div>
+                <h1 class="text-3xl font-bold text-indigo-800 mb-4">Your Gratitude Companion</h1>
+                <p class="text-gray-600">I'm here to help you practice daily gratitude!</p>
+            </div>
+
+            <!-- Prompt Card -->
+            <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <div class="mb-6">
+                    <img src="" alt="Gratitude Illustration" id="promptIllustration" class="w-full h-48 object-cover rounded-lg mb-4">
+                </div>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4" id="promptText">Today's Gratitude Prompt</h2>
+                <p class="text-gray-600 mb-6" id="promptDescription">Click the button below to receive your daily gratitude prompt!</p>
+                <button id="generatePrompt" class="bg-indigo-600 text-white px-6 py-3 rounded-lg w-full hover:bg-indigo-700 transition-colors duration-300">
+                    Generate New Prompt
+                </button>
+            </div>
+
+            <!-- History Section -->
+            <div class="mt-12 bg-white/80 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Previous Prompts</h3>
+                <ul id="promptHistory" class="space-y-3"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Glowby Image prompts
+        const img1 = 'glowbyimage:3D cute friendly robot character with a warm smile and gentle eyes, soft pastel colors';
+        const img2 = 'glowbyimage:3D illustration of a magical floating journal with glowing gratitude words, ethereal lighting';
+        
+        // Set initial images
+        document.getElementById('aiCharacter').src = img1;
+        document.getElementById('promptIllustration').src = img2;
+
+        // Gratitude prompts array
+        const gratitudePrompts = [
+            "What made you smile today?",
+            "Name three things you're thankful for right now.",
+            "Who has positively influenced your life recently?",
+            "What's a simple pleasure you enjoyed today?",
+            "What's something beautiful you saw today?",
+            "What's a challenge you're grateful for overcoming?",
+            "What's a skill or ability you're thankful to have?",
+            "What's something in nature that brought you joy today?"
+        ];
+
+        const promptDescriptions = [
+            "Take a moment to reflect on the joy in your day.",
+            "Sometimes the smallest things bring the greatest happiness.",
+            "Acknowledging those who make a difference matters.",
+            "Life's simple moments often bring the most joy.",
+            "Beauty surrounds us in unexpected places.",
+            "Growth comes from overcoming obstacles.",
+            "Your unique abilities are worth celebrating.",
+            "Nature has a way of lifting our spirits."
+        ];
+
+        let usedPrompts = [];
+
+        function getRandomPrompt() {
+            if (gratitudePrompts.length === usedPrompts.length) {
+                usedPrompts = [];
+            }
+
+            let availablePrompts = gratitudePrompts.filter(prompt => !usedPrompts.includes(prompt));
+            let randomIndex = Math.floor(Math.random() * availablePrompts.length);
+            let selectedPrompt = availablePrompts[randomIndex];
+            
+            usedPrompts.push(selectedPrompt);
+            return {
+                prompt: selectedPrompt,
+                description: promptDescriptions[gratitudePrompts.indexOf(selectedPrompt)]
+            };
+        }
+
+        document.getElementById('generatePrompt').addEventListener('click', () => {
+            const promptData = getRandomPrompt();
+            
+            document.getElementById('promptText').textContent = promptData.prompt;
+            document.getElementById('promptDescription').textContent = promptData.description;
+
+            // Add to history
+            const historyItem = document.createElement('li');
+            historyItem.className = 'text-gray-600 p-3 bg-white/50 rounded-lg';
+            historyItem.textContent = promptData.prompt;
+            document.getElementById('promptHistory').prepend(historyItem);
+
+            // Limit history to 5 items
+            const history = document.getElementById('promptHistory');
+            while (history.children.length > 5) {
+                history.removeChild(history.lastChild);
+            }
+        });
+
+        // Initialize with first prompt
+        document.getElementById('generatePrompt').click();
+    </script>
+</body>
+</html>
