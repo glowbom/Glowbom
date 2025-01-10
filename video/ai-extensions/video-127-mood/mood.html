@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mood Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-blue-50 min-h-screen p-4 font-['Quicksand']">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-center text-purple-600 mb-8 mt-4">Daily Mood Tracker</h1>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+            <div id="moodEntryForm" class="space-y-4">
+                <div class="flex gap-4 justify-center mb-6">
+                    <img src="" alt="Very Happy" id="mood5" class="w-12 h-12 cursor-pointer hover:scale-110 transition-transform" onclick="selectMood(5)">
+                    <img src="" alt="Happy" id="mood4" class="w-12 h-12 cursor-pointer hover:scale-110 transition-transform" onclick="selectMood(4)">
+                    <img src="" alt="Neutral" id="mood3" class="w-12 h-12 cursor-pointer hover:scale-110 transition-transform" onclick="selectMood(3)">
+                    <img src="" alt="Sad" id="mood2" class="w-12 h-12 cursor-pointer hover:scale-110 transition-transform" onclick="selectMood(2)">
+                    <img src="" alt="Very Sad" id="mood1" class="w-12 h-12 cursor-pointer hover:scale-110 transition-transform" onclick="selectMood(1)">
+                </div>
+                <div class="flex gap-4">
+                    <input type="date" id="entryDate" class="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
+                    <textarea id="noteText" placeholder="How are you feeling today?" class="flex-2 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
+                    <button onclick="addEntry()" class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                        Add Entry
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="entriesList" class="space-y-4"></div>
+    </div>
+
+    <script>
+        // Image prompts for Glowby
+        const img1 = 'glowbyimage:3D cartoon very happy emoji face with big smile and sparkly eyes';
+        const img2 = 'glowbyimage:3D cartoon happy emoji face with gentle smile';
+        const img3 = 'glowbyimage:3D cartoon neutral emoji face';
+        const img4 = 'glowbyimage:3D cartoon sad emoji face with slight frown';
+        const img5 = 'glowbyimage:3D cartoon very sad emoji face with tears';
+
+        // Set image sources
+        document.getElementById('mood5').src = img1;
+        document.getElementById('mood4').src = img2;
+        document.getElementById('mood3').src = img3;
+        document.getElementById('mood2').src = img4;
+        document.getElementById('mood1').src = img5;
+
+        let selectedMood = 3;
+        let entries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+
+        function selectMood(mood) {
+            selectedMood = mood;
+            document.querySelectorAll('#moodEntryForm img').forEach(img => {
+                img.classList.remove('ring-4', 'ring-purple-500', 'ring-offset-2');
+            });
+            document.getElementById(`mood${mood}`).classList.add('ring-4', 'ring-purple-500', 'ring-offset-2');
+        }
+
+        function addEntry() {
+            const date = document.getElementById('entryDate').value;
+            const note = document.getElementById('noteText').value;
+            
+            if (!date) {
+                alert('Please select a date');
+                return;
+            }
+
+            const entry = {
+                date,
+                mood: selectedMood,
+                note,
+                id: Date.now()
+            };
+
+            entries.unshift(entry);
+            localStorage.setItem('moodEntries', JSON.stringify(entries));
+            renderEntries();
+            
+            // Reset form
+            document.getElementById('noteText').value = '';
+            document.getElementById('entryDate').value = '';
+            selectedMood = 3;
+            document.querySelectorAll('#moodEntryForm img').forEach(img => {
+                img.classList.remove('ring-4', 'ring-purple-500', 'ring-offset-2');
+            });
+        }
+
+        function deleteEntry(id) {
+            entries = entries.filter(entry => entry.id !== id);
+            localStorage.setItem('moodEntries', JSON.stringify(entries));
+            renderEntries();
+        }
+
+        function renderEntries() {
+            const container = document.getElementById('entriesList');
+            container.innerHTML = entries.map(entry => `
+                <div class="bg-white rounded-lg shadow p-4 flex items-center gap-4">
+                    <img src="${document.getElementById('mood' + entry.mood).src}" class="w-10 h-10">
+                    <div class="flex-1">
+                        <div class="text-sm text-gray-500">${new Date(entry.date).toLocaleDateString()}</div>
+                        <div class="text-gray-700">${entry.note}</div>
+                    </div>
+                    <button onclick="deleteEntry(${entry.id})" class="text-red-500 hover:text-red-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Set today's date as default
+        document.getElementById('entryDate').valueAsDate = new Date();
+        renderEntries();
+    </script>
+</body>
+</html>
