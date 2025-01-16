@@ -1,0 +1,94 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Meme Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Additional custom styles if needed */
+  </style>
+</head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+  <div class="bg-white w-full max-w-lg rounded-lg shadow-md p-6">
+    <h1 class="text-3xl font-extrabold text-center mb-6">Cat Meme Generator</h1>
+    <!-- Meme Preview Area -->
+    <div class="relative mb-4">
+      <canvas id="memeCanvas" class="w-full bg-gray-200 rounded cursor-pointer"></canvas>
+    </div>
+    <!-- Form Inputs -->
+    <div class="mb-4">
+      <label for="topInput" class="block font-semibold mb-1">Top Text</label>
+      <input type="text" id="topInput" class="w-full block px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="Type your top text here">
+    </div>
+    <div class="mb-4">
+      <label for="bottomInput" class="block font-semibold mb-1">Bottom Text</label>
+      <input type="text" id="bottomInput" class="w-full block px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="Type your bottom text here">
+    </div>
+    <!-- Buttons -->
+    <div class="flex justify-center gap-4">
+      <button id="generateBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Generate Meme</button>
+      <button id="downloadBtn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Download Meme</button>
+    </div>
+  </div>
+
+  <!-- JavaScript Module -->
+  <script type="module">
+    // Load the image from the placeholder
+    const image = new Image();
+    image.src = img1; // This will be replaced post-production with a base64 data URL
+
+    const canvas = document.getElementById('memeCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const topInput = document.getElementById('topInput');
+    const bottomInput = document.getElementById('bottomInput');
+    const generateBtn = document.getElementById('generateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // When image loads, set canvas size and draw a default meme
+    image.onload = () => {
+      canvas.width = image.width;
+      canvas.height = image.height;
+      drawMeme();
+    };
+
+    // Meme drawing function
+    function drawMeme() {
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Draw the base image
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      // Setup text style
+      ctx.font = '36px Impact, sans-serif';
+      ctx.fillStyle = 'white';
+      ctx.strokeStyle = 'black';
+      ctx.lineWidth = 2;
+      ctx.textAlign = 'center';
+
+      // Draw top text
+      ctx.fillText(topInput.value.toUpperCase(), canvas.width / 2, 50);
+      ctx.strokeText(topInput.value.toUpperCase(), canvas.width / 2, 50);
+
+      // Draw bottom text
+      ctx.fillText(bottomInput.value.toUpperCase(), canvas.width / 2, canvas.height - 20);
+      ctx.strokeText(bottomInput.value.toUpperCase(), canvas.width / 2, canvas.height - 20);
+    }
+
+    // Update meme on button click
+    generateBtn.addEventListener('click', drawMeme);
+
+    // Download image
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'cat_meme.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  </script>
+
+  <!-- Glowby Images placeholders (replaced in post-production) -->
+  <script>
+    var img1 = 'glowbyimage:Funny cat with an amusing face, large whiskers, and expressive eyes in a comfortable indoor setting';
+  </script>
+</body>
+</html>
