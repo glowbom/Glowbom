@@ -1,0 +1,106 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .container {
+            @apply flex items-center justify-center min-h-screen bg-gray-900;
+        }
+        
+        .square-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid white;
+            border-radius: 16px;
+            background-color: #f3f4f6;
+            animation: rotate 8s linear infinite;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 225px;
+            left: 225px;
+            border-radius: 50%;
+            background-color: yellow;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .instructions {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <div class="container">
+        <div class="square-container" id="square">
+            <div class="ball" id="ball"></div>
+        </div>
+        <p class="instructions">Yellow ball is bouncing inside the rotating square</p>
+    </div>
+
+    <script>
+        const ball = document.getElementById('ball');
+        const square = document.getElementById('square');
+
+        let dx = 2;
+        let dy = 2;
+        let x = 225;
+        let y = 225;
+
+        function updateBallPosition() {
+            // Update position
+            x += dx;
+            y += dy;
+
+            // Get square dimensions
+            const squareWidth = square.offsetWidth - 60; // Subtract ball size
+            const squareHeight = square.offsetHeight - 60; // Subtract ball size
+
+            // Collision detection
+            if (x <= 0 || x >= squareWidth) {
+                dx *= -1;
+            }
+            if (y <= 0 || y >= squareHeight) {
+                dy *= -1;
+            }
+
+            // Keep ball within bounds
+            x = Math.max(0, Math.min(x, squareWidth));
+            y = Math.max(0, Math.min(y, squareHeight));
+
+            // Update position
+            ball.style.left = `${x}px`;
+            ball.style.top = `${y}px`;
+        }
+
+        // Animation loop
+        setInterval(updateBallPosition, 16);
+
+        // Center elements on resize
+        window.addEventListener('resize', () => {
+            const containerWidth = square.offsetWidth;
+            const containerHeight = square.offsetHeight;
+            
+            x = Math.min(x, containerWidth - 60);
+            y = Math.min(y, containerHeight - 60);
+            
+            ball.style.left = `${x}px`;
+            ball.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
