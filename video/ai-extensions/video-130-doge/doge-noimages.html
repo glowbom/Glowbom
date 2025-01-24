@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Government Efficiency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hero-image {
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-4xl font-bold text-center text-blue-600">DOGE</h1>
+            <p class="text-center text-gray-600">Department of Government Efficiency</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- Hero Section -->
+        <section class="mb-10">
+            <div class="hero-image h-64 rounded-lg" id="heroImage" style="background-color: #e2e8f0;"></div>
+        </section>
+
+        <!-- About Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600">About Us</h2>
+            <p class="text-gray-700">
+                The Department of Government Efficiency (DOGE) is dedicated to improving the efficiency and effectiveness of government operations. We strive to streamline processes, reduce waste, and enhance public services.
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-2">Process Optimization</h3>
+                    <p class="text-gray-700">We analyze and optimize government processes to ensure maximum efficiency.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-2">Waste Reduction</h3>
+                    <p class="text-gray-700">Our initiatives focus on reducing unnecessary expenditure and resource waste.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-2">Public Service Enhancement</h3>
+                    <p class="text-gray-700">Improving the quality and accessibility of public services for all citizens.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section>
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600">Contact Us</h2>
+            <form id="contactForm" class="space-y-4">
+                <input type="text" id="name" placeholder="Your Name" class="w-full p-2 border rounded">
+                <input type="email" id="email" placeholder="Your Email" class="w-full p-2 border rounded">
+                <textarea id="message" placeholder="Your Message" rows="4" class="w-full p-2 border rounded"></textarea>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-10 py-6">
+        <div class="container mx-auto px-4 text-center text-gray-600">
+            &copy; 2023 Department of Government Efficiency. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Image placeholders from Glowby Images
+        const img1 = 'glowbyimage:government building with modern architecture';
+        const img2 = 'glowbyimage:efficient office environment with technology';
+        const img3 = 'glowbyimage:government officials discussing efficiency';
+
+        // Set hero image
+        document.getElementById('heroImage').style.backgroundImage = `url(${img1})`;
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            alert(`Thank you for your message, ${name}! We will get back to you at ${email}.`);
+            this.reset();
+        });
+
+        // Interactive feature: Change service descriptions on hover
+        const services = document.querySelectorAll('.grid div');
+        services.forEach(service => {
+            const originalText = service.querySelector('p').textContent;
+            const hoverText = 'Hover for more details!';
+            service.addEventListener('mouseenter', () => {
+                service.querySelector('p').textContent = hoverText;
+            });
+            service.addEventListener('mouseleave', () => {
+                service.querySelector('p').textContent = originalText;
+            });
+        });
+    </script>
+</body>
+</html>
