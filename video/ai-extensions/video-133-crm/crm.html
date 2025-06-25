@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .chart-container {
+            max-height: 300px;
+        }
+        .animate-pulse-once {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) 1;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+    <div class="container mx-auto p-4 md:p-6">
+        <!-- Header -->
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-blue-600">CRM Dashboard</h1>
+            <p class="text-gray-500">Manage your customer relationships effectively</p>
+        </header>
+
+        <!-- Grid Layout inspired by the wireframe -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Top Left: Stats Cards (Empty quadrant now filled with useful info) -->
+            <div class="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h2 class="text-xl font-semibold mb-2">Total Customers</h2>
+                    <p class="text-3xl font-bold text-blue-500">1,234</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h2 class="text-xl font-semibold mb-2">New Leads</h2>
+                    <p class="text-3xl font-bold text-green-500">56</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h2 class="text-xl font-semibold mb-2">Open Deals</h2>
+                    <p class="text-3xl font-bold text-yellow-500">18</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h2 class="text-xl font-semibold mb-2">Customer Satisfaction</h2>
+                    <p class="text-3xl font-bold text-purple-500">92%</p>
+                </div>
+            </div>
+
+            <!-- Top Right: Recent Activity (Inspired by symbols like C, R, I, M) -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-xl font-semibold mb-4">Recent Activity</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">C</span>
+                        <div>
+                            <p class="font-medium">Customer Meeting</p>
+                            <p class="text-sm text-gray-500">Scheduled with John Doe - 10 minutes ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">R</span>
+                        <div>
+                            <p class="font-medium">Report Generated</p>
+                            <p class="text-sm text-gray-500">Q3 Sales Report - 2 hours ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center mr-3">I</span>
+                        <div>
+                            <p class="font-medium">Issue Resolved</p>
+                            <p class="text-sm text-gray-500">Ticket #1234 - 1 day ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3">M</span>
+                        <div>
+                            <p class="font-medium">Marketing Campaign</p>
+                            <p class="text-sm text-gray-500">Email blast sent - 3 days ago</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bottom Left: Sales Chart (Inspired by wavy lines as flowing data) -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow md:col-span-2 chart-container">
+                <h2 class="text-xl font-semibold mb-4">Sales Performance</h2>
+                <canvas id="salesChart" class="w-full h-full"></canvas>
+            </div>
+
+            <!-- Bottom Right: Customer Map (Inspired by the rock/blob as a landmark) -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-xl font-semibold mb-4">Customer Locations</h2>
+                <img src="https://picsum.photos/seed/rock/400/300" alt="Map Placeholder" class="w-full h-64 rounded-lg object-cover animate-pulse-once">
+                <p class="text-sm text-gray-500 mt-2">Visual representation of customer distribution</p>
+            </div>
+        </div>
+
+        <!-- Additional Section: Customer Table -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-semibold mb-4">Recent Customers</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-left">Name</th>
+                            <th class="px-4 py-2 text-left">Email</th>
+                            <th class="px-4 py-2 text-left">Status</th>
+                            <th class="px-4 py-2 text-left">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="px-4 py-2">John Doe</td>
+                            <td class="px-4 py-2">john@example.com</td>
+                            <td class="px-4 py-2"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Active</span></td>
+                            <td class="px-4 py-2">
+                                <button class="text-blue-600 hover:text-blue-800 view-details" data-name="John Doe">View Details</button>
+                            </td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="px-4 py-2">Jane Smith</td>
+                            <td class="px-4 py-2">jane@example.com</td>
+                            <td class="px-4 py-2"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Pending</span></td>
+                            <td class="px-4 py-2">
+                                <button class="text-blue-600 hover:text-blue-800 view-details" data-name="Jane Smith">View Details</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Customer Details -->
+    <div id="customerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h2 class="text-xl font-semibold mb-4" id="modalTitle">Customer Details</h2>
+            <p class="text-gray-600 mb-4">Details for <span id="customerName">Name</span></p>
+            <button id="closeModal" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Close</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/chart.js@4.4.7/dist/chart.umd.js"></script>
+    <script>
+        // Sales Chart using Chart.js
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Sales ($)',
+                    data: [12000, 19000, 15000, 25000, 22000, 30000],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Modal Interaction
+        const modal = document.getElementById('customerModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const customerNameSpan = document.getElementById('customerName');
+        const closeModalBtn = document.getElementById('closeModal');
+        const viewDetailsBtns = document.querySelectorAll('.view-details');
+
+        viewDetailsBtns.forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                customerNameSpan.textContent = name;
+                modalTitle.textContent = `${name} - Profile`;
+                modal.classList.remove('hidden');
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
