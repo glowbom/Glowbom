@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-03-02T23:22:28Z",
+  "assets": [
+    {
+      "source": "prototype/assets/image-001.png",
+      "mediaType": "image",
+      "destinations": [
+        {
+          "platform": "apple",
+          "path": "apple/Custom/Assets.xcassets/image_001.imageset/image_001.png"
+        }
+      ]
+    },
+    {
+      "source": "prototype/assets/img_abstract_geometric_avatar_modern_min_d08e95a0.png",
+      "mediaType": "image",
+      "destinations": [
+        {
+          "platform": "apple",
+          "path": "apple/Custom/Assets.xcassets/img_abstract_geometric_avatar_modern_min_d08e95a0.imageset/img_abstract_geometric_avatar_modern_min_d08e95a0.png"
+        }
+      ]
+    }
+  ]
+}
