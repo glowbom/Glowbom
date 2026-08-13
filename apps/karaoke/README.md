@@ -1,6 +1,6 @@
 # Karaoke
 
-Karaoke is a small desktop experiment. It helps you turn any song into a simple karaoke experience.
+Karaoke helps you turn any song into a simple karaoke experience.
 
 You do not need to understand music software. The app guides you through four steps.
 
@@ -20,6 +20,10 @@ Press **Save project** to download one `.karaoke` file. It contains the song inf
 Press **Open project** later and choose that file. Everything will return, so you can keep editing or start singing again.
 
 Because audio and images are kept inside the project, a project file can be large. Keep it somewhere safe on your computer. Only share audio that you have permission to share.
+
+## Technology
+
+It’s a cross-platform karaoke app built with React, TypeScript, and Vite for the web, with Tauri for desktop packaging.
 
 ## Run the experiment in a browser
 
