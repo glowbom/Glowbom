@@ -11,3 +11,11 @@ These apps can be experiments. They do not need to share one design or become la
 - [Karaoke](karaoke/README.md) lets you add audio and lyrics, time each lyric line, sing in full screen, save the project, and export common karaoke files.
 
 Each app has its own README with simple instructions for running and using it.
+
+## Customize with AI
+
+These apps are designed to be easy to understand, customize, and extend with AI coding tools. The [`AGENTS.md`](AGENTS.md) file explains the shared structure, technology choices, and checks an AI system should follow.
+
+After cloning the repository, you can start with a prompt like this:
+
+> Read `apps/AGENTS.md` and the selected app's README. Run its existing checks, then add [describe your change] without changing unrelated behavior or saved project formats. Verify the result and suggest a conventional commit message.
