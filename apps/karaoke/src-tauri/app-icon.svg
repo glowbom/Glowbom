@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="background" x1="128" y1="128" x2="896" y2="896" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29DE92"/>
+      <stop offset="1" stop-color="#29DED3"/>
+    </linearGradient>
+    <linearGradient id="microphone" x1="376" y1="238" x2="650" y2="746" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9FFF7"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="64" y="64" width="896" height="896" rx="224" fill="url(#background)"/>
+  <circle cx="512" cy="512" r="320" fill="#0F6F48" opacity="0.14"/>
+
+  <rect x="397" y="218" width="230" height="382" rx="115" fill="url(#microphone)"/>
+  <path d="M331 493a37 37 0 0 1 74 0v25c0 59 48 107 107 107s107-48 107-107v-25a37 37 0 0 1 74 0v25c0 87-62 161-144 178v73h88a37 37 0 1 1 0 74H387a37 37 0 1 1 0-74h88v-73c-82-17-144-91-144-178v-25Z" fill="#FFFFFF"/>
+
+  <path d="M443 361h138M443 427h138" stroke="#16885A" stroke-width="34" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="760" cy="294" r="42" fill="#FFC400"/>
+  <path d="M760 252v-54l79-20v92" stroke="#FFC400" stroke-width="35" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="839" cy="270" r="42" fill="#FFC400"/>
+</svg>
