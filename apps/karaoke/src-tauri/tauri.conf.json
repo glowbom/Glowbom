@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Karaoke",
+  "version": "0.1.0",
+  "identifier": "com.glowbom.karaoke",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Karaoke",
+        "width": 1280,
+        "height": 820,
+        "minWidth": 900,
+        "minHeight": 640,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": { "csp": null }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app", "dmg"],
+    "category": "Music",
+    "shortDescription": "Make your own karaoke",
+    "longDescription": "Add audio and lyrics, time each line, sing in full screen, and export LRC, SRT, and TTML karaoke files.",
+    "macOS": { "minimumSystemVersion": "12.0" }
+  }
+}
