@@ -74,7 +74,3 @@ src/lib/project.ts      project save/load helpers
 src/styles.css          the visual design
 src-tauri/              the desktop app wrapper
 ```
-
-## Where the idea came from
-
-The workflow uses the Karaoke tool inside the Flutter Lingua experiment as a reference: add a song, add lyrics, hold and release Space for each line, then open the karaoke player. This is a separate TypeScript project and does not copy the rest of the Lingua app.

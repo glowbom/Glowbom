@@ -166,13 +166,13 @@ export function KaraokeStage({
     <div className={`karaoke-stage karaoke-stage--${backgroundMode} ${fullscreen ? "karaoke-stage--fullscreen" : ""}`} style={style}>
       <div className="karaoke-stage__noise" />
       <div className="karaoke-stage__meta">{title} <span>·</span> {artist || "Your song"}</div>
-      {showCountdown && firstCue ? (
-        <div className="karaoke-countdown" aria-live="polite">
-          <strong>{countdown}</strong>
-          <p>{firstCue.text}</p>
-        </div>
-      ) : cue ? (
+      {cue ? (
         <div className="karaoke-stage__lyrics">
+          {showCountdown && firstCue && (
+            <div className="karaoke-countdown" aria-live="polite">
+              <strong>{countdown}</strong>
+            </div>
+          )}
           <SweepingLyric text={cue.text} progress={progress} />
           {next && <div className="next-line">{next.text}</div>}
         </div>
