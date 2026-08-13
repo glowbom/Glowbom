@@ -16,6 +16,7 @@ import {
 import { exportLrc, exportSrt, exportTtml, fileBaseName, linesToCues, parseTimedLyrics } from "./lib/lyrics";
 import { downloadText, fileToAsset, parseProject, PROJECT_EXTENSION, serializeProject } from "./lib/project";
 import { leaveDesktopFullscreen, openKaraokeProjectFromDisk, saveTextToDisk, toggleDesktopFullscreen } from "./lib/desktop";
+import { playerPageClassName } from "./lib/player";
 import type { BackgroundMode, KaraokeCue, KaraokeProject, ProjectAsset } from "./types";
 import "./styles.css";
 
@@ -311,7 +312,7 @@ function Player({ title, artist, vocalAudio, instrumentalAudio, backgroundImage,
 
   return (
     <div
-      className={`player-page ${fullscreen && !controlsVisible ? "player-page--controls-hidden" : ""}`}
+      className={playerPageClassName(fullscreen, controlsVisible)}
       ref={shell}
       onPointerMove={revealControls}
       onPointerDown={revealControls}
