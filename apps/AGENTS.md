@@ -54,4 +54,8 @@ Every app should have a README that explains:
 - how local projects or data are stored;
 - where the important source files live.
 
-When making changes, provide a conventional commit message such as `feat(karaoke): add background controls` or `docs(apps): clarify setup instructions`.
+## Commits
+
+After completing and verifying a requested change, create a focused git commit for it. Use the Conventional Commits format, such as `feat(karaoke): add background controls` or `docs(apps): clarify setup instructions`.
+
+Commit only files that belong to the requested change. Preserve unrelated or pre-existing worktree changes, and report when a commit cannot be created.
