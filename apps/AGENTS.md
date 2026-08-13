@@ -56,6 +56,8 @@ Every app should have a README that explains:
 
 ## Commits
 
-After completing and verifying a requested change, create a focused git commit for it. Use the Conventional Commits format, such as `feat(karaoke): add background controls` or `docs(apps): clarify setup instructions`.
+Do not stage files or create commits unless the user explicitly requests it for that specific change. By default, the user stages and commits changes manually.
 
-Commit only files that belong to the requested change. Preserve unrelated or pre-existing worktree changes, and report when a commit cannot be created.
+After completing and verifying a requested change, provide a focused commit message using the Conventional Commits format, such as `feat(karaoke): add background controls` or `docs(apps): clarify setup instructions`.
+
+Keep the suggested commit scoped to files that belong to the requested change, and preserve unrelated or pre-existing worktree changes.

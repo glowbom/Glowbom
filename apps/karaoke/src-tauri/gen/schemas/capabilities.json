@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Default permissions for Karaoke","local":true,"windows":["main"],"permissions":["core:default","core:window:allow-is-fullscreen","core:window:allow-set-fullscreen","dialog:allow-open","dialog:allow-save","fs:allow-read-text-file","fs:allow-write-text-file"]}}
