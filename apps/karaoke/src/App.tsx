@@ -13,7 +13,17 @@ import {
   readTextFile,
   useAudioClock,
 } from "./components";
-import { exportLrc, exportSrt, exportTtml, fileBaseName, linesToCues, parseTimedLyrics } from "./lib/lyrics";
+import {
+  applyPronunciationGuides,
+  exportLrc,
+  exportSrt,
+  exportTtml,
+  fileBaseName,
+  linesToCues,
+  parseTimedLyrics,
+  pronunciationGuideStats,
+  pronunciationTextFromCues,
+} from "./lib/lyrics";
 import { downloadText, fileToAsset, parseProject, PROJECT_EXTENSION, serializeProject } from "./lib/project";
 import { leaveDesktopFullscreen, openKaraokeProjectFromDisk, saveTextToDisk, toggleDesktopFullscreen } from "./lib/desktop";
 import { playerPageClassName } from "./lib/player";
@@ -29,6 +39,8 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [lyrics, setLyrics] = useState("");
+  const [latinPronunciations, setLatinPronunciations] = useState("");
+  const [cyrillicPronunciations, setCyrillicPronunciations] = useState("");
   const [cues, setCues] = useState<KaraokeCue[]>([]);
   const [vocalAudio, setVocalAudio] = useState<ProjectAsset>();
   const [instrumentalAudio, setInstrumentalAudio] = useState<ProjectAsset>();
@@ -44,6 +56,8 @@ export default function App() {
     title: title.trim() || "My karaoke",
     artist: artist.trim() || "Your song",
     lyrics,
+    latinPronunciations,
+    cyrillicPronunciations,
     cues,
     vocalAudio,
     instrumentalAudio,
@@ -51,10 +65,14 @@ export default function App() {
     backgroundMode,
     createdAt,
     updatedAt: initialDate(),
-  }) : null, [artist, backgroundImage, backgroundMode, createdAt, cues, instrumentalAudio, lyrics, title, vocalAudio]);
+  }) : null, [artist, backgroundImage, backgroundMode, createdAt, cues, cyrillicPronunciations, instrumentalAudio, latinPronunciations, lyrics, title, vocalAudio]);
 
   const loadProject = (value: KaraokeProject) => {
-    setTitle(value.title); setArtist(value.artist); setLyrics(value.lyrics); setCues(value.cues);
+    const latin = value.latinPronunciations ?? pronunciationTextFromCues(value.cues, "latinPronunciation");
+    const cyrillic = value.cyrillicPronunciations ?? pronunciationTextFromCues(value.cues, "cyrillicPronunciation");
+    setTitle(value.title); setArtist(value.artist); setLyrics(value.lyrics);
+    setLatinPronunciations(latin); setCyrillicPronunciations(cyrillic);
+    setCues(applyPronunciationGuides(value.cues, value.lyrics, { latin, cyrillic }));
     setVocalAudio(value.vocalAudio); setInstrumentalAudio(value.instrumentalAudio);
     setBackgroundImage(value.backgroundImage); setBackgroundMode(value.backgroundMode ?? "stage");
     setCreatedAt(value.createdAt); setError(""); setScreen("player");
@@ -86,7 +104,7 @@ export default function App() {
     if (!vocalAudio) { setError("Add the song audio with vocals first."); return; }
     if (!lyrics.trim()) { setError("Paste the lyrics or import a timed lyrics file."); return; }
     if (cues.length) setScreen("player");
-    else { setCues(linesToCues(lyrics)); setScreen("timing"); }
+    else { setCues(linesToCues(lyrics, { latin: latinPronunciations, cyrillic: cyrillicPronunciations })); setScreen("timing"); }
     setError("");
   };
 
@@ -96,7 +114,7 @@ export default function App() {
   };
 
   const reset = () => {
-    setTitle(""); setArtist(""); setLyrics(""); setCues([]); setVocalAudio(undefined);
+    setTitle(""); setArtist(""); setLyrics(""); setLatinPronunciations(""); setCyrillicPronunciations(""); setCues([]); setVocalAudio(undefined);
     setInstrumentalAudio(undefined); setBackgroundImage(undefined); setBackgroundMode("stage");
     setCreatedAt(initialDate()); setError(""); setScreen("setup");
   };
@@ -109,7 +127,7 @@ export default function App() {
       {screen === "home" && <Home onCreate={() => { setError(""); setScreen("setup"); }} onOpen={() => void chooseProject()} error={error} />}
       {screen === "setup" && (
         <Setup
-          title={title} artist={artist} lyrics={lyrics} vocalAudio={vocalAudio}
+          title={title} artist={artist} lyrics={lyrics} latinPronunciations={latinPronunciations} cyrillicPronunciations={cyrillicPronunciations} vocalAudio={vocalAudio}
           instrumentalAudio={instrumentalAudio} backgroundImage={backgroundImage}
           imported={cues.length > 0} error={error}
           onTitle={setTitle} onArtist={setArtist}
@@ -117,13 +135,16 @@ export default function App() {
           onInstrumental={async (file) => { setInstrumentalAudio(await fileToAsset(file)); setError(""); }}
           onBackground={async (file) => { setBackgroundImage(await fileToAsset(file)); setBackgroundMode("photo"); setError(""); }}
           onLyrics={(value) => { setLyrics(value); setCues([]); }}
-          onTimed={(file, value) => { try { const imported = parseTimedLyrics(file.name, value); if (!imported.length) throw new Error("No timed lyric lines were found."); setCues(imported); setLyrics(imported.map((cue) => cue.text).join("\n")); setError(""); } catch (reason) { setError(reason instanceof Error ? reason.message : "The lyrics file could not be read."); } }}
+          onLatinPronunciations={(value) => { setLatinPronunciations(value); setCues((current) => applyPronunciationGuides(current, lyrics, { latin: value, cyrillic: cyrillicPronunciations })); }}
+          onCyrillicPronunciations={(value) => { setCyrillicPronunciations(value); setCues((current) => applyPronunciationGuides(current, lyrics, { latin: latinPronunciations, cyrillic: value })); }}
+          onTimed={(file, value) => { try { const imported = parseTimedLyrics(file.name, value); if (!imported.length) throw new Error("No timed lyric lines were found."); const importedLyrics = imported.map((cue) => cue.text).join("\n"); setCues(applyPronunciationGuides(imported, importedLyrics, { latin: latinPronunciations, cyrillic: cyrillicPronunciations })); setLyrics(importedLyrics); setError(""); } catch (reason) { setError(reason instanceof Error ? reason.message : "The lyrics file could not be read."); } }}
           onContinue={begin} onHome={() => setScreen("home")} onOpen={() => void chooseProject()} onSave={() => void saveProject()}
         />
       )}
       {screen === "timing" && vocalAudio && <Timing title={title || "My karaoke"} artist={artist || "Your song"} audio={vocalAudio} cues={cues} onCues={setCues} onBack={() => setScreen("setup")} onComplete={() => setScreen("player")} onSave={() => void saveProject()} />}
       {screen === "player" && vocalAudio && (
         <Player
+          key={createdAt}
           title={title || "My karaoke"} artist={artist || "Your song"} vocalAudio={vocalAudio}
           instrumentalAudio={instrumentalAudio} backgroundImage={backgroundImage} backgroundMode={backgroundMode}
           cues={cues} onBackground={cycleBackground} onBack={() => setScreen("setup")} onSave={() => void saveProject()}
@@ -155,14 +176,17 @@ function Home({ onCreate, onOpen, error }: { onCreate: () => void; onOpen: () =>
 }
 
 type SetupProps = {
-  title: string; artist: string; lyrics: string; vocalAudio?: ProjectAsset; instrumentalAudio?: ProjectAsset;
+  title: string; artist: string; lyrics: string; latinPronunciations: string; cyrillicPronunciations: string; vocalAudio?: ProjectAsset; instrumentalAudio?: ProjectAsset;
   backgroundImage?: ProjectAsset; imported: boolean; error: string;
   onTitle: (value: string) => void; onArtist: (value: string) => void; onLyrics: (value: string) => void;
+  onLatinPronunciations: (value: string) => void; onCyrillicPronunciations: (value: string) => void;
   onVocal: (file: File) => void; onInstrumental: (file: File) => void; onBackground: (file: File) => void;
   onTimed: (file: File, value: string) => void; onContinue: () => void; onHome: () => void; onOpen: () => void; onSave: () => void;
 };
 
 function Setup(props: SetupProps) {
+  const latinStats = pronunciationGuideStats(props.lyrics, props.latinPronunciations);
+  const cyrillicStats = pronunciationGuideStats(props.lyrics, props.cyrillicPronunciations);
   return (
     <><TopBar title="karaoke" subtitle="Apps" onBack={props.onHome} actions={<ProjectButtons onOpen={props.onOpen} onSave={props.onSave} />} />
     <main className="setup-page page-shell">
@@ -177,6 +201,15 @@ function Setup(props: SetupProps) {
         </SetupSection>
         <SetupSection number={3} title="Add the lyrics" description="Put one lyric line on each row, or open a timed lyrics file.">
           <textarea value={props.lyrics} onChange={(event) => props.onLyrics(event.target.value)} placeholder={'First lyric line\nSecond lyric line\nThird lyric line'} rows={9} />
+          <div className="pronunciation-heading"><strong>Pronunciation guides</strong><span>optional</span><p>Match each guide row to its lyric row. Leave a row blank when a lyric has no guide.</p></div>
+          <div className="pronunciation-fields">
+            <label>Latin reading guide <small>{latinStats.filled} / {latinStats.total} lyrics</small>
+              <textarea value={props.latinPronunciations} onChange={(event) => props.onLatinPronunciations(event.target.value)} placeholder={'How lyric line 1 sounds\nHow lyric line 2 sounds'} rows={6} />
+            </label>
+            <label>Cyrillic reading guide <small>{cyrillicStats.filled} / {cyrillicStats.total} lyrics</small>
+              <textarea value={props.cyrillicPronunciations} onChange={(event) => props.onCyrillicPronunciations(event.target.value)} placeholder={'Как звучит строка 1\nКак звучит строка 2'} rows={6} />
+            </label>
+          </div>
           <label className="file-picker file-picker--compact">
             <input type="file" accept=".lrc,.srt,.ttml,.xml,text/plain,application/xml" hidden onChange={(event) => readTextFile(event, props.onTimed)} />
             <span className="file-picker__icon">{props.imported ? <Icons.Save /> : <FileText />}</span><span className="file-picker__copy"><strong>{props.imported ? "Timed lyrics ready" : "Open LRC, SRT or TTML"}</strong><small>{props.imported ? "You can skip manual timing" : "Optional shortcut"}</small></span><Upload size={18} />
@@ -260,7 +293,11 @@ function Player({ title, artist, vocalAudio, instrumentalAudio, backgroundImage,
 }) {
   const vocal = useMemo(() => new Audio(vocalAudio.dataUrl), [vocalAudio.dataUrl]);
   const instrumental = useMemo(() => instrumentalAudio ? new Audio(instrumentalAudio.dataUrl) : null, [instrumentalAudio]);
+  const hasLatinPronunciation = cues.some((cue) => Boolean(cue.latinPronunciation));
+  const hasCyrillicPronunciation = cues.some((cue) => Boolean(cue.cyrillicPronunciation));
   const [guideVocals, setGuideVocals] = useState(!instrumental);
+  const [latinPronunciationEnabled, setLatinPronunciationEnabled] = useState(hasLatinPronunciation);
+  const [cyrillicPronunciationEnabled, setCyrillicPronunciationEnabled] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [fullscreen, setFullscreen] = useState(false);
   const [controlsVisible, setControlsVisible] = useState(true);
@@ -303,7 +340,7 @@ function Player({ title, artist, vocalAudio, instrumentalAudio, backgroundImage,
     setGuideVocals(!guideVocals); if (wasPlaying) void next.play();
   };
   const cycleSpeed = () => { const speeds = [1, .75, .9]; const next = speeds[(speeds.indexOf(speed) + 1) % speeds.length]; vocal.playbackRate = next; if (instrumental) instrumental.playbackRate = next; setSpeed(next); };
-  const enterFullscreen = async () => setFullscreen(await toggleDesktopFullscreen(shell.current));
+  const toggleFullscreen = async () => setFullscreen(await toggleDesktopFullscreen(shell.current));
   const exportFile = async (format: "lrc" | "srt" | "ttml") => {
     const contents = format === "lrc" ? exportLrc(cues) : format === "srt" ? exportSrt(cues) : exportTtml(cues);
     const name = `${baseName}.${format}`;
@@ -319,10 +356,10 @@ function Player({ title, artist, vocalAudio, instrumentalAudio, backgroundImage,
     >
       {!fullscreen && <TopBar title="Your karaoke" subtitle={`${title} · ${artist}`} onBack={onBack} actions={<><button className="button button--quiet" onClick={onNew}><Sparkles /> New</button><ProjectButtons onOpen={onOpen} onSave={onSave} /></>} />}
       <main className="player-layout">
-        <KaraokeStage cues={cues} positionMs={positionMs} title={title} artist={artist} background={backgroundImage} backgroundMode={backgroundMode} fullscreen={fullscreen} />
+        <KaraokeStage cues={cues} positionMs={positionMs} title={title} artist={artist} background={backgroundImage} backgroundMode={backgroundMode} fullscreen={fullscreen} showLatinPronunciation={latinPronunciationEnabled} showCyrillicPronunciation={cyrillicPronunciationEnabled} />
         <div className="player-controls">
           <input type="range" min={0} max={Math.max(durationMs, 1)} value={Math.min(positionMs, durationMs || 1)} onChange={(event) => { active.currentTime = Number(event.target.value) / 1_000; }} />
-          <PlayerActions playing={playing} hasInstrumental={Boolean(instrumental)} guideVocals={guideVocals} speed={speed} backgroundMode={backgroundMode} onPlay={() => playing ? active.pause() : void active.play()} onGuideVocals={switchTrack} onSpeed={cycleSpeed} onBackground={onBackground} onFullscreen={() => void enterFullscreen()} />
+          <PlayerActions playing={playing} hasInstrumental={Boolean(instrumental)} guideVocals={guideVocals} hasLatinPronunciation={hasLatinPronunciation} hasCyrillicPronunciation={hasCyrillicPronunciation} latinPronunciationEnabled={latinPronunciationEnabled} cyrillicPronunciationEnabled={cyrillicPronunciationEnabled} speed={speed} backgroundMode={backgroundMode} fullscreen={fullscreen} onPlay={() => playing ? active.pause() : void active.play()} onGuideVocals={switchTrack} onLatinPronunciation={() => setLatinPronunciationEnabled((enabled) => !enabled)} onCyrillicPronunciation={() => setCyrillicPronunciationEnabled((enabled) => !enabled)} onSpeed={cycleSpeed} onBackground={onBackground} onFullscreen={() => void toggleFullscreen()} />
           {!fullscreen && <div className="player-export"><span><Download /> Download karaoke files</span><ExportButtons onExport={(format) => void exportFile(format)} /></div>}
         </div>
       </main>

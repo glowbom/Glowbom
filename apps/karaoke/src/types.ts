@@ -1,6 +1,8 @@
 export type KaraokeCue = {
   id: string;
   text: string;
+  latinPronunciation?: string;
+  cyrillicPronunciation?: string;
   startMs: number;
   endMs: number;
 };
@@ -19,6 +21,8 @@ export type KaraokeProject = {
   title: string;
   artist: string;
   lyrics: string;
+  latinPronunciations?: string;
+  cyrillicPronunciations?: string;
   cues: KaraokeCue[];
   vocalAudio: ProjectAsset;
   instrumentalAudio?: ProjectAsset;

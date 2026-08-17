@@ -1,5 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { exportLrc, exportSrt, exportTtml, fileBaseName, parseLrc, parseSrt, parseTtml } from "./lyrics";
+import {
+  applyPronunciationGuides,
+  exportLrc,
+  exportSrt,
+  exportTtml,
+  fileBaseName,
+  linesToCues,
+  parseLrc,
+  parseSrt,
+  parseTtml,
+  pronunciationGuideStats,
+  pronunciationTextFromCues,
+} from "./lyrics";
 
 describe("timed lyrics", () => {
   it("imports LRC and derives line endings", () => {
@@ -30,5 +42,26 @@ describe("timed lyrics", () => {
 
   it("creates a portable file name", () => {
     expect(fileBaseName("Frenesi Melódico", "Não Vamos Viver Aqui")).toBe("frenesi-melodico-nao-vamos-viver-aqui");
+  });
+
+  it("keeps optional pronunciation guides aligned with lyric rows", () => {
+    const cues = linesToCues("Πρώτη γραμμή\n\nΔεύτερη γραμμή", {
+      latin: "Próti grammí\n\nDéfteri grammí",
+      cyrillic: "Проти грами\n\nДэфтэри грами",
+    });
+
+    expect(cues).toMatchObject([
+      { text: "Πρώτη γραμμή", latinPronunciation: "Próti grammí", cyrillicPronunciation: "Проти грами" },
+      { text: "Δεύτερη γραμμή", latinPronunciation: "Défteri grammí", cyrillicPronunciation: "Дэфтэри грами" },
+    ]);
+    expect(pronunciationGuideStats("Πρώτη γραμμή\n\nΔεύτερη γραμμή", "Próti grammí\n\n")).toEqual({ filled: 1, total: 2 });
+  });
+
+  it("updates pronunciation without changing imported timing", () => {
+    const cues = parseSrt("1\n00:00:02,125 --> 00:00:05,450\nΓεια σου\n");
+    const updated = applyPronunciationGuides(cues, "Γεια σου", { latin: "Ya su" });
+
+    expect(updated[0]).toMatchObject({ startMs: 2125, endMs: 5450, latinPronunciation: "Ya su" });
+    expect(pronunciationTextFromCues(updated, "latinPronunciation")).toBe("Ya su");
   });
 });

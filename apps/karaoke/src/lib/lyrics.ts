@@ -2,17 +2,57 @@ import type { KaraokeCue } from "../types";
 
 const newId = () => globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
 
-export function linesToCues(lyrics: string): KaraokeCue[] {
-  return lyrics
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((text, index) => ({
+export type PronunciationGuideText = {
+  latin?: string;
+  cyrillic?: string;
+};
+
+export function linesToCues(lyrics: string, guides: PronunciationGuideText = {}): KaraokeCue[] {
+  const latinRows = splitRows(guides.latin);
+  const cyrillicRows = splitRows(guides.cyrillic);
+  return lyricRows(lyrics).map(({ text, rowIndex }, index) => ({
       id: newId(),
       text,
+      ...pronunciationFields(latinRows[rowIndex], cyrillicRows[rowIndex]),
       startMs: index * 1_000,
       endMs: index * 1_000 + 500,
     }));
+}
+
+export function applyPronunciationGuides(
+  cues: KaraokeCue[],
+  lyrics: string,
+  guides: PronunciationGuideText = {},
+): KaraokeCue[] {
+  const rows = lyricRows(lyrics);
+  const latinRows = splitRows(guides.latin);
+  const cyrillicRows = splitRows(guides.cyrillic);
+  return cues.map((cue, index) => {
+    const rowIndex = rows[index]?.rowIndex ?? index;
+    return {
+      id: cue.id,
+      text: cue.text,
+      startMs: cue.startMs,
+      endMs: cue.endMs,
+      ...pronunciationFields(latinRows[rowIndex], cyrillicRows[rowIndex]),
+    };
+  });
+}
+
+export function pronunciationTextFromCues(
+  cues: KaraokeCue[],
+  field: "latinPronunciation" | "cyrillicPronunciation",
+): string {
+  return cues.map((cue) => cue[field] ?? "").join("\n").replace(/\n+$/, "");
+}
+
+export function pronunciationGuideStats(lyrics: string, guide: string) {
+  const guideRows = splitRows(guide);
+  const rows = lyricRows(lyrics);
+  return {
+    filled: rows.filter(({ rowIndex }) => Boolean(guideRows[rowIndex]?.trim())).length,
+    total: rows.length,
+  };
 }
 
 export function parseTimedLyrics(fileName: string, contents: string): KaraokeCue[] {
@@ -167,6 +207,25 @@ function subtitleTime(milliseconds: number, separator = ".") {
   const seconds = Math.floor(milliseconds / 1_000) % 60;
   const millis = Math.floor(milliseconds) % 1_000;
   return `${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}${separator}${pad(millis, 3)}`;
+}
+
+function lyricRows(lyrics: string) {
+  return splitRows(lyrics)
+    .map((text, rowIndex) => ({ text: text.trim(), rowIndex }))
+    .filter(({ text }) => Boolean(text));
+}
+
+function splitRows(value = "") {
+  return value.split(/\r?\n/);
+}
+
+function pronunciationFields(latin?: string, cyrillic?: string) {
+  const normalizedLatin = latin?.trim();
+  const normalizedCyrillic = cyrillic?.trim();
+  return {
+    ...(normalizedLatin ? { latinPronunciation: normalizedLatin } : {}),
+    ...(normalizedCyrillic ? { cyrillicPronunciation: normalizedCyrillic } : {}),
+  };
 }
 
 function pad(value: number, length: number) {

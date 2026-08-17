@@ -7,15 +7,17 @@ You do not need to understand music software. The app guides you through four st
 ## What you can do
 
 1. **Add your audio.** Choose the normal song with vocals. You can also add an instrumental version for singing.
-2. **Add your lyrics.** Paste the words with one line on each row. If you already have an LRC, SRT, or TTML file, you can open it instead.
+2. **Add your lyrics.** Paste the words with one line on each row. You can optionally add matching Latin and Cyrillic pronunciation guides. If you already have an LRC, SRT, or TTML file, you can open it instead.
 3. **Set the timing.** Play the song. Hold the Space bar when a lyric line begins, then release it when the line ends. The app moves to the next line automatically. Press Delete if you make a mistake.
-4. **Sing.** Open the player, switch backgrounds, use the instrumental or guide vocals, change the speed, and enter full screen.
+4. **Sing.** Open the player, switch backgrounds, show or hide available pronunciation guides, use the instrumental or guide vocals, change the speed, and enter full screen.
 
 The app can download your finished lyrics as **LRC**, **SRT**, or **TTML** files. These files can be opened by many lyric and karaoke tools.
 
 ## Saving your work
 
 Press **Save project** to download one `.karaoke` file. It contains the song information, audio, lyrics, timing, and background image.
+
+Pronunciation guides are saved in the project too. They remain optional and do not change standard LRC, SRT, or TTML exports.
 
 Press **Open project** later and choose that file. Everything will return, so you can keep editing or start singing again.
 

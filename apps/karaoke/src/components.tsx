@@ -8,6 +8,7 @@ import {
   FolderOpen,
   Image,
   Maximize,
+  Minimize,
   Mic2,
   Music2,
   Pause,
@@ -137,6 +138,8 @@ export function KaraokeStage({
   background,
   backgroundMode,
   fullscreen,
+  showLatinPronunciation,
+  showCyrillicPronunciation,
 }: {
   cues: KaraokeCue[];
   positionMs: number;
@@ -145,6 +148,8 @@ export function KaraokeStage({
   background?: ProjectAsset;
   backgroundMode: BackgroundMode;
   fullscreen?: boolean;
+  showLatinPronunciation?: boolean;
+  showCyrillicPronunciation?: boolean;
 }) {
   const activeIndex = cues.findIndex((cue) => positionMs >= cue.startMs && positionMs <= cue.endMs);
   const nextIndex = cues.findIndex((cue) => cue.startMs > positionMs);
@@ -174,6 +179,12 @@ export function KaraokeStage({
             </div>
           )}
           <SweepingLyric text={cue.text} progress={progress} />
+          {(showLatinPronunciation && cue.latinPronunciation || showCyrillicPronunciation && cue.cyrillicPronunciation) && (
+            <div className="karaoke-pronunciations">
+              {showLatinPronunciation && cue.latinPronunciation && <div data-guide="latin">{cue.latinPronunciation}</div>}
+              {showCyrillicPronunciation && cue.cyrillicPronunciation && <div data-guide="cyrillic">{cue.cyrillicPronunciation}</div>}
+            </div>
+          )}
           {next && <div className="next-line">{next.text}</div>}
         </div>
       ) : cues.length === 0 ? <p className="karaoke-empty">Add lyrics to begin.</p> : null}
@@ -219,10 +230,17 @@ export function PlayerActions({
   playing,
   hasInstrumental,
   guideVocals,
+  hasLatinPronunciation,
+  hasCyrillicPronunciation,
+  latinPronunciationEnabled,
+  cyrillicPronunciationEnabled,
   speed,
   backgroundMode,
+  fullscreen,
   onPlay,
   onGuideVocals,
+  onLatinPronunciation,
+  onCyrillicPronunciation,
   onSpeed,
   onBackground,
   onFullscreen,
@@ -230,10 +248,17 @@ export function PlayerActions({
   playing: boolean;
   hasInstrumental: boolean;
   guideVocals: boolean;
+  hasLatinPronunciation: boolean;
+  hasCyrillicPronunciation: boolean;
+  latinPronunciationEnabled: boolean;
+  cyrillicPronunciationEnabled: boolean;
   speed: number;
   backgroundMode: BackgroundMode;
+  fullscreen: boolean;
   onPlay: () => void;
   onGuideVocals: () => void;
+  onLatinPronunciation: () => void;
+  onCyrillicPronunciation: () => void;
   onSpeed: () => void;
   onBackground: () => void;
   onFullscreen: () => void;
@@ -241,10 +266,12 @@ export function PlayerActions({
   return (
     <div className="player-actions">
       {hasInstrumental && <button className={guideVocals ? "active" : ""} onClick={onGuideVocals}><Mic2 /> Guide vocals</button>}
+      {hasLatinPronunciation && <button className={latinPronunciationEnabled ? "active" : ""} aria-pressed={latinPronunciationEnabled} onClick={onLatinPronunciation}>Latin guide</button>}
+      {hasCyrillicPronunciation && <button className={cyrillicPronunciationEnabled ? "active" : ""} aria-pressed={cyrillicPronunciationEnabled} onClick={onCyrillicPronunciation}>Cyrillic guide</button>}
       <button className="player-actions__play" onClick={onPlay}>{playing ? <Pause fill="currentColor" /> : <Play fill="currentColor" />}</button>
       <button onClick={onSpeed}>{speed}×</button>
       <button onClick={onBackground}><Wallpaper /> {backgroundMode}</button>
-      <button onClick={onFullscreen}><Maximize /> Full screen</button>
+      <button onClick={onFullscreen}>{fullscreen ? <Minimize /> : <Maximize />} {fullscreen ? "Exit full screen" : "Full screen"}</button>
     </div>
   );
 }
