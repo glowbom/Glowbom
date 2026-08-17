@@ -120,7 +120,9 @@ kbd { padding: 3px 7px; border: 1px solid #bec5c3; border-radius: 6px; backgroun
 .lyric-timing-list .done p { color: #969fa1; }
 .lyric-timing-list .current { background: #fff; box-shadow: 0 8px 28px rgba(35,48,48,.09); }
 .lyric-timing-list .current p { color: var(--teal); font-size: 23px; font-weight: 700; }
-.lyric-timing-list .holding { background: #effbf5; }
+.lyric-timing-list .current.holding { background: var(--teal); box-shadow: 0 10px 30px rgba(22,136,90,.24); }
+.lyric-timing-list .current.holding p { color: white; }
+.lyric-timing-list .current.holding > span { color: rgba(255,255,255,.78); }
 
 .player-page { height: 100vh; background: #090b0d; color: white; overflow: hidden; }
 .player-layout { height: calc(100vh - 72px); display: grid; grid-template-rows: 1fr auto; }
