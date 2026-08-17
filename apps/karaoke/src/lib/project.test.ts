@@ -21,18 +21,21 @@ describe("karaoke projects", () => {
     const saved = parseProject(serializeProject(project({
       latinPronunciations: "Ya su",
       cyrillicPronunciations: "Я су",
+      translations: "Hello",
       cues: [{
         id: "one",
         text: "Γεια σου",
         latinPronunciation: "Ya su",
         cyrillicPronunciation: "Я су",
+        translation: "Hello",
         startMs: 1_000,
         endMs: 2_000,
       }],
     })));
 
     expect(saved.latinPronunciations).toBe("Ya su");
-    expect(saved.cues[0]).toMatchObject({ latinPronunciation: "Ya su", cyrillicPronunciation: "Я су" });
+    expect(saved.translations).toBe("Hello");
+    expect(saved.cues[0]).toMatchObject({ latinPronunciation: "Ya su", cyrillicPronunciation: "Я су", translation: "Hello" });
   });
 
   it("continues to open version 1 projects without guides", () => {

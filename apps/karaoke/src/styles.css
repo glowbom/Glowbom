@@ -84,13 +84,13 @@ label small { color: #8a969b; font-weight: 500; }
 input[type="text"], label input:not([type]), textarea { width: 100%; display: block; margin-top: 7px; padding: 12px 13px; border: 1px solid #cfd5d3; border-radius: 11px; background: white; color: var(--ink); outline: none; }
 input:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(57,127,130,.1); }
 textarea { resize: vertical; min-height: 165px; line-height: 1.45; }
-.pronunciation-heading { margin-top: 12px; padding-top: 17px; border-top: 1px solid var(--line); }
-.pronunciation-heading strong { font-size: 13px; }
-.pronunciation-heading > span { margin-left: 7px; color: #8a969b; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-.pronunciation-heading p { margin: 5px 0 0; color: #7b8589; font-size: 11px; font-weight: 400; }
-.pronunciation-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.pronunciation-fields label > small { float: right; margin-top: 2px; }
-.pronunciation-fields textarea { min-height: 130px; font-size: 13px; }
+.lyric-support-heading { margin-top: 12px; padding-top: 17px; border-top: 1px solid var(--line); }
+.lyric-support-heading strong { font-size: 13px; }
+.lyric-support-heading > span { margin-left: 7px; color: #8a969b; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.lyric-support-heading p { margin: 5px 0 0; color: #7b8589; font-size: 11px; font-weight: 400; }
+.lyric-support-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lyric-support-fields label > small { float: right; margin-top: 2px; }
+.lyric-support-fields textarea { min-height: 130px; font-size: 13px; }
 .file-picker { width: 100%; border: 1px solid #dedede; border-radius: 8px; background: #fff; color: #3c4a51; min-height: 58px; padding: 10px 13px; display: flex; align-items: center; gap: 12px; text-align: left; }
 .file-picker:hover { border-color: var(--teal); background: #f8fbf9; }
 .file-picker--ready { color: var(--teal-dark); background: #f3faf8; border-color: #b9d8d3; }
@@ -161,6 +161,8 @@ kbd { padding: 3px 7px; border: 1px solid #bec5c3; border-radius: 6px; backgroun
 }
 .karaoke-pronunciations { display: grid; gap: 3px; margin-top: 12px; color: rgba(255,255,255,.94); font: 700 clamp(16px, 2vw, 27px)/1.15 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-wrap: balance; text-shadow: 0 4px 10px #000; }
 .karaoke-pronunciations + .next-line { margin-top: 21px; }
+.karaoke-translation { position: absolute; right: clamp(20px, 4vw, 64px); bottom: clamp(22px, 4vh, 48px); z-index: 1; width: min(38%, 480px); color: rgba(255,255,255,.32); text-align: right; font: 600 clamp(11px, 1.25vw, 18px)/1.3 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-wrap: balance; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
+.karaoke-stage--fullscreen .karaoke-translation { bottom: clamp(92px, 12vh, 132px); }
 .next-line { color: rgba(255,255,255,.34); margin-top: 34px; font: 700 clamp(20px, 2.5vw, 34px)/1.2 "Manrope"; text-wrap: balance; }
 .karaoke-empty { position: relative; color: rgba(255,255,255,.5); }
 .player-controls { background: #11181c; padding: 11px 22px 18px; }
@@ -196,7 +198,8 @@ kbd { padding: 3px 7px; border: 1px solid #bec5c3; border-radius: 6px; backgroun
   .top-bar__actions { flex-wrap: wrap; justify-content: flex-end; }
   .top-bar__actions .button { font-size: 0; padding: 9px; }
   .setup-grid { grid-template-columns: 1fr; }
-  .pronunciation-fields { grid-template-columns: 1fr; }
+  .lyric-support-fields { grid-template-columns: 1fr; }
+  .karaoke-translation { width: min(58%, 420px); }
   .timing-layout { display: block; height: auto; }
   .timing-page { overflow: auto; height: auto; min-height: 100vh; }
   .timing-controls { padding: 35px 24px; border: 0; }

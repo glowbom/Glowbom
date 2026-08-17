@@ -3,6 +3,7 @@ export type KaraokeCue = {
   text: string;
   latinPronunciation?: string;
   cyrillicPronunciation?: string;
+  translation?: string;
   startMs: number;
   endMs: number;
 };
@@ -23,6 +24,7 @@ export type KaraokeProject = {
   lyrics: string;
   latinPronunciations?: string;
   cyrillicPronunciations?: string;
+  translations?: string;
   cues: KaraokeCue[];
   vocalAudio: ProjectAsset;
   instrumentalAudio?: ProjectAsset;

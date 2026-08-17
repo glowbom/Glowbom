@@ -14,6 +14,7 @@ describe("karaoke pronunciation guides", () => {
           text: "Πρώτη γραμμή",
           latinPronunciation: "Próti grammí",
           cyrillicPronunciation: "Проти грами",
+          translation: "First line",
           startMs: 1_000,
           endMs: 3_000,
         }]}
@@ -23,11 +24,13 @@ describe("karaoke pronunciation guides", () => {
         backgroundMode="stage"
         showLatinPronunciation
         showCyrillicPronunciation
+        showTranslation
       />,
     );
 
     expect(screen.getByText("Próti grammí")).toBeInTheDocument();
     expect(screen.getByText("Проти грами")).toBeInTheDocument();
+    expect(screen.getByText("First line")).toHaveClass("karaoke-translation");
   });
 });
 
@@ -39,14 +42,17 @@ describe("player actions", () => {
       guideVocals: false,
       hasLatinPronunciation: false,
       hasCyrillicPronunciation: false,
+      hasTranslation: true,
       latinPronunciationEnabled: false,
       cyrillicPronunciationEnabled: false,
+      translationEnabled: false,
       speed: 1,
       backgroundMode: "stage" as const,
       onPlay: vi.fn(),
       onGuideVocals: vi.fn(),
       onLatinPronunciation: vi.fn(),
       onCyrillicPronunciation: vi.fn(),
+      onTranslation: vi.fn(),
       onSpeed: vi.fn(),
       onBackground: vi.fn(),
       onFullscreen: vi.fn(),
@@ -54,6 +60,7 @@ describe("player actions", () => {
     const { rerender } = render(<PlayerActions {...common} fullscreen={false} />);
 
     expect(screen.getByRole("button", { name: "Full screen" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Translation" })).toHaveAttribute("aria-pressed", "false");
 
     rerender(<PlayerActions {...common} fullscreen />);
     expect(screen.getByRole("button", { name: "Exit full screen" })).toBeInTheDocument();

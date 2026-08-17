@@ -2,31 +2,34 @@ import type { KaraokeCue } from "../types";
 
 const newId = () => globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
 
-export type PronunciationGuideText = {
+export type LyricSupportText = {
   latin?: string;
   cyrillic?: string;
+  translation?: string;
 };
 
-export function linesToCues(lyrics: string, guides: PronunciationGuideText = {}): KaraokeCue[] {
-  const latinRows = splitRows(guides.latin);
-  const cyrillicRows = splitRows(guides.cyrillic);
+export function linesToCues(lyrics: string, support: LyricSupportText = {}): KaraokeCue[] {
+  const latinRows = splitRows(support.latin);
+  const cyrillicRows = splitRows(support.cyrillic);
+  const translationRows = splitRows(support.translation);
   return lyricRows(lyrics).map(({ text, rowIndex }, index) => ({
       id: newId(),
       text,
-      ...pronunciationFields(latinRows[rowIndex], cyrillicRows[rowIndex]),
+      ...supportFields(latinRows[rowIndex], cyrillicRows[rowIndex], translationRows[rowIndex]),
       startMs: index * 1_000,
       endMs: index * 1_000 + 500,
     }));
 }
 
-export function applyPronunciationGuides(
+export function applyLyricSupportText(
   cues: KaraokeCue[],
   lyrics: string,
-  guides: PronunciationGuideText = {},
+  support: LyricSupportText = {},
 ): KaraokeCue[] {
   const rows = lyricRows(lyrics);
-  const latinRows = splitRows(guides.latin);
-  const cyrillicRows = splitRows(guides.cyrillic);
+  const latinRows = splitRows(support.latin);
+  const cyrillicRows = splitRows(support.cyrillic);
+  const translationRows = splitRows(support.translation);
   return cues.map((cue, index) => {
     const rowIndex = rows[index]?.rowIndex ?? index;
     return {
@@ -34,23 +37,23 @@ export function applyPronunciationGuides(
       text: cue.text,
       startMs: cue.startMs,
       endMs: cue.endMs,
-      ...pronunciationFields(latinRows[rowIndex], cyrillicRows[rowIndex]),
+      ...supportFields(latinRows[rowIndex], cyrillicRows[rowIndex], translationRows[rowIndex]),
     };
   });
 }
 
-export function pronunciationTextFromCues(
+export function lyricSupportTextFromCues(
   cues: KaraokeCue[],
-  field: "latinPronunciation" | "cyrillicPronunciation",
+  field: "latinPronunciation" | "cyrillicPronunciation" | "translation",
 ): string {
   return cues.map((cue) => cue[field] ?? "").join("\n").replace(/\n+$/, "");
 }
 
-export function pronunciationGuideStats(lyrics: string, guide: string) {
-  const guideRows = splitRows(guide);
+export function lyricSupportStats(lyrics: string, support: string) {
+  const supportRows = splitRows(support);
   const rows = lyricRows(lyrics);
   return {
-    filled: rows.filter(({ rowIndex }) => Boolean(guideRows[rowIndex]?.trim())).length,
+    filled: rows.filter(({ rowIndex }) => Boolean(supportRows[rowIndex]?.trim())).length,
     total: rows.length,
   };
 }
@@ -219,12 +222,14 @@ function splitRows(value = "") {
   return value.split(/\r?\n/);
 }
 
-function pronunciationFields(latin?: string, cyrillic?: string) {
+function supportFields(latin?: string, cyrillic?: string, translation?: string) {
   const normalizedLatin = latin?.trim();
   const normalizedCyrillic = cyrillic?.trim();
+  const normalizedTranslation = translation?.trim();
   return {
     ...(normalizedLatin ? { latinPronunciation: normalizedLatin } : {}),
     ...(normalizedCyrillic ? { cyrillicPronunciation: normalizedCyrillic } : {}),
+    ...(normalizedTranslation ? { translation: normalizedTranslation } : {}),
   };
 }
 

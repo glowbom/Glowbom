@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  applyPronunciationGuides,
+  applyLyricSupportText,
   exportLrc,
   exportSrt,
   exportTtml,
@@ -9,8 +9,8 @@ import {
   parseLrc,
   parseSrt,
   parseTtml,
-  pronunciationGuideStats,
-  pronunciationTextFromCues,
+  lyricSupportStats,
+  lyricSupportTextFromCues,
 } from "./lyrics";
 
 describe("timed lyrics", () => {
@@ -48,20 +48,22 @@ describe("timed lyrics", () => {
     const cues = linesToCues("Πρώτη γραμμή\n\nΔεύτερη γραμμή", {
       latin: "Próti grammí\n\nDéfteri grammí",
       cyrillic: "Проти грами\n\nДэфтэри грами",
+      translation: "First line\n\nSecond line",
     });
 
     expect(cues).toMatchObject([
-      { text: "Πρώτη γραμμή", latinPronunciation: "Próti grammí", cyrillicPronunciation: "Проти грами" },
-      { text: "Δεύτερη γραμμή", latinPronunciation: "Défteri grammí", cyrillicPronunciation: "Дэфтэри грами" },
+      { text: "Πρώτη γραμμή", latinPronunciation: "Próti grammí", cyrillicPronunciation: "Проти грами", translation: "First line" },
+      { text: "Δεύτερη γραμμή", latinPronunciation: "Défteri grammí", cyrillicPronunciation: "Дэфтэри грами", translation: "Second line" },
     ]);
-    expect(pronunciationGuideStats("Πρώτη γραμμή\n\nΔεύτερη γραμμή", "Próti grammí\n\n")).toEqual({ filled: 1, total: 2 });
+    expect(lyricSupportStats("Πρώτη γραμμή\n\nΔεύτερη γραμμή", "Próti grammí\n\n")).toEqual({ filled: 1, total: 2 });
   });
 
   it("updates pronunciation without changing imported timing", () => {
     const cues = parseSrt("1\n00:00:02,125 --> 00:00:05,450\nΓεια σου\n");
-    const updated = applyPronunciationGuides(cues, "Γεια σου", { latin: "Ya su" });
+    const updated = applyLyricSupportText(cues, "Γεια σου", { latin: "Ya su", translation: "Hello" });
 
-    expect(updated[0]).toMatchObject({ startMs: 2125, endMs: 5450, latinPronunciation: "Ya su" });
-    expect(pronunciationTextFromCues(updated, "latinPronunciation")).toBe("Ya su");
+    expect(updated[0]).toMatchObject({ startMs: 2125, endMs: 5450, latinPronunciation: "Ya su", translation: "Hello" });
+    expect(lyricSupportTextFromCues(updated, "latinPronunciation")).toBe("Ya su");
+    expect(lyricSupportTextFromCues(updated, "translation")).toBe("Hello");
   });
 });

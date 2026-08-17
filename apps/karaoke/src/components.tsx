@@ -140,6 +140,7 @@ export function KaraokeStage({
   fullscreen,
   showLatinPronunciation,
   showCyrillicPronunciation,
+  showTranslation,
 }: {
   cues: KaraokeCue[];
   positionMs: number;
@@ -150,6 +151,7 @@ export function KaraokeStage({
   fullscreen?: boolean;
   showLatinPronunciation?: boolean;
   showCyrillicPronunciation?: boolean;
+  showTranslation?: boolean;
 }) {
   const activeIndex = cues.findIndex((cue) => positionMs >= cue.startMs && positionMs <= cue.endMs);
   const nextIndex = cues.findIndex((cue) => cue.startMs > positionMs);
@@ -188,6 +190,7 @@ export function KaraokeStage({
           {next && <div className="next-line">{next.text}</div>}
         </div>
       ) : cues.length === 0 ? <p className="karaoke-empty">Add lyrics to begin.</p> : null}
+      {showTranslation && cue?.translation && <div className="karaoke-translation">{cue.translation}</div>}
     </div>
   );
 }
@@ -232,8 +235,10 @@ export function PlayerActions({
   guideVocals,
   hasLatinPronunciation,
   hasCyrillicPronunciation,
+  hasTranslation,
   latinPronunciationEnabled,
   cyrillicPronunciationEnabled,
+  translationEnabled,
   speed,
   backgroundMode,
   fullscreen,
@@ -241,6 +246,7 @@ export function PlayerActions({
   onGuideVocals,
   onLatinPronunciation,
   onCyrillicPronunciation,
+  onTranslation,
   onSpeed,
   onBackground,
   onFullscreen,
@@ -250,8 +256,10 @@ export function PlayerActions({
   guideVocals: boolean;
   hasLatinPronunciation: boolean;
   hasCyrillicPronunciation: boolean;
+  hasTranslation: boolean;
   latinPronunciationEnabled: boolean;
   cyrillicPronunciationEnabled: boolean;
+  translationEnabled: boolean;
   speed: number;
   backgroundMode: BackgroundMode;
   fullscreen: boolean;
@@ -259,6 +267,7 @@ export function PlayerActions({
   onGuideVocals: () => void;
   onLatinPronunciation: () => void;
   onCyrillicPronunciation: () => void;
+  onTranslation: () => void;
   onSpeed: () => void;
   onBackground: () => void;
   onFullscreen: () => void;
@@ -268,6 +277,7 @@ export function PlayerActions({
       {hasInstrumental && <button className={guideVocals ? "active" : ""} onClick={onGuideVocals}><Mic2 /> Guide vocals</button>}
       {hasLatinPronunciation && <button className={latinPronunciationEnabled ? "active" : ""} aria-pressed={latinPronunciationEnabled} onClick={onLatinPronunciation}>Latin guide</button>}
       {hasCyrillicPronunciation && <button className={cyrillicPronunciationEnabled ? "active" : ""} aria-pressed={cyrillicPronunciationEnabled} onClick={onCyrillicPronunciation}>Cyrillic guide</button>}
+      {hasTranslation && <button className={translationEnabled ? "active" : ""} aria-pressed={translationEnabled} onClick={onTranslation}>Translation</button>}
       <button className="player-actions__play" onClick={onPlay}>{playing ? <Pause fill="currentColor" /> : <Play fill="currentColor" />}</button>
       <button onClick={onSpeed}>{speed}×</button>
       <button onClick={onBackground}><Wallpaper /> {backgroundMode}</button>
