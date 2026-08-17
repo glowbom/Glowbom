@@ -211,9 +211,9 @@ export function KaraokeStage({
             </div>
           )}
           {next && <div className="next-line">{next.text}</div>}
+          {showTranslation && cue.translation && <div className="karaoke-translation">{cue.translation}</div>}
         </div>
       ) : cues.length === 0 ? <p className="karaoke-empty">Add lyrics to begin.</p> : null}
-      {showTranslation && cue?.translation && <div className="karaoke-translation">{cue.translation}</div>}
     </div>
   );
 }
