@@ -11,6 +11,8 @@ You do not need to understand music software. The app guides you through four st
 3. **Set the timing.** Play the song. Hold the Space bar when a lyric line begins, then release it when the line ends. The app moves to the next line automatically. Press Delete if you make a mistake.
 4. **Sing.** Open the player, switch backgrounds, show or hide available pronunciation guides and translations, use the instrumental or guide vocals, change the speed, and enter full screen.
 
+When you paste lyrics or supporting text from ChatGPT or another rich-text editor, the app preserves paragraph and stanza breaks whenever the clipboard provides them.
+
 The app can download your finished lyrics as **LRC**, **SRT**, or **TTML** files. These files can be opened by many lyric and karaoke tools.
 
 ## Saving your work

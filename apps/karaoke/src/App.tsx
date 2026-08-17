@@ -6,6 +6,7 @@ import {
   FilePicker,
   Icons,
   KaraokeStage,
+  MultilineTextarea,
   PlayerActions,
   ProjectButtons,
   SetupSection,
@@ -206,17 +207,17 @@ function Setup(props: SetupProps) {
           <FilePicker label="Instrumental audio" helper="Used for the final sing-along" accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg,.flac" asset={props.instrumentalAudio} icon={<Music2 />} onFile={props.onInstrumental} optional />
         </SetupSection>
         <SetupSection number={3} title="Add the lyrics" description="Put one lyric line on each row, or open a timed lyrics file.">
-          <textarea value={props.lyrics} onChange={(event) => props.onLyrics(event.target.value)} placeholder={'First lyric line\nSecond lyric line\nThird lyric line'} rows={9} />
+          <MultilineTextarea value={props.lyrics} onValue={props.onLyrics} placeholder={'First lyric line\nSecond lyric line\nThird lyric line'} rows={9} />
           <div className="lyric-support-heading"><strong>Pronunciation and translation</strong><span>optional</span><p>Match each row to its lyric row. Leave a row blank when a lyric does not need supporting text.</p></div>
           <div className="lyric-support-fields">
             <label>Latin reading guide <small>{latinStats.filled} / {latinStats.total} lyrics</small>
-              <textarea value={props.latinPronunciations} onChange={(event) => props.onLatinPronunciations(event.target.value)} placeholder={'How lyric line 1 sounds\nHow lyric line 2 sounds'} rows={6} />
+              <MultilineTextarea value={props.latinPronunciations} onValue={props.onLatinPronunciations} placeholder={'How lyric line 1 sounds\nHow lyric line 2 sounds'} rows={6} />
             </label>
             <label>Cyrillic reading guide <small>{cyrillicStats.filled} / {cyrillicStats.total} lyrics</small>
-              <textarea value={props.cyrillicPronunciations} onChange={(event) => props.onCyrillicPronunciations(event.target.value)} placeholder={'Как звучит строка 1\nКак звучит строка 2'} rows={6} />
+              <MultilineTextarea value={props.cyrillicPronunciations} onValue={props.onCyrillicPronunciations} placeholder={'Как звучит строка 1\nКак звучит строка 2'} rows={6} />
             </label>
             <label>Translation <small>{translationStats.filled} / {translationStats.total} lyrics</small>
-              <textarea value={props.translations} onChange={(event) => props.onTranslations(event.target.value)} placeholder={'Translation of lyric line 1\nTranslation of lyric line 2'} rows={6} />
+              <MultilineTextarea value={props.translations} onValue={props.onTranslations} placeholder={'Translation of lyric line 1\nTranslation of lyric line 2'} rows={6} />
             </label>
           </div>
           <label className="file-picker file-picker--compact">

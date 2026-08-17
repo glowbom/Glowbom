@@ -1,9 +1,26 @@
 // @vitest-environment jsdom
 
 import "@testing-library/jest-dom/vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { KaraokeStage, PlayerActions } from "./components";
+import { KaraokeStage, MultilineTextarea, PlayerActions } from "./components";
+
+describe("multiline text fields", () => {
+  it("uses rich clipboard structure to preserve stanza breaks", () => {
+    const onValue = vi.fn();
+    render(<MultilineTextarea aria-label="Lyrics" value="" onValue={onValue} />);
+
+    fireEvent.paste(screen.getByRole("textbox", { name: "Lyrics" }), {
+      clipboardData: {
+        getData: (type: string) => type === "text/html"
+          ? "<p>First line<br>Second line</p><p>Third line</p>"
+          : "First line\nSecond line\nThird line",
+      },
+    });
+
+    expect(onValue).toHaveBeenCalledWith("First line\nSecond line\n\nThird line");
+  });
+});
 
 describe("karaoke pronunciation guides", () => {
   it("shows enabled guides beneath the current lyric", () => {

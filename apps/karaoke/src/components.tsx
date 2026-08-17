@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ChangeEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type ClipboardEvent as ReactClipboardEvent, type ReactNode, type TextareaHTMLAttributes } from "react";
 import {
   ArrowLeft,
   Check,
@@ -20,6 +20,7 @@ import {
   X,
 } from "lucide-react";
 import type { BackgroundMode, KaraokeCue, ProjectAsset } from "./types";
+import { normalizedClipboardText } from "./lib/clipboard";
 
 export function TopBar({
   title,
@@ -101,6 +102,28 @@ export function SetupSection({ number, title, description, children }: { number:
       <div className="setup-card__body">{children}</div>
     </section>
   );
+}
+
+export function MultilineTextarea({ value, onValue, ...props }: {
+  value: string;
+  onValue: (value: string) => void;
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange" | "onPaste">) {
+  const paste = (event: ReactClipboardEvent<HTMLTextAreaElement>) => {
+    const plainText = event.clipboardData.getData("text/plain");
+    const text = normalizedClipboardText(plainText, event.clipboardData.getData("text/html"));
+    if (text === plainText) return;
+
+    event.preventDefault();
+    const textarea = event.currentTarget;
+    const start = textarea.selectionStart ?? value.length;
+    const end = textarea.selectionEnd ?? start;
+    onValue(`${value.slice(0, start)}${text}${value.slice(end)}`);
+    const restoreCaret = () => textarea.setSelectionRange(start + text.length, start + text.length);
+    if (typeof requestAnimationFrame === "function") requestAnimationFrame(restoreCaret);
+    else setTimeout(restoreCaret, 0);
+  };
+
+  return <textarea {...props} value={value} onChange={(event) => onValue(event.target.value)} onPaste={paste} />;
 }
 
 export function AudioTransport({ audio, positionMs, durationMs, playing, onToggle, onSeek }: {
