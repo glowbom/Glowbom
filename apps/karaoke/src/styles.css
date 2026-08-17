@@ -132,6 +132,7 @@ kbd { padding: 3px 7px; border: 1px solid #bec5c3; border-radius: 6px; backgroun
 .karaoke-stage--gray { background: radial-gradient(circle at 50% 28%, #343a3e, #0b0d0e 70%); }
 .karaoke-stage--stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 11% 20%, rgba(255,255,255,.13) 0 3px, transparent 4px), radial-gradient(circle at 83% 33%, rgba(255,255,255,.12) 0 6px, transparent 7px), radial-gradient(circle at 67% 72%, rgba(255,255,255,.09) 0 8px, transparent 9px); }
 .karaoke-stage__noise { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent, rgba(0,0,0,.45)); }
+.karaoke-stage--photo .karaoke-stage__noise { background: radial-gradient(ellipse at center, rgba(0,0,0,.03), rgba(0,0,0,.27)); }
 .karaoke-stage__meta { position: absolute; top: 22px; left: 30px; right: 30px; text-align: center; color: rgba(255,255,255,.53); font: 800 11px "Manrope"; letter-spacing: .09em; text-transform: uppercase; }
 .karaoke-stage__meta span { color: var(--yellow); margin: 0 5px; }
 .karaoke-stage__lyrics { position: relative; width: min(84%, 1100px); text-align: center; }

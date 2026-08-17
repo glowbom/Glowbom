@@ -159,7 +159,7 @@ export function KaraokeStage({
   const progress = activeIndex < 0 || !cue ? 0 : Math.max(0, Math.min(1, (positionMs - cue.startMs) / Math.max(1, cue.endMs - cue.startMs)));
 
   const style = backgroundMode === "photo" && background
-    ? { backgroundImage: `linear-gradient(90deg, rgba(2,3,4,.88), rgba(2,3,4,.5), rgba(2,3,4,.88)), url(${background.dataUrl})` }
+    ? { backgroundImage: `url(${background.dataUrl})` }
     : undefined;
 
   return (
