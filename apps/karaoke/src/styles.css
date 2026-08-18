@@ -101,6 +101,16 @@ textarea { resize: vertical; min-height: 165px; line-height: 1.45; }
 .file-picker__copy strong, .file-picker__copy small { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .file-picker__copy strong { font-size: 13px; }
 .file-picker__copy small { color: #859197; font-size: 10px; margin-top: 2px; }
+.timed-lyrics-picker { display: flex; align-items: stretch; gap: 8px; }
+.timed-lyrics-picker .file-picker { flex: 1; min-width: 0; }
+.timed-lyrics-picker__remove {
+  width: 58px; flex: 0 0 58px; border: 1px solid #e1c9c2; border-radius: 8px;
+  display: grid; place-items: center; background: #fff9f7; color: #a6462d;
+  transition: border-color .18s, background .18s, color .18s;
+}
+.timed-lyrics-picker__remove:hover { border-color: var(--orange); background: #fff1ec; color: #8d321d; }
+.timed-lyrics-picker__remove:focus-visible { outline: 3px solid rgba(255,105,54,.2); outline-offset: 2px; }
+.timed-lyrics-picker__remove svg { width: 19px; }
 
 .timing-page { height: 100vh; background: #ffffff; overflow: hidden; }
 .timing-layout { height: calc(100vh - 72px); display: grid; grid-template-columns: minmax(420px, 46%) 1fr; }

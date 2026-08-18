@@ -4,14 +4,13 @@ import {
   AudioTransport,
   ExportButtons,
   FilePicker,
-  Icons,
   KaraokeStage,
   MultilineTextarea,
   PlayerActions,
   ProjectButtons,
   SetupSection,
+  TimedLyricsPicker,
   TopBar,
-  readTextFile,
   useAudioClock,
 } from "./components";
 import {
@@ -144,6 +143,7 @@ export default function App() {
           onCyrillicPronunciations={(value) => { setCyrillicPronunciations(value); setCues((current) => applyLyricSupportText(current, lyrics, { latin: latinPronunciations, cyrillic: value, translation: translations })); }}
           onTranslations={(value) => { setTranslations(value); setCues((current) => applyLyricSupportText(current, lyrics, { latin: latinPronunciations, cyrillic: cyrillicPronunciations, translation: value })); }}
           onTimed={(file, value) => { try { const imported = parseTimedLyrics(file.name, value); if (!imported.length) throw new Error("No timed lyric lines were found."); const importedLyrics = imported.map((cue) => cue.text).join("\n"); setCues(applyLyricSupportText(imported, importedLyrics, { latin: latinPronunciations, cyrillic: cyrillicPronunciations, translation: translations })); setLyrics(importedLyrics); setError(""); } catch (reason) { setError(reason instanceof Error ? reason.message : "The lyrics file could not be read."); } }}
+          onRemoveTiming={() => { setCues([]); setError(""); }}
           onContinue={begin} onHome={() => setScreen("home")} onOpen={() => void chooseProject()} onSave={() => void saveProject()}
         />
       )}
@@ -187,7 +187,8 @@ type SetupProps = {
   onTitle: (value: string) => void; onArtist: (value: string) => void; onLyrics: (value: string) => void;
   onLatinPronunciations: (value: string) => void; onCyrillicPronunciations: (value: string) => void; onTranslations: (value: string) => void;
   onVocal: (file: File) => void; onInstrumental: (file: File) => void; onBackground: (file: File) => void;
-  onTimed: (file: File, value: string) => void; onContinue: () => void; onHome: () => void; onOpen: () => void; onSave: () => void;
+  onTimed: (file: File, value: string) => void; onRemoveTiming: () => void;
+  onContinue: () => void; onHome: () => void; onOpen: () => void; onSave: () => void;
 };
 
 function Setup(props: SetupProps) {
@@ -220,10 +221,7 @@ function Setup(props: SetupProps) {
               <MultilineTextarea value={props.translations} onValue={props.onTranslations} placeholder={'Translation of lyric line 1\nTranslation of lyric line 2'} rows={6} />
             </label>
           </div>
-          <label className="file-picker file-picker--compact">
-            <input type="file" accept=".lrc,.srt,.ttml,.xml,text/plain,application/xml" hidden onChange={(event) => readTextFile(event, props.onTimed)} />
-            <span className="file-picker__icon">{props.imported ? <Icons.Save /> : <FileText />}</span><span className="file-picker__copy"><strong>{props.imported ? "Timed lyrics ready" : "Open LRC, SRT or TTML"}</strong><small>{props.imported ? "You can skip manual timing" : "Optional shortcut"}</small></span><Upload size={18} />
-          </label>
+          <TimedLyricsPicker hasTiming={props.imported} onFile={props.onTimed} onRemove={props.onRemoveTiming} />
         </SetupSection>
         <SetupSection number={4} title="Choose a background" description="A landscape image works best. You can change it later.">
           <FilePicker label="Background image" helper="JPG, PNG or WebP" accept="image/*,.jpg,.jpeg,.png,.webp" asset={props.backgroundImage} icon={<Image />} onFile={props.onBackground} optional />

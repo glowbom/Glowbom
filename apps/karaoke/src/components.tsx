@@ -126,6 +126,44 @@ export function MultilineTextarea({ value, onValue, ...props }: {
   return <textarea {...props} value={value} onChange={(event) => onValue(event.target.value)} onPaste={paste} />;
 }
 
+export function TimedLyricsPicker({ hasTiming, onFile, onRemove }: {
+  hasTiming: boolean;
+  onFile: (file: File, contents: string) => void;
+  onRemove: () => void;
+}) {
+  const removeTiming = () => {
+    const confirmed = window.confirm(
+      "Remove lyric timing? Your lyrics, audio, pronunciation, translation, and background will remain.",
+    );
+    if (confirmed) onRemove();
+  };
+
+  return (
+    <div className="timed-lyrics-picker">
+      <label className={`file-picker file-picker--compact ${hasTiming ? "file-picker--ready" : ""}`}>
+        <input type="file" accept=".lrc,.srt,.ttml,.xml,text/plain,application/xml" hidden onChange={(event) => readTextFile(event, onFile)} />
+        <span className="file-picker__icon">{hasTiming ? <Save /> : <FileText />}</span>
+        <span className="file-picker__copy">
+          <strong>{hasTiming ? "Timed lyrics ready" : "Open LRC, SRT or TTML"}</strong>
+          <small>{hasTiming ? "Your timing is attached to this project" : "Optional shortcut"}</small>
+        </span>
+        <Upload size={18} />
+      </label>
+      {hasTiming && (
+        <button
+          type="button"
+          className="timed-lyrics-picker__remove"
+          aria-label="Remove lyric timing"
+          title="Remove lyric timing"
+          onClick={removeTiming}
+        >
+          <X />
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function AudioTransport({ audio, positionMs, durationMs, playing, onToggle, onSeek }: {
   audio: HTMLAudioElement | null;
   positionMs: number;

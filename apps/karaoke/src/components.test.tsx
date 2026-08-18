@@ -1,9 +1,11 @@
 // @vitest-environment jsdom
 
 import "@testing-library/jest-dom/vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import { KaraokeStage, MultilineTextarea, PlayerActions } from "./components";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { KaraokeStage, MultilineTextarea, PlayerActions, TimedLyricsPicker } from "./components";
+
+afterEach(cleanup);
 
 describe("multiline text fields", () => {
   it("uses rich clipboard structure to preserve stanza breaks", () => {
@@ -19,6 +21,34 @@ describe("multiline text fields", () => {
     });
 
     expect(onValue).toHaveBeenCalledWith("First line\nSecond line\n\nThird line");
+  });
+});
+
+describe("timed lyrics picker", () => {
+  it("requires confirmation before removing attached timing", () => {
+    const onRemove = vi.fn();
+    const confirm = vi.spyOn(window, "confirm")
+      .mockReturnValueOnce(false)
+      .mockReturnValueOnce(true);
+
+    render(<TimedLyricsPicker hasTiming onFile={vi.fn()} onRemove={onRemove} />);
+    const removeButton = screen.getByRole("button", { name: "Remove lyric timing" });
+
+    fireEvent.click(removeButton);
+    expect(onRemove).not.toHaveBeenCalled();
+
+    fireEvent.click(removeButton);
+    expect(onRemove).toHaveBeenCalledOnce();
+    expect(confirm).toHaveBeenCalledTimes(2);
+
+    confirm.mockRestore();
+  });
+
+  it("does not show the remove action before timing exists", () => {
+    render(<TimedLyricsPicker hasTiming={false} onFile={vi.fn()} onRemove={vi.fn()} />);
+
+    expect(screen.queryByRole("button", { name: "Remove lyric timing" })).not.toBeInTheDocument();
+    expect(screen.getByText("Open LRC, SRT or TTML")).toBeInTheDocument();
   });
 });
 

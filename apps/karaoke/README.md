@@ -23,6 +23,8 @@ Pronunciation guides and translations are saved in the project too. They remain 
 
 Press **Open project** later and choose that file. Everything will return, so you can keep editing or start singing again.
 
+To redo the lyric timing, return to the song setup and press the **×** beside **Timed lyrics ready**. Confirm the removal, then press **Start lyric timing**. Only the timing is removed; the lyrics, audio, pronunciation guides, translation, and background stay in the project.
+
 Because audio and images are kept inside the project, a project file can be large. Keep it somewhere safe on your computer. Only share audio that you have permission to share.
 
 ## Technology
