@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import type { BackgroundMode, KaraokeCue, ProjectAsset } from "./types";
 import { normalizedClipboardText } from "./lib/clipboard";
+import { openingTitleState } from "./lib/player";
 
 export function TopBar({
   title,
@@ -220,6 +221,8 @@ export function KaraokeStage({
   const cue = index >= 0 ? cues[index] : undefined;
   const next = index >= 0 ? cues[index + 1] : undefined;
   const firstCue = cues[0];
+  const openingTitle = openingTitleState(firstCue?.startMs, positionMs);
+  const showOpeningTitle = Boolean(title.trim()) && openingTitle.visible;
   const countdown = firstCue && positionMs < firstCue.startMs
     ? Math.ceil((firstCue.startMs - positionMs) / 1_000)
     : 0;
@@ -233,8 +236,18 @@ export function KaraokeStage({
   return (
     <div className={`karaoke-stage karaoke-stage--${backgroundMode} ${fullscreen ? "karaoke-stage--fullscreen" : ""}`} style={style}>
       <div className="karaoke-stage__noise" />
-      <div className="karaoke-stage__meta">{title} <span>·</span> {artist || "Your song"}</div>
-      {cue ? (
+      {!showOpeningTitle && (
+        <div className="karaoke-stage__meta">
+          {title}{artist && <><span>·</span>{artist}</>}
+        </div>
+      )}
+      {showOpeningTitle ? (
+        <div className="karaoke-opening-title" style={{ opacity: openingTitle.opacity }}>
+          <p>Now singing</p>
+          <h1>{title}</h1>
+          {artist && <h2>{artist}</h2>}
+        </div>
+      ) : cue ? (
         <div className="karaoke-stage__lyrics">
           {showCountdown && firstCue && (
             <div className="karaoke-countdown" aria-live="polite">

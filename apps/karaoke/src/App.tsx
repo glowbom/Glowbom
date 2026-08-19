@@ -151,7 +151,7 @@ export default function App() {
       {screen === "player" && vocalAudio && (
         <Player
           key={createdAt}
-          title={title || "My karaoke"} artist={artist || "Your song"} vocalAudio={vocalAudio}
+          title={title.trim() || "My karaoke"} artist={artist.trim()} vocalAudio={vocalAudio}
           instrumentalAudio={instrumentalAudio} backgroundImage={backgroundImage} backgroundMode={backgroundMode}
           cues={cues} onBackground={cycleBackground} onBack={() => setScreen("setup")} onSave={() => void saveProject()}
           onOpen={() => void chooseProject()} onNew={reset}
@@ -316,6 +316,7 @@ function Player({ title, artist, vocalAudio, instrumentalAudio, backgroundImage,
   const { positionMs, durationMs, playing } = useAudioClock(active);
   const shell = useRef<HTMLDivElement>(null);
   const baseName = fileBaseName(artist, title);
+  const songLabel = artist ? `${title} · ${artist}` : title;
 
   useEffect(() => () => { vocal.pause(); instrumental?.pause(); }, [instrumental, vocal]);
   useEffect(() => { const change = () => setFullscreen(Boolean(document.fullscreenElement)); document.addEventListener("fullscreenchange", change); return () => document.removeEventListener("fullscreenchange", change); }, []);
@@ -364,7 +365,7 @@ function Player({ title, artist, vocalAudio, instrumentalAudio, backgroundImage,
       onPointerMove={revealControls}
       onPointerDown={revealControls}
     >
-      {!fullscreen && <TopBar title="Your karaoke" subtitle={`${title} · ${artist}`} onBack={onBack} actions={<><button className="button button--quiet" onClick={onNew}><Sparkles /> New</button><ProjectButtons onOpen={onOpen} onSave={onSave} /></>} />}
+      {!fullscreen && <TopBar title="Your karaoke" subtitle={songLabel} onBack={onBack} actions={<><button className="button button--quiet" onClick={onNew}><Sparkles /> New</button><ProjectButtons onOpen={onOpen} onSave={onSave} /></>} />}
       <main className="player-layout">
         <KaraokeStage cues={cues} positionMs={positionMs} title={title} artist={artist} background={backgroundImage} backgroundMode={backgroundMode} fullscreen={fullscreen} showLatinPronunciation={latinPronunciationEnabled} showCyrillicPronunciation={cyrillicPronunciationEnabled} showTranslation={translationEnabled} />
         <div className="player-controls">

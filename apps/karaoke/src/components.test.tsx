@@ -81,6 +81,61 @@ describe("karaoke pronunciation guides", () => {
   });
 });
 
+describe("karaoke opening title", () => {
+  const cues = [{
+    id: "one",
+    text: "First lyric",
+    startMs: 5_000,
+    endMs: 7_000,
+  }];
+
+  it("shows the song and available artist during a usable lead-in", () => {
+    render(
+      <KaraokeStage
+        cues={cues}
+        positionMs={0}
+        title="Song"
+        artist="Artist"
+        backgroundMode="stage"
+      />,
+    );
+
+    expect(screen.getByRole("heading", { name: "Song", level: 1 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Artist", level: 2 })).toBeInTheDocument();
+    expect(screen.queryByLabelText("First lyric")).not.toBeInTheDocument();
+  });
+
+  it("omits a missing artist", () => {
+    render(
+      <KaraokeStage
+        cues={cues}
+        positionMs={0}
+        title="Song"
+        artist=""
+        backgroundMode="stage"
+      />,
+    );
+
+    expect(screen.getByRole("heading", { name: "Song", level: 1 })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 2 })).not.toBeInTheDocument();
+  });
+
+  it("goes directly to lyrics when the first line starts right away", () => {
+    render(
+      <KaraokeStage
+        cues={[{ ...cues[0], startMs: 1_000 }]}
+        positionMs={0}
+        title="Song"
+        artist="Artist"
+        backgroundMode="stage"
+      />,
+    );
+
+    expect(screen.queryByText("Now singing")).not.toBeInTheDocument();
+    expect(screen.getByLabelText("First lyric")).toBeInTheDocument();
+  });
+});
+
 describe("player actions", () => {
   it("describes the fullscreen action according to the current state", () => {
     const common = {
