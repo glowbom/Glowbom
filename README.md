@@ -8,7 +8,7 @@ Start with **Glowbom Mobile** on iPhone, iPad, or Apple Vision Pro, connected to
 
 [Documentation](https://glowbom.com/docs/) · [Report a bug or suggest a feature](https://github.com/glowbom/Glowbom/issues/new/choose) · [Open-source code](https://github.com/glowbom/glowbom-oss)
 
-This repository is the public home for Glowbom Labs. It hosts product feedback, [small apps](apps/README.md), and [earlier work](archive/README.md). [Karaoke](apps/karaoke/README.md) is the current app example.
+This repository is the public home for Glowbom Labs. It hosts product feedback, [small apps](https://github.com/glowbom/Glowbom/tree/master/apps), and [earlier work](https://github.com/glowbom/Glowbom/tree/master/archive). [Karaoke](https://github.com/glowbom/Glowbom/tree/master/apps/karaoke) is the current app example.
 
 <a href="https://glowbom.com/mobile/">
   <img src="https://glowbom.com/mobile/home-720.webp" width="230" alt="Glowbom on iPhone with a paired Mac, project creation, chat, and recent projects">
