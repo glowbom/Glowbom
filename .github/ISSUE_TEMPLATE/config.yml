@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Start with Glowbom Mobile
+    url: https://glowbom.com/mobile/
+    about: Get Glowbom for iPhone, iPad, or Vision Pro and find the setup guide.
+  - name: Glowbom documentation
+    url: https://glowbom.com/docs/
+    about: Read the guides for Glowbom products.

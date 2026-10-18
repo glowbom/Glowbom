@@ -1,0 +1,54 @@
+name: Report a bug
+description: Tell us about a problem with any Glowbom product.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This report will be public. Do not include passwords, API keys, pairing codes, or private account details.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Which Glowbom product?
+      options:
+        - Mobile (iPhone/iPad)
+        - Vision Pro
+        - Desktop (Mac)
+        - Web
+        - OSS
+        - Standalone app (e.g. Karaoke)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: version-device
+    attributes:
+      label: App version and device
+      description: Include your app version or TestFlight build, device, and operating system. For Web, include your browser. Add what you know.
+      placeholder: If you use a standalone app, include its name. If a companion connection is affected, include your Desktop version too.
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we reproduce it?
+      description: List the steps that led to the problem. If you cannot repeat it, tell us what you were doing.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. The problem appears...
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or logs (optional)
+      description: Attach files or paste relevant text. Remove private information before sharing.
+    validations:
+      required: false

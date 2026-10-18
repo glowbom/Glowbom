@@ -1,0 +1,35 @@
+name: Request a feature
+description: Suggest an improvement for any Glowbom product.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what you want to do with Glowbom. This request will be public, so leave out private information.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Which Glowbom product?
+      options:
+        - Mobile (iPhone/iPad)
+        - Vision Pro
+        - Desktop (Mac)
+        - Web
+        - OSS
+        - Standalone app (e.g. Karaoke)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem do you want to solve?
+      description: Tell us what you are trying to do and what gets in the way. For a standalone app, include its name.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What result do you want?
+      description: Describe the change and how it helps you. You can include an example or a screenshot.
+    validations:
+      required: true
