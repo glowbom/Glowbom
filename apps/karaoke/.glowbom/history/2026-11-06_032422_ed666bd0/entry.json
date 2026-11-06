@@ -1,0 +1,23 @@
+{
+  "id": "ed666bd0-5362-4f97-ae4d-1a8bee5e1234",
+  "timestamp": "2026-11-06T03:24:22Z",
+  "instructions": "Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build.",
+  "taskType": "refine",
+  "status": "failed",
+  "outputSummary": "OpenCode stored the steered message but did not finish a response to it",
+  "attachments": [
+    {
+      "id": "8d119108-0f86-4c94-8b54-f548cb0da4a7",
+      "mediaType": "document",
+      "filename": "instructions.txt",
+      "mimeType": "text/plain; charset=utf-8",
+      "fileSizeBytes": 178
+    }
+  ],
+  "model": "opencode/beam-free",
+  "requestedModel": "opencode/beam-free",
+  "provider": "opencode",
+  "contributor": "OpenCode",
+  "runId": "8ad191db-f194-4b6d-8e62-8b9b10ed4fa4",
+  "request": "Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build."
+}

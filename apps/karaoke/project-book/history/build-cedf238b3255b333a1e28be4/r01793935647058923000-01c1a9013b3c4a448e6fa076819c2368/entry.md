@@ -1,0 +1,3 @@
+# Work on Also add the requirement, in every agent's agent.md, to have a conventional com…
+
+This update worked toward Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a convent…. The saved run records what changed, but does not by itself confirm that every part of the result was tested.

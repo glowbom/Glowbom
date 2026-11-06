@@ -58,6 +58,6 @@ Every app should have a README that explains:
 
 Do not stage files or create commits unless the user explicitly requests it for that specific change. By default, the user stages and commits changes manually.
 
-After completing and verifying a requested change, provide a focused commit message using the Conventional Commits format, such as `feat(karaoke): add background controls` or `docs(apps): clarify setup instructions`.
+Every build must end with exactly one conventional commit one-liner: a single line in Conventional Commits format, such as `feat(karaoke): add background controls` or `docs(apps): clarify setup instructions`. Generate this one-liner every time there is a build, even when no commit is created.
 
 Keep the suggested commit scoped to files that belong to the requested change, and preserve unrelated or pre-existing worktree changes.

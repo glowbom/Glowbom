@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "title": "Sketch of this run",
+  "caption": "An outline of the recorded request and result. It does not describe the application's screen layout.",
+  "nodes": [
+    {
+      "id": "request",
+      "label": "Request",
+      "detail": "Create a document that explains the project."
+    },
+    {
+      "id": "work",
+      "label": "Build",
+      "detail": "opencode/beam-free"
+    },
+    {
+      "id": "result",
+      "label": "Result: completed",
+      "detail": "✅ Refinement completed. 3 file(s) changed."
+    },
+    {
+      "id": "area-1",
+      "label": "PROJECT.md",
+      "detail": "Recorded changed files"
+    },
+    {
+      "id": "area-2",
+      "label": "README.md",
+      "detail": "Recorded changed files"
+    },
+    {
+      "id": "area-3",
+      "label": "tsconfig.app.tsbuildinfo",
+      "detail": "Recorded changed files"
+    }
+  ],
+  "edges": [
+    {
+      "from": "request",
+      "to": "work"
+    },
+    {
+      "from": "work",
+      "to": "result"
+    },
+    {
+      "from": "result",
+      "to": "area-1"
+    },
+    {
+      "from": "result",
+      "to": "area-2"
+    },
+    {
+      "from": "result",
+      "to": "area-3"
+    }
+  ]
+}

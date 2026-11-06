@@ -1,0 +1,1 @@
+Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build.

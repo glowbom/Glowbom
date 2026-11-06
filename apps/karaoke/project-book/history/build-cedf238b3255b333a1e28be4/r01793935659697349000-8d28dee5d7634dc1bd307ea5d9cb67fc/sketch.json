@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "title": "Sketch of this run",
+  "caption": "An outline of the recorded request and result. It does not describe the application's screen layout.",
+  "nodes": [
+    {
+      "id": "request",
+      "label": "Request",
+      "detail": "Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build. Put this into Agent.MD create a new file inside the project directory in roots."
+    },
+    {
+      "id": "work",
+      "label": "Build",
+      "detail": "opencode/beam-free"
+    },
+    {
+      "id": "result",
+      "label": "Result: completed",
+      "detail": "✅ Refinement completed. 1 file(s) changed."
+    },
+    {
+      "id": "area-1",
+      "label": "tsconfig.app.tsbuildinfo",
+      "detail": "Recorded changed files"
+    }
+  ],
+  "edges": [
+    {
+      "from": "request",
+      "to": "work"
+    },
+    {
+      "from": "work",
+      "to": "result"
+    },
+    {
+      "from": "result",
+      "to": "area-1"
+    }
+  ],
+  "visual": {
+    "description": "A lopsided notebook sketch shows the requested agent guide separated from the single recorded changed file, with a burst emphasizing the mismatch.",
+    "model": "openai/gpt-6-sol",
+    "createdAt": "2026-11-06T03:27:39.692166Z",
+    "sourceVersion": "42c3f46a06fc0e6f5e33397aa6fb32c6bec12cc09f0facf62287705f4ba6368e",
+    "document": {
+      "version": 1,
+      "width": 1000,
+      "height": 750,
+      "annotations": [
+        {
+          "kind": "shape",
+          "shape": "rectangle",
+          "start": {
+            "x": 0.12,
+            "y": 0.28
+          },
+          "end": {
+            "x": 0.42,
+            "y": 0.65
+          },
+          "color": "#111111",
+          "width": 0.003
+        },
+        {
+          "kind": "text",
+          "text": "Agent guide?",
+          "x": 0.16,
+          "y": 0.38,
+          "width": 0.23,
+          "fontSize": 0.029,
+          "color": "#111111"
+        },
+        {
+          "kind": "shape",
+          "shape": "arrow",
+          "start": {
+            "x": 0.46,
+            "y": 0.46
+          },
+          "end": {
+            "x": 0.62,
+            "y": 0.46
+          },
+          "color": "#111111",
+          "width": 0.004
+        },
+        {
+          "kind": "shape",
+          "shape": "rectangle",
+          "start": {
+            "x": 0.65,
+            "y": 0.3
+          },
+          "end": {
+            "x": 0.91,
+            "y": 0.63
+          },
+          "color": "#111111",
+          "width": 0.003
+        },
+        {
+          "kind": "text",
+          "text": "tsbuildinfo",
+          "x": 0.68,
+          "y": 0.42,
+          "width": 0.21,
+          "fontSize": 0.027,
+          "color": "#111111"
+        },
+        {
+          "kind": "stroke",
+          "points": [
+            {
+              "x": 0.56,
+              "y": 0.2
+            },
+            {
+              "x": 0.59,
+              "y": 0.29
+            },
+            {
+              "x": 0.66,
+              "y": 0.22
+            },
+            {
+              "x": 0.64,
+              "y": 0.32
+            },
+            {
+              "x": 0.73,
+              "y": 0.26
+            }
+          ],
+          "color": "#111111",
+          "width": 0.004,
+          "erase": false
+        },
+        {
+          "kind": "stroke",
+          "points": [
+            {
+              "x": 0.13,
+              "y": 0.69
+            },
+            {
+              "x": 0.27,
+              "y": 0.67
+            },
+            {
+              "x": 0.41,
+              "y": 0.7
+            }
+          ],
+          "color": "#111111",
+          "width": 0.003,
+          "erase": false
+        }
+      ]
+    }
+  }
+}

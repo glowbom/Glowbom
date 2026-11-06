@@ -1,0 +1,33 @@
+{
+  "id": "build-ed4a7a79af0285522099070c",
+  "title": "",
+  "body": "",
+  "createdAt": "2026-11-06T02:58:58Z",
+  "updatedAt": "2026-11-06T02:59:16.136706Z",
+  "kind": "build",
+  "status": "completed",
+  "request": "Create a document that explains the project.",
+  "model": "opencode/beam-free",
+  "storyModel": "openai/gpt-6-sol",
+  "storyGeneration": {
+    "model": "openai/gpt-6-sol",
+    "createdAt": "2026-11-06T02:59:16.136706Z",
+    "sourceVersion": "62933934ea6e8cf1a7dca45576b26c81e4f30ea59c9d6a56ff40ea3a5c72aef7"
+  },
+  "contributor": "OpenCode",
+  "source": ".glowbom/history/2026-11-06_025858_6f0ef2fd/entry.json",
+  "runId": "d0c86884-358e-42ce-ab4c-6523057eecb6",
+  "changedFiles": [
+    "PROJECT.md",
+    "README.md",
+    "tsconfig.app.tsbuildinfo"
+  ],
+  "images": [],
+  "sketch": {
+    "version": 0,
+    "title": "",
+    "caption": "",
+    "nodes": null,
+    "edges": null
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "title": "Sketch of this run",
+  "caption": "An outline of the recorded request and result. It does not describe the application's screen layout.",
+  "nodes": [
+    {
+      "id": "request",
+      "label": "Request",
+      "detail": "Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build."
+    },
+    {
+      "id": "work",
+      "label": "Build",
+      "detail": "opencode/beam-free"
+    },
+    {
+      "id": "result",
+      "label": "Result: failed",
+      "detail": "OpenCode stored the steered message but did not finish a response to it"
+    }
+  ],
+  "edges": [
+    {
+      "from": "request",
+      "to": "work"
+    },
+    {
+      "from": "work",
+      "to": "result"
+    }
+  ]
+}

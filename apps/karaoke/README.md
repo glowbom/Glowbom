@@ -83,4 +83,5 @@ src/lib/lyrics.ts       LRC, SRT, and TTML import/export
 src/lib/project.ts      project save/load helpers
 src/styles.css          the visual design
 src-tauri/              the desktop app wrapper
+PROJECT.md              detailed project explanation
 ```

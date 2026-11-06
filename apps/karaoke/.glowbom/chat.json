@@ -1,0 +1,35 @@
+[
+  {
+    "role": "user",
+    "text": "Create a document that explains the project."
+  },
+  {
+    "role": "assistant",
+    "text": "No new messages. Final result.GLOWBOM_RESULT: Created PROJECT.md, a detailed guide to the Karaoke app covering features, workflow, architecture, data model, formats, privacy, and development; updated README's project map to reference it. Verified with npm test (25 passed) and npm run build (success).",
+    "model": "opencode/beam-free",
+    "buildSeconds": 343
+  },
+  {
+    "role": "user",
+    "text": "Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build."
+  },
+  {
+    "role": "user",
+    "text": "You can probably just add a new agent file inside the project."
+  },
+  {
+    "role": "assistant",
+    "text": "Yes—a project-root `AGENTS.md` is a good place for this. I’d specify that every Build response ends with exactly one conventional-commit line, such as `docs: explain the karaoke project`. That gives agents one shared instruction rather than adding it to multiple files. The **Steer** icon can flag this for the active Build; I can’t confirm it has picked up the request yet.",
+    "model": "OpenAI via OpenCode · GPT-6 Sol"
+  },
+  {
+    "role": "user",
+    "text": "Also add the requirement, in every agent's agent.md, to have a conventional commit one-liner: just one line of a conventional commit to be generated every time there is a build. Put this into Agent.MD create a new file inside the project directory in roots."
+  },
+  {
+    "role": "assistant",
+    "text": "`docs: add conventional commit requirement to root agent guide`",
+    "model": "opencode/beam-free",
+    "buildSeconds": 83
+  }
+]
