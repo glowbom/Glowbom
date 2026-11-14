@@ -1,0 +1,3 @@
+# Work on Yeah, that's basically what I get when I try to chat with the model on a new co…
+
+This run was recorded while working on Yeah, that's basically what I get when I try to chat with the model on a new computer. Its saved status is failed. The original request and run details remain available in the record.

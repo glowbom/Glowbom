@@ -1,0 +1,23 @@
+{
+  "id": "build-3acc5526529a4bf7448780ef",
+  "title": "",
+  "body": "",
+  "createdAt": "2026-11-09T06:44:35Z",
+  "updatedAt": "2026-11-09T06:49:18.364059Z",
+  "kind": "build",
+  "status": "failed",
+  "request": "Yeah, that's basically what I get when I try to chat with the model on a new computer",
+  "contributor": "OpenCode",
+  "source": ".glowbom/history/2026-11-09_064435_c4e75d7a/entry.json",
+  "runId": "b277ccdd-0c6a-41d5-8d95-99d7894fb11c",
+  "changedFiles": [],
+  "images": [],
+  "sketch": {
+    "version": 0,
+    "title": "",
+    "caption": "",
+    "nodes": null,
+    "edges": null
+  },
+  "autoStoryHash": "5937dbf29ddd6165a9bbecf0cc7321f8d03264a7638b714f7767ca1fffe83ef9"
+}

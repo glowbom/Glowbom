@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "title": "Sketch of this run",
+  "caption": "An outline of the recorded request and result. It does not describe the application's screen layout.",
+  "nodes": [
+    {
+      "id": "request",
+      "label": "Request",
+      "detail": "Yeah, that's basically what I get when I try to chat with the model on a new computer"
+    },
+    {
+      "id": "work",
+      "label": "Build",
+      "detail": "Model not recorded"
+    },
+    {
+      "id": "result",
+      "label": "Result: failed",
+      "detail": "Failed to prepare OpenCode server."
+    }
+  ],
+  "edges": [
+    {
+      "from": "request",
+      "to": "work"
+    },
+    {
+      "from": "work",
+      "to": "result"
+    }
+  ]
+}

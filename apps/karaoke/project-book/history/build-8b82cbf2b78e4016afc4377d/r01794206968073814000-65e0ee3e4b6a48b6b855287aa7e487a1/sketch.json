@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "title": "Sketch of this run",
+  "caption": "An outline of the recorded request and result. It does not describe the application's screen layout.",
+  "nodes": [
+    {
+      "id": "request",
+      "label": "Request",
+      "detail": "Sup"
+    },
+    {
+      "id": "work",
+      "label": "Build",
+      "detail": "opencode-go/beam-free"
+    },
+    {
+      "id": "result",
+      "label": "Result: completed",
+      "detail": "✅ Refinement completed. 1 file(s) changed."
+    },
+    {
+      "id": "area-1",
+      "label": "tsconfig.app.tsbuildinfo",
+      "detail": "Recorded changed files"
+    }
+  ],
+  "edges": [
+    {
+      "from": "request",
+      "to": "work"
+    },
+    {
+      "from": "work",
+      "to": "result"
+    },
+    {
+      "from": "result",
+      "to": "area-1"
+    }
+  ],
+  "visual": {
+    "description": "A chaotic notebook sketch showing a single rectangular file box labeled as a build cache, with an arrow pointing to a smaller refreshed mark, suggesting an incremental build touching one artifact.",
+    "model": "opencode-go/beam-free",
+    "createdAt": "2026-11-09T06:49:28.067405Z",
+    "sourceVersion": "5e0a6125ab898514484ee3890d8fcf27cd94e6298019ad365aa9fe23244e6fe0",
+    "document": {
+      "version": 1,
+      "width": 1000,
+      "height": 750,
+      "annotations": [
+        {
+          "kind": "shape",
+          "shape": "rectangle",
+          "start": {
+            "x": 0.25,
+            "y": 0.3
+          },
+          "end": {
+            "x": 0.75,
+            "y": 0.7
+          },
+          "color": "#111111",
+          "width": 0.002
+        },
+        {
+          "kind": "stroke",
+          "points": [
+            {
+              "x": 0.25,
+              "y": 0.3
+            },
+            {
+              "x": 0.3,
+              "y": 0.25
+            },
+            {
+              "x": 0.75,
+              "y": 0.25
+            },
+            {
+              "x": 0.75,
+              "y": 0.7
+            }
+          ],
+          "color": "#111111",
+          "width": 0.002,
+          "erase": false
+        },
+        {
+          "kind": "text",
+          "text": "build cache",
+          "x": 0.32,
+          "y": 0.42,
+          "width": 0.36,
+          "fontSize": 0.022,
+          "color": "#111111"
+        },
+        {
+          "kind": "text",
+          "text": "1 file",
+          "x": 0.38,
+          "y": 0.52,
+          "width": 0.24,
+          "fontSize": 0.02,
+          "color": "#111111"
+        },
+        {
+          "kind": "shape",
+          "shape": "arrow",
+          "start": {
+            "x": 0.78,
+            "y": 0.5
+          },
+          "end": {
+            "x": 0.88,
+            "y": 0.5
+          },
+          "color": "#111111",
+          "width": 0.002
+        },
+        {
+          "kind": "stroke",
+          "points": [
+            {
+              "x": 0.86,
+              "y": 0.44
+            },
+            {
+              "x": 0.9,
+              "y": 0.5
+            },
+            {
+              "x": 0.86,
+              "y": 0.56
+            }
+          ],
+          "color": "#111111",
+          "width": 0.002,
+          "erase": false
+        },
+        {
+          "kind": "text",
+          "text": "refreshed",
+          "x": 0.78,
+          "y": 0.6,
+          "width": 0.2,
+          "fontSize": 0.018,
+          "color": "#111111"
+        }
+      ]
+    }
+  }
+}
